@@ -62,17 +62,15 @@
       margin-bottom: 1.6rem;
     }
 
-    .logo {
-      width: 130px;
-      height: auto;
-      margin: 0 auto 1.4rem;
+    h1 {
+      font-size: clamp(1.7rem, 2vw + 1.3rem, 2.1rem);
+      margin: 0 0 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
-    h1 {
-      font-size: clamp(1.5rem, 2vw + 1.2rem, 2rem);
-      margin: 0 0 0.6rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+    .haus-red {
+      color: var(--accent-red);
     }
 
     .tagline-static {
@@ -167,20 +165,18 @@
   <div class="page">
     <main>
       <div class="wrap">
+
         <!-- Hero banner image -->
-        <!-- Replace src with the filename of your wide banner image -->
         <div class="hero-image">
           <img src="hero-e9x-autohaus.png" alt="E9X AutoHaus banner logo" />
         </div>
 
-        <!-- Round logo -->
-        <!-- Replace src with the filename of your round logo image -->
-        <img class="logo" src="logo-e9x-autohaus.png" alt="E9X AutoHaus logo" />
+        <!-- Brand name -->
+        <h1>E9X Auto<span class="haus-red">Haus</span></h1>
 
-        <h1>E9X AutoHaus</h1>
         <div class="tagline-static">Street + Track Focused Hardware for E9X and E8X BMWs.</div>
 
-        <!-- Rotating 3-line slogan -->
+        <!-- Rotating slogan -->
         <div class="slogan-rotator" aria-label="Brand slogan">
           <div class="slogan-line">DESIGNED FOR THE DRIVE.</div>
           <div class="slogan-line">TRUSTED AT THE LIMIT.</div>
@@ -192,9 +188,9 @@
           We build simple, affordable, street + track focused hardware for E9X and E8X BMWs.
         </div>
 
-        <!-- Launch info -->
+        <!-- Launch notice -->
         <div class="launch">
-          <span>Launching 2026.</span> Early days, small batches, no hype train.
+          <span>Launching 2026.</span>
         </div>
 
         <!-- Contact -->
@@ -203,11 +199,12 @@
           Email <a href="mailto:info@e9xautohaus.com">info@e9xautohaus.com</a>
         </div>
 
-        <!-- Extra phrases / brand voice -->
+        <!-- Brand phrases -->
         <div class="phrases">
           <p><em>“We didn’t cut corners, we cut the bullshit.”</em></p>
           <p><em>“Zero Compromise doesn’t mean overpriced. It means we refuse to cut corners – not inflate margins.”</em></p>
         </div>
+
       </div>
     </main>
 
@@ -218,9 +215,7 @@
   </div>
 
   <script>
-    // Set footer year
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
-
