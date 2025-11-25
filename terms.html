@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terms & Conditions – E9X AutoHaus</title>
+  <title>Terms &amp; Conditions – E9X AutoHaus</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -29,7 +29,7 @@
     }
 
     main {
-      padding: 2.4rem 1.4rem;
+      padding: 2.4rem 1.4rem 2.2rem;
       display: flex;
       justify-content: center;
     }
@@ -41,7 +41,7 @@
 
     header {
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 2.4rem;
     }
 
     .eyebrow {
@@ -49,52 +49,103 @@
       letter-spacing: 0.16em;
       font-size: 0.75rem;
       color: var(--muted);
+      margin-bottom: 0.35rem;
     }
 
     h1 {
       font-size: 1.5rem;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.20em;
       text-transform: uppercase;
-      margin: 0.4rem 0 0.8rem;
+      margin: 0 0 0.4rem;
+    }
+
+    .doc-subtitle {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 0.7rem;
     }
 
     .accent-bar {
-      width: 96px;
+      width: 120px;
       height: 2px;
       margin: 0.4rem auto 0;
       border-radius: 999px;
       background: linear-gradient(90deg, var(--accent-red), var(--accent-blue));
     }
 
+    section + section {
+      margin-top: 1.8rem;
+    }
+
     h2 {
-      margin-top: 2rem;
       font-size: 0.95rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
+      margin: 0 0 0.35rem;
     }
 
     p, li {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       font-size: 0.9rem;
       color: var(--muted);
+      margin: 0.25rem 0;
     }
 
     ul {
-      margin-left: 1.2rem;
+      margin: 0.25rem 0 0.8rem 1.2rem;
+      padding: 0;
     }
 
-    footer {
-      margin-top: 3rem;
-      padding: 1.2rem;
-      text-align: center;
-      border-top: 1px solid var(--border);
-      font-size: 0.75rem;
-      color: var(--muted);
+    .notice-box {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
+      background: rgba(5, 7, 15, 0.9);
+      margin-bottom: 1.4rem;
+    }
+
+    .notice-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent-red);
+      margin-bottom: 0.35rem;
     }
 
     a {
       color: var(--accent-red);
       text-decoration: none;
       border-bottom: 1px solid rgba(195,27,27,0.4);
+    }
+
+    a:hover {
+      border-bottom-color: var(--accent-red);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.2rem 1rem 1.6rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      background: rgba(2,3,8,0.96);
+      backdrop-filter: blur(8px);
+    }
+
+    .footer-links {
+      margin-top: 0.4rem;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .footer-links a {
+      color: var(--accent-red);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(195,27,27,0.4);
+      margin: 0 4px;
     }
   </style>
 </head>
@@ -104,17 +155,135 @@
   <div class="wrap">
     <header>
       <div class="eyebrow">E9X AutoHaus</div>
-      <h1>Terms & Conditions</h1>
+      <h1>Terms &amp; Conditions</h1>
+      <div class="doc-subtitle">Motorsport Use &amp; Liability Notice</div>
       <div class="accent-bar"></div>
     </header>
 
-    <!-- Keep your existing content here -->
+    <div class="notice-box">
+      <div class="notice-title">Motorsport is inherently dangerous.</div>
+      <p>
+        By purchasing, installing or using any E9X AutoHaus product you accept that high-performance and
+        track driving place additional stress on every vehicle component. You are responsible for assessing
+        suitability, installation quality and ongoing inspection of all parts on your car.
+      </p>
+    </div>
 
+    <section>
+      <h2>1. About E9X AutoHaus</h2>
+      <p>
+        E9X AutoHaus is an enthusiast-run business focused on simple, affordable, street + track hardware
+        for BMW E9X and E8X platforms. Products are developed with real-world use in mind, but are supplied
+        “as is” and may be produced in small batches that evolve over time.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. Use of Products</h2>
+      <p>
+        E9X AutoHaus products are intended for experienced owners who understand the risks involved in
+        modifying a vehicle. You agree that:
+      </p>
+      <ul>
+        <li>You will confirm correct fitment for your exact model and configuration.</li>
+        <li>You will ensure use complies with local laws and road regulations.</li>
+        <li>You will visually inspect and torque-check critical fasteners periodically.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. Installation Responsibility</h2>
+      <p>
+        All installation work must be carried out by a competent person with the correct tools and
+        understanding of the vehicle platform. Incorrect installation can result in component failure,
+        loss of vehicle control, damage, injury or worse.
+      </p>
+      <ul>
+        <li>Follow any supplied torque guidelines or instructions.</li>
+        <li>If unsure, use a reputable workshop familiar with performance vehicles.</li>
+        <li>Re-check torque after initial installation and periodically thereafter.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Motorsport &amp; Track Use</h2>
+      <p>
+        Many E9X AutoHaus products are designed to suit spirited driving and track days, but no component
+        can eliminate the risks of motorsport activities.
+      </p>
+      <ul>
+        <li>All track and competition use is strictly at your own risk.</li>
+        <li>Vehicle condition, preparation and driving behaviour are outside E9X AutoHaus’ control.</li>
+        <li>You are responsible for pre- and post-event inspection of all hardware.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>5. Pricing, Specification &amp; Changes</h2>
+      <p>
+        Pricing, specifications and availability are subject to change without notice. Early runs may be
+        refined based on feedback, testing and real-world results.
+      </p>
+    </section>
+
+    <section>
+      <h2>6. Warranty &amp; Limitation of Liability</h2>
+      <p>
+        To the maximum extent permitted by law, E9X AutoHaus excludes all warranties, express or implied,
+        other than those which cannot lawfully be excluded (including under Australian Consumer Law if
+        applicable).
+      </p>
+      <ul>
+        <li>
+          E9X AutoHaus is not liable for indirect, incidental, consequential or special loss or damage,
+          including loss of use, loss of opportunity or loss arising from vehicle downtime.
+        </li>
+        <li>
+          Where liability cannot be excluded, it is limited to repair, replacement or refund of the
+          product, at E9X AutoHaus’ discretion.
+        </li>
+        <li>
+          Labour, fitting, removal and associated costs are your responsibility unless otherwise agreed
+          in writing.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>7. Fitment Verification</h2>
+      <p>
+        You are responsible for verifying thread size, length, seating type, clearances and any potential
+        interference before driving the vehicle. This is especially critical for wheel hardware, brake
+        components and load-bearing fasteners.
+      </p>
+    </section>
+
+    <section>
+      <h2>8. Governing Law</h2>
+      <p>
+        These Terms &amp; Conditions are governed by the laws of Queensland, Australia. By purchasing or
+        using E9X AutoHaus products you agree to submit to the non-exclusive jurisdiction of the courts
+        of Queensland.
+      </p>
+    </section>
+
+    <section>
+      <h2>9. Contact</h2>
+      <p>
+        If you are unsure about installation, suitability or intended use, contact
+        <a href="mailto:info@e9xautohaus.com">info@e9xautohaus.com</a> before fitting any parts.
+      </p>
+    </section>
   </div>
 </main>
 
 <footer>
-  © <span id="year"></span> E9X AutoHaus · <a href="/">Home</a>
+  © <span id="year"></span> E9X AutoHaus · North Brisbane, Australia
+  <div class="footer-links">
+    <a href="/">Home</a> ·
+    <a href="/privacy.html">Privacy</a> ·
+    <a href="/returns.html">Returns</a>
+  </div>
 </footer>
 
 <script>
