@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Returns &amp; Refunds – E9X AutoHaus</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Returns & Refunds – E9X AutoHaus</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg: #020308;
       --fg: #f5f5f7;
-      --muted: #aeb2c1;
+      --muted: #9b9fb0;
       --border: #262a38;
       --accent-red: #c31b1b;
       --accent-blue: #2c7af7;
@@ -19,22 +22,14 @@
 
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top, #141827 0, #050611 40%, #020308 100%);
+      font-family: 'Oswald', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #141827 0, #050611 40%, #020308 100%);
       color: var(--fg);
       line-height: 1.6;
     }
 
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
     main {
-      flex: 1;
-      padding: 2.5rem 1.4rem 2rem;
+      padding: 2.4rem 1.4rem;
       display: flex;
       justify-content: center;
     }
@@ -42,12 +37,11 @@
     .wrap {
       width: 100%;
       max-width: var(--max-width);
-      margin: 0 auto;
     }
 
     header {
       text-align: center;
-      margin-bottom: 2.2rem;
+      margin-bottom: 2rem;
     }
 
     .eyebrow {
@@ -55,135 +49,65 @@
       letter-spacing: 0.16em;
       font-size: 0.75rem;
       color: var(--muted);
-      margin-bottom: 0.4rem;
     }
 
     h1 {
-      margin: 0 0 0.6rem;
-      font-size: 1.35rem;
-      letter-spacing: 0.18em;
+      font-size: 1.5rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
+      margin: 0.4rem 0 0.8rem;
     }
 
     .accent-bar {
       width: 96px;
       height: 2px;
-      margin: 0.6rem auto 0;
+      margin: 0.4rem auto 0;
       border-radius: 999px;
       background: linear-gradient(90deg, var(--accent-red), var(--accent-blue));
     }
 
-    h2 {
-      margin-top: 1.8rem;
-      margin-bottom: 0.35rem;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    p, li {
+    p {
       font-size: 0.9rem;
       color: var(--muted);
-      margin: 0.25rem 0;
     }
 
-    ul {
-      margin: 0.3rem 0 0.8rem 1.2rem;
-      padding: 0;
+    footer {
+      margin-top: 3rem;
+      padding: 1.2rem;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: var(--muted);
     }
 
     a {
       color: var(--accent-red);
       text-decoration: none;
-      border-bottom: 1px solid rgba(195, 27, 27, 0.45);
-    }
-
-    a:hover {
-      border-bottom-color: var(--accent-red);
-    }
-
-    footer {
-      padding: 1.2rem 1rem 1.6rem;
-      border-top: 1px solid var(--border);
-      text-align: center;
-      font-size: 0.75rem;
-      color: var(--muted);
-      background: rgba(2, 3, 8, 0.96);
-      backdrop-filter: blur(8px);
-    }
-
-    footer a {
-      color: var(--accent-red);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(195, 27, 27, 0.45);
+      border-bottom: 1px solid rgba(195,27,27,0.4);
     }
   </style>
 </head>
 <body>
-<div class="page">
-  <main>
-    <div class="wrap">
-      <header>
-        <div class="eyebrow">E9X AutoHaus</div>
-        <h1>Returns &amp; Refunds</h1>
-        <div class="accent-bar"></div>
-      </header>
 
-      <section>
-        <p>
-          E9X AutoHaus aims to provide high quality products for E9X and E8X BMWs. Because many items are
-          small-batch and enthusiast-focused, returns are handled fairly and on a case-by-case basis.
-        </p>
+<main>
+  <div class="wrap">
+    <header>
+      <div class="eyebrow">E9X AutoHaus</div>
+      <h1>Returns & Refunds</h1>
+      <div class="accent-bar"></div>
+    </header>
 
-        <h2>Change of Mind</h2>
-        <p>
-          We are not required to provide a refund for change of mind. In some cases we may offer store credit
-          or exchange at our discretion, provided the product is unused, in original condition and packaging.
-        </p>
+    <!-- Keep your returns content here -->
 
-        <h2>Faulty or Incorrect Items</h2>
-        <p>
-          If you believe a product is defective or has been incorrectly supplied:
-        </p>
-        <ul>
-          <li>Contact us as soon as possible after receiving your order.</li>
-          <li>Provide proof of purchase and clear photos or details of the issue.</li>
-          <li>Do not continue to use a part you believe may be unsafe.</li>
-        </ul>
-        <p>
-          We will assess whether repair, replacement or refund is appropriate in line with Australian Consumer Law
-          (if applicable).
-        </p>
+  </div>
+</main>
 
-        <h2>Installation &amp; Misuse</h2>
-        <p>
-          Returns or refunds will not be offered where issues arise due to incorrect installation, misuse,
-          lack of maintenance, or use outside the intended purpose of the product.
-        </p>
-
-        <h2>Shipping Costs</h2>
-        <p>
-          Where a return is accepted, you may be responsible for shipping the item back to us unless otherwise
-          agreed in writing.
-        </p>
-
-        <h2>Contact</h2>
-        <p>
-          For any questions about returns or to lodge an issue, contact
-          <a href="mailto:info@e9xautohaus.com">info@e9xautohaus.com</a>.
-        </p>
-      </section>
-    </div>
-  </main>
-
-  <footer>
-    © <span id="year"></span> E9X AutoHaus · North Brisbane, Australia ·
-    <a href="/">Back to Home</a>
-  </footer>
-</div>
+<footer>
+  © <span id="year"></span> E9X AutoHaus · <a href="/">Home</a>
+</footer>
 
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
