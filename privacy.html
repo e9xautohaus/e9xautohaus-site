@@ -8,11 +8,11 @@
     :root {
       --bg: #020308;
       --fg: #f5f5f7;
-      --muted: #9b9fb0;
+      --muted: #aeb2c1;
       --border: #262a38;
       --accent-red: #c31b1b;
       --accent-blue: #2c7af7;
-      --max-width: 900px;
+      --max-width: 860px;
     }
 
     * { box-sizing: border-box; }
@@ -21,148 +21,177 @@
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at top, #141827 0, #050611 40%, var(--bg) 100%);
+        radial-gradient(circle at top, #141827 0, #050611 40%, #020308 100%);
       color: var(--fg);
       line-height: 1.6;
-      padding: 2.2rem 1.5rem;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+      padding: 2.5rem 1.4rem 2rem;
+      display: flex;
+      justify-content: center;
     }
 
     .wrap {
+      width: 100%;
       max-width: var(--max-width);
       margin: 0 auto;
     }
 
-    .brand-header {
-      margin-bottom: 1.6rem;
+    header {
+      text-align: center;
+      margin-bottom: 2.2rem;
     }
 
-    .brand-link {
-      text-decoration: none;
-      color: var(--fg);
+    .eyebrow {
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: 0.9rem;
+      letter-spacing: 0.16em;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
     }
 
-    .brand-link span.haus {
-      color: var(--accent-red);
+    h1 {
+      margin: 0 0 0.6rem;
+      font-size: 1.35rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
     }
 
     .accent-bar {
       width: 96px;
       height: 2px;
-      margin-top: 0.4rem;
+      margin: 0.6rem auto 0;
       border-radius: 999px;
       background: linear-gradient(90deg, var(--accent-red), var(--accent-blue));
     }
 
-    h1 {
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 1.3rem;
-      margin: 1.6rem 0 0.6rem;
-    }
-
     h2 {
       margin-top: 1.8rem;
+      margin-bottom: 0.35rem;
+      font-size: 0.95rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      font-size: 0.98rem;
-      color: #e0e2eb;
     }
 
     p, li {
       font-size: 0.9rem;
-      color: #cfd2dd;
+      color: var(--muted);
       margin: 0.25rem 0;
     }
 
     ul {
-      margin: 0.4rem 0 0.8rem 1.2rem;
+      margin: 0.3rem 0 0.8rem 1.2rem;
       padding: 0;
     }
 
     a {
       color: var(--accent-red);
       text-decoration: none;
-      border-bottom: 1px solid rgba(195,27,27,0.4);
+      border-bottom: 1px solid rgba(195, 27, 27, 0.45);
     }
 
     a:hover {
       border-bottom-color: var(--accent-red);
     }
 
-    .meta {
-      font-size: 0.78rem;
+    footer {
+      padding: 1.2rem 1rem 1.6rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.75rem;
       color: var(--muted);
-      margin-top: 0.4rem;
+      background: rgba(2, 3, 8, 0.96);
+      backdrop-filter: blur(8px);
+    }
+
+    footer a {
+      color: var(--accent-red);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(195, 27, 27, 0.45);
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
+<div class="page">
+  <main>
+    <div class="wrap">
+      <header>
+        <div class="eyebrow">E9X AutoHaus</div>
+        <h1>Privacy Policy</h1>
+        <div class="accent-bar"></div>
+      </header>
 
-    <header class="brand-header">
-      <a href="/" class="brand-link">E9X Auto<span class="haus">Haus</span></a>
-      <div class="accent-bar"></div>
-    </header>
+      <section>
+        <p>
+          E9X AutoHaus respects your privacy and is committed to protecting your personal information.
+          This policy explains how we collect, use and store information when you interact with us.
+        </p>
 
-    <h1>Privacy Policy</h1>
-    <p class="meta">Last updated: 2025</p>
+        <h2>Information We Collect</h2>
+        <p>We may collect:</p>
+        <ul>
+          <li>Your name and contact details when you email us or submit a form.</li>
+          <li>Details about your vehicle and usage if you choose to provide them.</li>
+          <li>Basic technical data such as browser type and approximate location for analytics (if used).</li>
+        </ul>
 
-    <p>
-      E9X AutoHaus respects your privacy and is committed to protecting your personal information.
-      This policy explains how we handle any information you give us.
-    </p>
+        <h2>How We Use Your Information</h2>
+        <p>We use your information to:</p>
+        <ul>
+          <li>Respond to enquiries and provide support.</li>
+          <li>Improve our products and website.</li>
+          <li>Share updates about products if you have requested or agreed to receive them.</li>
+        </ul>
 
-    <h2>Information We Collect</h2>
-    <p>We may collect:</p>
-    <ul>
-      <li>Your name and email address when you contact us.</li>
-      <li>Details you provide about your car or setup when you make an enquiry.</li>
-      <li>Any other information you voluntarily provide via forms or email.</li>
-    </ul>
+        <h2>Sharing Your Information</h2>
+        <p>
+          E9X AutoHaus does not sell or rent your personal information. We may share limited information with
+          service providers (for example, email or hosting services) where necessary to operate the business.
+        </p>
 
-    <h2>How We Use Your Information</h2>
-    <p>Your information is used only to:</p>
-    <ul>
-      <li>Respond to enquiries and provide support.</li>
-      <li>Process requests or follow up about potential orders.</li>
-      <li>Improve our products, website and customer experience.</li>
-    </ul>
+        <h2>Data Storage &amp; Security</h2>
+        <p>
+          Reasonable steps are taken to protect data from unauthorised access, alteration or disclosure.
+          However, no method of transmission or storage is 100% secure.
+        </p>
 
-    <h2>Data Protection</h2>
-    <p>
-      We do not sell, trade or rent your personal information. Any data we store is kept securely
-      and accessed only when needed for legitimate business purposes.
-    </p>
+        <h2>Cookies &amp; Analytics</h2>
+        <p>
+          This site may use basic cookies or analytics tools to understand general usage patterns and improve
+          the experience. You can adjust your browser settings to manage or block cookies.
+        </p>
 
-    <h2>Cookies & Analytics</h2>
-    <p>
-      This website may use basic cookies or analytics tools to understand general traffic and usage
-      patterns. No personally identifying information is intentionally collected for tracking or
-      advertising at this stage.
-    </p>
+        <h2>Your Rights</h2>
+        <p>
+          If you would like to access, update or request deletion of personal information held about you,
+          contact us using the details below.
+        </p>
 
-    <h2>Third Parties</h2>
-    <p>
-      We may share limited information with service providers (for example, email or hosting
-      services) solely so they can perform work on our behalf. They are not permitted to use your
-      data for their own marketing.
-    </p>
+        <h2>Contact</h2>
+        <p>
+          For any privacy-related questions, email
+          <a href="mailto:info@e9xautohaus.com">info@e9xautohaus.com</a>.
+        </p>
+      </section>
+    </div>
+  </main>
 
-    <h2>Your Choices</h2>
-    <p>
-      You can request that we update or delete information we hold about you, subject to any legal
-      obligations we have to keep certain records.
-    </p>
+  <footer>
+    © <span id="year"></span> E9X AutoHaus · North Brisbane, Australia ·
+    <a href="/">Back to Home</a>
+  </footer>
+</div>
 
-    <h2>Contact</h2>
-    <p>
-      If you have questions about this Privacy Policy, contact:
-      <a href="mailto:info@e9xautohaus.com">info@e9xautohaus.com</a>
-    </p>
-
-  </div>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
