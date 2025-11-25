@@ -39,6 +39,53 @@
       flex-direction: column;
     }
 
+    /* Header nav */
+    .site-header {
+      width: 100%;
+      padding: 0.6rem 1.4rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(2, 3, 8, 0.96);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+      transition: color 0.15s ease, border-bottom-color 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--fg);
+      border-bottom-color: var(--accent-red);
+    }
+
     main {
       flex: 1;
       display: flex;
@@ -290,6 +337,17 @@
 
 <body>
 <div class="page">
+  <header class="site-header">
+    <div class="nav-inner">
+      <div class="nav-brand">E9X Auto<span class="haus-red">Haus</span></div>
+      <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="/enthusiasts.html">Built by Enthusiasts</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
   <main>
     <div class="wrap">
 
@@ -384,12 +442,11 @@
     <div class="mini-line">DESIGNED FOR THE DRIVE · TRUSTED AT THE LIMIT · ZERO COMPROMISE</div>
 
     <div class="footer-links">
-  <a href="/enthusiasts.html">Built by Enthusiasts</a> ·
-  <a href="/terms.html">Terms &amp; Conditions</a> ·
-  <a href="/privacy.html">Privacy Policy</a> ·
-  <a href="/returns.html">Returns &amp; Refunds</a>
-</div>
-
+      <a href="/enthusiasts.html">Built by Enthusiasts</a> ·
+      <a href="/terms.html">Terms &amp; Conditions</a> ·
+      <a href="/privacy.html">Privacy Policy</a> ·
+      <a href="/returns.html">Returns &amp; Refunds</a>
+    </div>
   </footer>
 </div>
 
@@ -398,4 +455,3 @@
 </script>
 </body>
 </html>
-
