@@ -142,6 +142,98 @@
       border-bottom-color: var(--accent-red);
     }
 
+    /* Contact form */
+    .contact-section {
+      margin-top: 2.2rem;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    .contact-inner {
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    .contact-title {
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin: 0 0 0.6rem;
+    }
+
+    .contact-copy {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin: 0 0 1.2rem;
+    }
+
+    form.contact-form {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .field-group label {
+      display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .field-group input,
+    .field-group textarea,
+    .field-group select {
+      width: 100%;
+      padding: 0.65rem 0.75rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(5, 7, 15, 0.9);
+      color: var(--fg);
+      font-size: 0.86rem;
+    }
+
+    .field-group input:focus,
+    .field-group textarea:focus,
+    .field-group select:focus {
+      outline: none;
+      border-color: var(--accent-red);
+      box-shadow: 0 0 0 1px rgba(195, 27, 27, 0.4);
+    }
+
+    .field-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    .btn-submit {
+      margin-top: 0.4rem;
+      align-self: flex-start;
+      padding: 0.65rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: linear-gradient(90deg, var(--accent-red), var(--accent-blue));
+      color: #ffffff;
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+    }
+
+    .btn-submit:hover {
+      filter: brightness(1.05);
+    }
+
+    .btn-submit:active {
+      transform: translateY(1px);
+    }
+
     .phrases {
       border-top: 1px solid var(--border);
       padding-top: 1.2rem;
@@ -185,10 +277,12 @@
   <main>
     <div class="wrap">
 
+      <!-- Hero banner image -->
       <div class="hero-image">
         <img src="hero-e9x-autohaus.png" alt="E9X AutoHaus banner logo" />
       </div>
 
+      <!-- Brand name -->
       <h1>E9X Auto<span class="haus-red">Haus</span></h1>
       <div class="accent-bar"></div>
 
@@ -196,21 +290,72 @@
         Street + Track Focused Hardware for E9X and E8X BMWs and Wheel Stud Conversion Kits.
       </div>
 
-      <div class="slogan-rotator">
+      <!-- Rotating slogan -->
+      <div class="slogan-rotator" aria-label="Brand slogan">
         <div class="slogan-line">DESIGNED FOR THE DRIVE.</div>
         <div class="slogan-line">TRUSTED AT THE LIMIT.</div>
         <div class="slogan-line">ZERO COMPROMISE.</div>
       </div>
 
+      <!-- Launch notice -->
       <div class="launch">
         <span>LAUNCHING 2026</span>
       </div>
 
+      <!-- Contact teaser -->
       <div class="email-block">
         Prefer not to use forms? Email
         <a href="mailto:info@e9xautohaus.com">info@e9xautohaus.com</a>.
       </div>
 
+      <!-- Contact form -->
+      <section class="contact-section" id="contact">
+        <div class="contact-inner">
+          <h2 class="contact-title">Contact / Enquiries</h2>
+          <p class="contact-copy">
+            Use the form below if you’re interested in the first stud kits, have questions about fitment,
+            or just want to talk E9X/E8X hardware.
+          </p>
+
+          <!-- Uses mailto: so it opens their email client -->
+          <form class="contact-form" method="POST" action="mailto:info@e9xautohaus.com" enctype="text/plain">
+            <div class="field-group">
+              <label for="name">Name</label>
+              <input id="name" name="Name" type="text" required />
+            </div>
+
+            <div class="field-group">
+              <label for="email">Email</label>
+              <input id="email" name="Email" type="email" required />
+            </div>
+
+            <div class="field-group">
+              <label for="subject">What are you reaching out about?</label>
+              <select id="subject" name="Subject">
+                <option value="Stud kit enquiry">Stud Kit Enquiry</option>
+                <option value="Fitment / technical question">Fitment / Technical Question</option>
+                <option value="Future products / ideas">Future Products / Ideas</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="Message" required></textarea>
+              <div class="form-note">
+                Including your car (e.g. E90 335i, E92 M3) and how you use it (street / track / both) helps.
+              </div>
+            </div>
+
+            <button type="submit" class="btn-submit">Send enquiry</button>
+            <div class="form-note">
+              This form will open your email client with the details pre-filled. You can review before sending.
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Brand phrases -->
       <div class="phrases">
         <p><em>“Zero Compromise doesn’t mean overpriced. It means we don’t cut corners — we cut the bullshit.”</em></p>
       </div>
