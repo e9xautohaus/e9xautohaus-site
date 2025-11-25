@@ -5,78 +5,156 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy – E9X AutoHaus</title>
   <style>
+    :root {
+      --bg: #020308;
+      --fg: #f5f5f7;
+      --muted: #9b9fb0;
+      --border: #262a38;
+      --accent-red: #c31b1b;
+      --accent-blue: #2c7af7;
+      --max-width: 900px;
+    }
+
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #020308;
-      color: #f5f5f7;
+      background:
+        radial-gradient(circle at top, #141827 0, #050611 40%, var(--bg) 100%);
+      color: var(--fg);
       line-height: 1.6;
-      padding: 2rem 1.5rem;
+      padding: 2.2rem 1.5rem;
     }
+
     .wrap {
-      max-width: 900px;
+      max-width: var(--max-width);
       margin: 0 auto;
     }
+
+    .brand-header {
+      margin-bottom: 1.6rem;
+    }
+
+    .brand-link {
+      text-decoration: none;
+      color: var(--fg);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.9rem;
+    }
+
+    .brand-link span.haus {
+      color: var(--accent-red);
+    }
+
+    .accent-bar {
+      width: 96px;
+      height: 2px;
+      margin-top: 0.4rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent-red), var(--accent-blue));
+    }
+
     h1 {
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
+      margin: 1.6rem 0 0.6rem;
     }
+
     h2 {
-      margin-top: 2rem;
+      margin-top: 1.8rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      font-size: 1rem;
+      font-size: 0.98rem;
+      color: #e0e2eb;
     }
+
     p, li {
       font-size: 0.9rem;
       color: #cfd2dd;
+      margin: 0.25rem 0;
     }
+
     ul {
-      margin-left: 1.2rem;
+      margin: 0.4rem 0 0.8rem 1.2rem;
+      padding: 0;
     }
+
     a {
-      color: #c31b1b;
+      color: var(--accent-red);
       text-decoration: none;
       border-bottom: 1px solid rgba(195,27,27,0.4);
+    }
+
+    a:hover {
+      border-bottom-color: var(--accent-red);
+    }
+
+    .meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
     }
   </style>
 </head>
 <body>
   <div class="wrap">
+
+    <header class="brand-header">
+      <a href="/" class="brand-link">E9X Auto<span class="haus">Haus</span></a>
+      <div class="accent-bar"></div>
+    </header>
+
     <h1>Privacy Policy</h1>
+    <p class="meta">Last updated: 2025</p>
 
     <p>
       E9X AutoHaus respects your privacy and is committed to protecting your personal information.
+      This policy explains how we handle any information you give us.
     </p>
 
     <h2>Information We Collect</h2>
-    <p>
-      We may collect:
-    </p>
+    <p>We may collect:</p>
     <ul>
       <li>Your name and email address when you contact us.</li>
-      <li>Any information you voluntarily provide via forms or email.</li>
+      <li>Details you provide about your car or setup when you make an enquiry.</li>
+      <li>Any other information you voluntarily provide via forms or email.</li>
     </ul>
 
     <h2>How We Use Your Information</h2>
-    <p>
-      Your information is used only to:
-    </p>
+    <p>Your information is used only to:</p>
     <ul>
-      <li>Respond to enquiries</li>
-      <li>Provide updates about products (if requested)</li>
-      <li>Improve our website and services</li>
+      <li>Respond to enquiries and provide support.</li>
+      <li>Process requests or follow up about potential orders.</li>
+      <li>Improve our products, website and customer experience.</li>
     </ul>
 
     <h2>Data Protection</h2>
     <p>
-      We do not sell, trade or rent your personal information. Data is stored securely and used only for legitimate business purposes.
+      We do not sell, trade or rent your personal information. Any data we store is kept securely
+      and accessed only when needed for legitimate business purposes.
     </p>
 
-    <h2>Cookies</h2>
+    <h2>Cookies & Analytics</h2>
     <p>
-      This website may use basic cookies to improve functionality and performance.
+      This website may use basic cookies or analytics tools to understand general traffic and usage
+      patterns. No personally identifying information is intentionally collected for tracking or
+      advertising at this stage.
+    </p>
+
+    <h2>Third Parties</h2>
+    <p>
+      We may share limited information with service providers (for example, email or hosting
+      services) solely so they can perform work on our behalf. They are not permitted to use your
+      data for their own marketing.
+    </p>
+
+    <h2>Your Choices</h2>
+    <p>
+      You can request that we update or delete information we hold about you, subject to any legal
+      obligations we have to keep certain records.
     </p>
 
     <h2>Contact</h2>
@@ -84,6 +162,7 @@
       If you have questions about this Privacy Policy, contact:
       <a href="mailto:info@e9xautohaus.com">info@e9xautohaus.com</a>
     </p>
+
   </div>
 </body>
 </html>
