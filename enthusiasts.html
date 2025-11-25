@@ -1,178 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Built By Enthusiasts – E9X AutoHaus</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Built by Enthusiasts – E9X AutoHaus</title>
+  <meta name="description" content="E9X AutoHaus – built by E9X enthusiasts, for E9X and E8X BMW owners. Street + track focused hardware with zero compromise." />
 
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Brand font -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
-body {
-  margin:0;
-  font-family:'Oswald', sans-serif;
-  background: radial-gradient(circle at top, #141827, #020308);
-  color:#f5f5f7;
-}
+  <style>
+    :root {
+      --bg: #020308;
+      --fg: #f5f5f7;
+      --muted: #9b9fb0;
+      --border: #262a38;
+      --accent-red: #c31b1b;
+      --accent-blue: #2c7af7;
+      --max-width: 820px;
+    }
 
-.wrap {
-  max-width:900px;
-  margin:auto;
-  padding:2.8rem 1.6rem;
-}
+    * { box-sizing: border-box; }
 
-h1 {
-  text-align:center;
-  text-transform:uppercase;
-  letter-spacing:0.22em;
-}
+    body {
+      margin: 0;
+      font-family: 'Oswald', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, #141827 0, #050611 40%, #020308 100%);
+      color: var(--fg);
+      line-height: 1.5;
+    }
 
-.accent {
-  width:120px;
-  height:2px;
-  background:linear-gradient(90deg,#c31b1b,#2c7af7);
-  margin:1.2rem auto 2.2rem;
-}
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-h2 {
-  margin-top:2rem;
-  font-size:1rem;
-  text-transform:uppercase;
-  letter-spacing:0.12em;
-}
+    /* Header nav (same as index) */
+    .site-header {
+      width: 100%;
+      padding: 0.6rem 1.4rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(2, 3, 8, 0.96);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
 
-p {
-  font-family:system-ui, sans-serif;
-  color:#9b9fb0;
-  font-size:0.96rem;
-  line-height:1.65;
-}
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-strong {
-  color:#f5f5f7;
-}
+    .nav-brand {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
 
-footer {
-  border-top:1px solid #262a38;
-  padding:1.6rem;
-  text-align:center;
-  font-size:0.75rem;
-  color:#9b9fb0;
-}
+    .haus-red {
+      color: var(--accent-red);
+      text-shadow: 0 0 8px rgba(195, 27, 27, 0.35);
+    }
 
-a {
-  color:#c31b1b;
-  text-decoration:none;
-  border-bottom:1px solid rgba(195,27,27,0.4);
-}
-</style>
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+      transition: color 0.15s ease, border-bottom-color 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--fg);
+      border-bottom-color: var(--accent-red);
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      padding: 2.4rem 1.4rem 2.8rem;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: clamp(1.7rem, 2.2vw + 1.3rem, 2.1rem);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      margin: 0 0 0.4rem;
+    }
+
+    .accent-bar {
+      width: 96px;
+      height: 2px;
+      margin: 0.8rem auto 1.6rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent-red), var(--accent-blue));
+    }
+
+    h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin: 2rem 0 0.4rem;
+    }
+
+    p {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.65;
+      margin: 0.4rem 0;
+    }
+
+    ul {
+      margin: 0.4rem 0 0.8rem 1.2rem;
+      padding: 0;
+      list-style: disc;
+    }
+
+    ul li {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.6;
+      margin-bottom: 0.2rem;
+    }
+
+    strong {
+      color: var(--fg);
+    }
+
+    footer {
+      padding: 0.9rem 1.4rem 1.5rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid var(--border);
+      background: rgba(2, 3, 8, 0.96);
+      backdrop-filter: blur(8px);
+    }
+
+    .mini-line {
+      font-size: 0.7rem;
+      margin-top: 0.3rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .footer-links {
+      margin-top: 12px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-family: 'Oswald', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .footer-links a {
+      color: var(--accent-red);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(195,27,27,0.5);
+      transition: all 0.15s ease;
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+      border-bottom-color: var(--accent-red);
+    }
+  </style>
 </head>
 <body>
+<div class="page">
+  <header class="site-header">
+    <div class="nav-inner">
+      <div class="nav-brand">E9X Auto<span class="haus-red">Haus</span></div>
+      <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="/enthusiasts.html">Built by Enthusiasts</a>
+        <a href="/index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<div class="wrap">
-  <h1>Built By Enthusiasts</h1>
-  <div class="accent"></div>
+  <main>
+    <div class="wrap">
+      <h1>Built by Enthusiasts</h1>
+      <div class="accent-bar"></div>
 
-  <p>
-    E9X AutoHaus was created for one simple reason: <strong>we’re E9X owners ourselves.</strong>
-    Every product we make exists because we wanted something better for our own cars —
-    hardware that was reliable, affordable, track-ready and completely free of unnecessary hype.
-  </p>
+      <p>
+        E9X AutoHaus exists because we’re E9X owners ourselves. Every product starts with a simple question:
+        <strong>“Would we trust this on our own car, on track, at speed?”</strong> If the answer isn’t a clear yes,
+        it doesn’t leave development.
+      </p>
 
-  <h2>Born in Brisbane. Tested in the Real World.</h2>
-  <p>
-    We don’t operate out of a corporate office. We build, design and test our parts in the same
-    garages, driveways and local tracks as the people who buy from us. This is a brand built around:
-  </p>
+      <h2>Born from the Platform</h2>
+      <p>
+        This isn’t a generic parts store. It’s a small, Brisbane-based operation focused on hardware for BMW E9X and E8X chassis —
+        cars we daily, build, break and improve. The first products we’re releasing are the exact parts we wished existed
+        when we started modifying our own cars.
+      </p>
 
-  <ul style="color:#9b9fb0;font-family:system-ui,sans-serif;font-size:0.95rem;line-height:1.6;margin-left:1.2rem;">
-    <li>Real cars</li>
-    <li>Real owners</li>
-    <li>Real street and track use</li>
-  </ul>
+      <h2>Designed for the Drive</h2>
+      <p>
+        Everything we do is built around how these cars are actually used:
+      </p>
+      <ul>
+        <li>Street-driven cars that still see track days</li>
+        <li>OEM+ builds that care about reliability and feel</li>
+        <li>Owners who value quality hardware over hype</li>
+      </ul>
 
-  <p>
-    When something doesn’t fit, isn’t good enough, or could be improved, we fix it. No shortcuts.
-    No corners cut. No inflated margins. Just hardware we’d trust on our own builds — because we do.
-  </p>
+      <p>
+        We’re not trying to reinvent every part on the car. We focus on the hardware that matters —
+        the pieces that make your car safer, sharper and easier to live with on and off the track.
+      </p>
 
-  <h2>Designed for the Drive</h2>
-  <p>
-    Every product we release starts with a clear principle:
-    <strong>“Would we run this on our own E9X?”</strong>
-  </p>
-  <p>
-    If the answer isn’t “absolutely,” it doesn’t leave development.
-  </p>
+      <h2>Trusted at the Limit</h2>
+      <p>
+        Our goal isn’t to slap a logo on catalogue parts. Wherever possible, we work with suppliers who understand
+        performance applications, and we build around real-world use:
+      </p>
+      <ul>
+        <li>Repeated heat cycles</li>
+        <li>Track kerbs and braking zones</li>
+        <li>Frequent wheel changes and maintenance</li>
+      </ul>
 
-  <h2>Trusted at the Limit</h2>
-  <p>
-    Our parts are created with both the street and the track in mind. We aim for the sweet spot between:
-  </p>
+      <p>
+        If a part doesn’t behave predictably at the limit, it doesn’t belong on the car.
+      </p>
 
-  <ul style="color:#9b9fb0;font-family:system-ui,sans-serif;font-size:0.95rem;line-height:1.6;margin-left:1.2rem;">
-    <li>OEM+ reliability</li>
-    <li>Motorsport practicality</li>
-    <li>Affordable, accessible performance</li>
-  </ul>
+      <h2>Zero Compromise</h2>
+      <p>
+        “Zero Compromise” for us doesn’t mean overpriced or over-marketed. It means:
+      </p>
+      <ul>
+        <li>We refuse to cut corners on materials or design just to hit a cheaper cost</li>
+        <li>We’d rather release fewer, better products than a huge catalogue of average ones</li>
+        <li>We price parts to be fair, not to chase artificial “luxury” margins</li>
+      </ul>
 
-  <p>
-    Whether you’re daily driving, doing mountain runs, or chasing PBs at QR or Lakeside,
-    our hardware is built to handle it.
-  </p>
+      <h2>Built Small on Purpose</h2>
+      <p>
+        E9X AutoHaus is deliberately small-batch. That means:
+      </p>
+      <ul>
+        <li>We can respond to feedback quickly</li>
+        <li>We can improve designs over time instead of locking them in</li>
+        <li>We stay close to the community actually using the parts</li>
+      </ul>
 
-  <h2>Zero Compromise</h2>
-  <p>
-    Other brands inflate their margins. We don’t.
-  </p>
-  <p>
-    Zero Compromise doesn’t mean overpriced. It means:
-  </p>
+      <p>
+        Every early customer helps shape what this brand becomes — from the first stud kits to future
+        hardware and track-focused essentials.
+      </p>
 
-  <ul style="color:#9b9fb0;font-family:system-ui,sans-serif;font-size:0.95rem;line-height:1.6;margin-left:1.2rem;">
-    <li>We don’t cut corners</li>
-    <li>We don’t chase trends</li>
-    <li>We don’t add nonsense or gimmicks</li>
-    <li>We don’t upsell parts you don’t need</li>
-  </ul>
+      <h2>From One Owner to Another</h2>
+      <p>
+        If you’ve found your way here, you probably care about the same things we do:
+        clean builds, honest parts, and cars that feel right when you push them.
+      </p>
 
-  <p>
-    We build only what we’d personally run — and what the E9X community actually needs.
-  </p>
+      <p>
+        If you ever want to talk hardware, direction, or ideas for future products, reach out:
+        <br><br>
+        <strong><a href="mailto:info@e9xautohaus.com">info@e9xautohaus.com</a></strong>
+      </p>
+    </div>
+  </main>
 
-  <h2>Made for the Community</h2>
-  <p>
-    E9X AutoHaus isn’t trying to be the next massive aftermarket company.
-    We’re here to make high-value, properly engineered hardware for a platform
-    we genuinely love.
-  </p>
+  <footer>
+    © <span id="year"></span> E9X AutoHaus · North Brisbane, Australia
+    <div class="mini-line">DESIGNED FOR THE DRIVE · TRUSTED AT THE LIMIT · ZERO COMPROMISE</div>
 
-  <p>
-    Every purchase supports the development of new products, better tooling,
-    and future expansions into the E8X and broader BMW enthusiast world.
-  </p>
-
-  <h2>From One Owner to Another</h2>
-  <p>
-    Thanks for supporting a small, passionate, Brisbane-based brand.
-    Whether you’re here for your first stud conversion kit or waiting for future products —
-    we appreciate you.
-  </p>
-
-  <p style="margin-top:1.6rem;">
-    If you ever want to talk builds, fitment, track prep or anything E9X:
-    <br><br>
-    <strong><a href="mailto:info@e9xautohaus.com">info@e9xautohaus.com</a></strong>
-  </p>
+    <div class="footer-links">
+      <a href="/enthusiasts.html">Built by Enthusiasts</a> ·
+      <a href="/terms.html">Terms &amp; Conditions</a> ·
+      <a href="/privacy.html">Privacy Policy</a> ·
+      <a href="/returns.html">Returns &amp; Refunds</a>
+    </div>
+  </footer>
 </div>
 
-<footer>
-  © <span id="year"></span> E9X AutoHaus · <a href="/">Home</a>
-</footer>
-
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("year").textContent = new Date().getFullYear();
 </script>
-
 </body>
 </html>
