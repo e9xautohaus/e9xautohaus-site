@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products – E9X AutoHaus</title>
+  <meta name="description" content="E9X AutoHaus products – street and track focused hardware for E9X and E8X BMWs. Stud conversion kits and track essentials coming 2026." />
+
+  <!-- Brand font -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #020308;
+      --fg: #f5f5f7;
+      --muted: #9b9fb0;
+      --border: #262a38;
+      --accent-red: #c31b1b;
+      --accent-blue: #2c7af7;
+      --max-width: 900px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Oswald', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, #141827 0, #050611 40%, #020308 100%);
+      color: var(--fg);
+      line-height: 1.5;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header nav (matching rest of site) */
+    .site-header {
+      width: 100%;
+      padding: 0.6rem 1.4rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(2, 3, 8, 0.96);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .haus-red {
+      color: var(--accent-red);
+      text-shadow: 0 0 8px rgba(195, 27, 27, 0.35);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+      transition: color 0.15s ease, border-bottom-color 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--fg);
+      border-bottom-color: var(--accent-red);
+    }
+
+    /* Mobile header fix */
+    @media (max-width: 600px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .nav-brand {
+        font-size: 0.85rem;
+        letter-spacing: 0.12em;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+      }
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      padding: 2.8rem 1.6rem 2.8rem;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: clamp(1.7rem, 2.2vw + 1.3rem, 2.1rem);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      margin: 0 0 0.4rem;
+    }
+
+    .accent {
+      width: 140px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-red), var(--accent-blue));
+      margin: 1.2rem auto 2.2rem;
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 2.4rem;
+    }
+
+    .intro p {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin: 0.4rem 0;
+    }
+
+    .product-grid {
+      display: grid;
+      gap: 1.6rem;
+    }
+
+    @media (min-width: 780px) {
+      .product-grid {
+        grid-template-columns: 1.3fr 1fr;
+        align-items: flex-start;
+      }
+    }
+
+    .product-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.4rem 1.3rem 1.5rem;
+      background: rgba(4, 6, 16, 0.9);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
+    }
+
+    .product-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .product-title {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin: 0 0 0.5rem;
+    }
+
+    .product-sub {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .spec-list {
+      margin: 0.4rem 0 1rem 1.1rem;
+      padding: 0;
+      list-style: disc;
+    }
+
+    .spec-list li {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 0.2rem;
+    }
+
+    .status {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-top: 0.8rem;
+      color: var(--accent-red);
+    }
+
+    .status span {
+      color: var(--fg);
+    }
+
+    .cta-note {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 0.9rem;
+    }
+
+    .cta-note a {
+      color: var(--fg);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(245,245,247,0.4);
+    }
+
+    .cta-note a:hover {
+      border-bottom-color: var(--accent-red);
+    }
+
+    .coming-card {
+      border: 1px dashed var(--border);
+      border-radius: 14px;
+      padding: 1.4rem 1.3rem 1.5rem;
+      background: rgba(3, 4, 12, 0.85);
+    }
+
+    .coming-title {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin: 0 0 0.6rem;
+    }
+
+    .coming-card p {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin: 0.3rem 0;
+    }
+
+    footer {
+      padding: 0.9rem 1.4rem 1.5rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid var(--border);
+      background: rgba(2, 3, 8, 0.96);
+      backdrop-filter: blur(8px);
+    }
+
+    .mini-line {
+      font-size: 0.7rem;
+      margin-top: 0.3rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .footer-links {
+      margin-top: 12px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-family: 'Oswald', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .footer-links a {
+      color: var(--accent-red);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(195,27,27,0.5);
+      transition: all 0.15s ease;
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+      border-bottom-color: var(--accent-red);
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <header class="site-header">
+    <div class="nav-inner">
+      <div class="nav-brand">E9X Auto<span class="haus-red">Haus</span></div>
+      <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="/enthusiasts.html">Built by Enthusiasts</a>
+        <a href="/products.html">Products</a>
+        <a href="/index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <h1>Products</h1>
+      <div class="accent"></div>
+
+      <div class="intro">
+        <p>
+          E9X AutoHaus focuses on simple, reliable, street + track hardware for E9X and E8X BMWs —
+          the kind of parts we’d trust on our own cars.
+        </p>
+      </div>
+
+      <div class="product-grid">
+        <!-- Main product: Stud kit -->
+        <section class="product-card">
+          <div class="product-tag">Track Essentials · Coming 2026</div>
+          <h2 class="product-title">Wheel Stud Conversion Kit</h2>
+          <div class="product-sub">For E9X / E8X BMW Platforms</div>
+
+          <ul class="spec-list">
+            <li>M12 x 1.5 studs with M12 x 1.5 nuts, 75mm length, black finish.</li>
+            <li>Designed around 20× stud + 20× nut kit format.</li>
+            <li>Focus on strength, consistency and ease of wheel changes.</li>
+            <li>Developed by E9X owners, tested on real cars and trusted at real tracks.</li>
+          </ul>
+
+          <div class="status">
+            <span>STATUS:</span> IN DEVELOPMENT · FIRST BATCH PLANNED FOR 2026
+          </div>
+
+          <div class="cta-note">
+            Interested in the first production run?<br />
+            Email <a href="mailto:info@e9xautohaus.com">info@e9xautohaus.com</a> or use the
+            <a href="/index.html#contact">contact form</a> and mention “Stud Kit”.
+          </div>
+        </section>
+
+        <!-- Future products / roadmap -->
+        <section class="coming-card">
+          <div class="product-tag">Roadmap</div>
+          <h2 class="coming-title">Future Hardware (Planned)</h2>
+
+          <p>
+            E9X AutoHaus is focused on “track essentials” — no gimmicks, no fluff. As the brand grows,
+            we plan to expand.
+          </p>
+          <p>
+            Everything we release will follow the same rule:
+            <strong>if we wouldn’t run it on our own cars, it doesn’t ship.</strong>
+          </p>
+
+          <p class="cta-note" style="margin-top:0.9rem;">
+            Have a product idea or something you wish existed for your E9X/E8X?<br />
+            Reach out any time:
+            <a href="mailto:info@e9xautohaus.com">info@e9xautohaus.com</a>
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="year"></span> E9X AutoHaus · North Brisbane, Australia
+    <div class="mini-line">DESIGNED FOR THE DRIVE · TRUSTED AT THE LIMIT · ZERO COMPROMISE</div>
+
+    <div class="footer-links">
+      <a href="/terms.html">Terms &amp; Conditions</a> ·
+      <a href="/privacy.html">Privacy Policy</a> ·
+      <a href="/returns.html">Returns &amp; Refunds</a> ·
+      <a href="/warranty.html">Warranty &amp; Quality</a>
+    </div>
+  </footer>
+</div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
