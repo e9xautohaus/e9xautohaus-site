@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>E9X AutoHaus – Coming 2026</title>
-  <meta name="description" content="E9X AutoHaus – simple, affordable, street + track focused hardware for E9X and E8X BMWs. Designed for the Drive, Trusted at the Limit, Zero Compromise." />
+  <title>Enquiry Sent – E9X AutoHaus</title>
+  <meta name="description" content="Thank you – your enquiry has been sent to E9X AutoHaus. We'll get back to you as soon as we can." />
 
-  <!-- Brand font (closer to hero banner feel) -->
+  <!-- Brand font -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -22,6 +22,12 @@
 
     * { box-sizing: border-box; }
 
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     body {
       margin: 0;
       font-family: 'Oswald', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -31,12 +37,12 @@
       line-height: 1.5;
     }
 
-    img { max-width: 100%; display: block; }
-
     .page {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      width: 100%;
+      overflow-x: hidden;
     }
 
     /* Header nav */
@@ -54,15 +60,18 @@
     .nav-inner {
       max-width: var(--max-width);
       margin: 0 auto;
+      padding: 0;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
     }
 
     .nav-brand {
       font-size: 0.9rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
+      white-space: nowrap;
     }
 
     .haus-red {
@@ -72,10 +81,12 @@
 
     .nav-links {
       display: flex;
-      gap: 1.2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem 1.2rem;
       font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.12em;
     }
 
     .nav-links a {
@@ -84,6 +95,7 @@
       border-bottom: 1px solid transparent;
       padding-bottom: 2px;
       transition: color 0.15s ease, border-bottom-color 0.15s ease;
+      white-space: nowrap;
     }
 
     .nav-links a:hover {
@@ -91,7 +103,6 @@
       border-bottom-color: var(--accent-red);
     }
 
-    /* Mobile header fix */
     @media (max-width: 600px) {
       .nav-inner {
         flex-direction: column;
@@ -102,14 +113,10 @@
       .nav-brand {
         font-size: 0.85rem;
         letter-spacing: 0.12em;
-        text-align: center;
-        white-space: nowrap;
       }
 
       .nav-links {
-        flex-wrap: wrap;
         justify-content: center;
-        gap: 0.8rem;
         font-size: 0.7rem;
         letter-spacing: 0.1em;
       }
@@ -118,9 +125,9 @@
     main {
       flex: 1;
       display: flex;
-      align-items: center;
       justify-content: center;
-      padding: 2.4rem 1.4rem;
+      padding: 2.8rem 1.6rem 2.8rem;
+      width: 100%;
     }
 
     .wrap {
@@ -130,193 +137,73 @@
       text-align: center;
     }
 
-    .hero-image {
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      margin-bottom: 1.8rem;
-      box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.85),
-        0 0 32px rgba(195, 27, 27, 0.3);
-    }
-
     h1 {
-      font-size: clamp(1.9rem, 2.4vw + 1.3rem, 2.4rem);
-      margin: 0 0 0.4rem;
+      font-size: clamp(1.7rem, 2.2vw + 1.3rem, 2.1rem);
+      text-transform: uppercase;
       letter-spacing: 0.22em;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-
-    .accent-bar {
-      width: 96px;
-      height: 2px;
-      margin: 0.4rem auto 1rem;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--accent-red), var(--accent-blue));
-    }
-
-    .tagline-static {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    .slogan-rotator {
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 1.4rem;
-      min-height: 1.3em;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    .slogan-line {
-      opacity: 0;
-      animation: rotateSlogan 9s infinite;
-    }
-
-    .slogan-line:nth-child(1) { animation-delay: 0s; }
-    .slogan-line:nth-child(2) { animation-delay: 3s; }
-    .slogan-line:nth-child(3) { animation-delay: 6s; }
-
-    @keyframes rotateSlogan {
-      0%   { opacity: 0; transform: translateY(4px); }
-      8%   { opacity: 1; transform: translateY(0); }
-      28%  { opacity: 1; transform: translateY(0); }
-      35%  { opacity: 0; transform: translateY(-4px); }
-      100% { opacity: 0; }
-    }
-
-    .launch {
-      font-size: 0.88rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .launch span {
-      color: var(--accent-red);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .email-block {
-      font-size: 0.9rem;
-      margin-bottom: 1.7rem;
-    }
-
-    .email-block a {
-      color: var(--fg);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(245,245,247,0.4);
-    }
-
-    .email-block a:hover {
-      border-bottom-color: var(--accent-red);
-    }
-
-    /* Contact form */
-    .contact-section {
-      margin-top: 2.2rem;
-      margin-bottom: 2rem;
-      text-align: left;
-    }
-
-    .contact-inner {
-      max-width: 540px;
-      margin: 0 auto;
-    }
-
-    .contact-title {
-      font-size: 1rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
       margin: 0 0 0.6rem;
     }
 
-    .contact-copy {
-      font-size: 0.86rem;
-      color: var(--muted);
-      margin: 0 0 1.2rem;
-    }
-
-    form.contact-form {
-      display: grid;
-      gap: 0.8rem;
-    }
-
-    .field-group label {
-      display: block;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      margin-bottom: 0.25rem;
-    }
-
-    .field-group input,
-    .field-group textarea,
-    .field-group select {
-      width: 100%;
-      padding: 0.65rem 0.75rem;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: rgba(5, 7, 15, 0.9);
-      color: var(--fg);
-      font-size: 0.86rem;
-      font-family: inherit;
-    }
-
-    .field-group input:focus,
-    .field-group textarea:focus,
-    .field-group select:focus {
-      outline: none;
-      border-color: var(--accent-red);
-      box-shadow: 0 0 0 1px rgba(195, 27, 27, 0.4);
-    }
-
-    .field-group textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .form-note {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-top: 0.2rem;
-    }
-
-    .btn-submit {
-      margin-top: 0.4rem;
-      align-self: flex-start;
-      padding: 0.65rem 1.4rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
+    .accent {
+      width: 120px;
+      height: 2px;
       background: linear-gradient(90deg, var(--accent-red), var(--accent-blue));
-      color: #ffffff;
-      font-size: 0.86rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      cursor: pointer;
-      font-family: inherit;
+      margin: 1rem auto 2rem;
+      border-radius: 999px;
     }
 
-    .btn-submit:hover {
-      filter: brightness(1.05);
+    .icon-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      margin: 0 auto 1.4rem;
+      border: 2px solid var(--accent-red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 22px rgba(195, 27, 27, 0.4);
     }
 
-    .btn-submit:active {
-      transform: translateY(1px);
+    .icon-circle span {
+      font-size: 1.8rem;
+      line-height: 1;
     }
 
-    .phrases {
-      border-top: 1px solid var(--border);
-      padding-top: 1.2rem;
-      margin-top: 1.2rem;
-      font-size: 0.84rem;
+    .lead {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.98rem;
+      color: var(--fg);
+      margin-bottom: 0.8rem;
+    }
+
+    .body-copy {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
       color: var(--muted);
+      line-height: 1.7;
+      margin: 0.3rem 0;
+    }
+
+    .link-row {
+      margin-top: 1.8rem;
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    .link-row a {
+      color: var(--accent-red);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(195,27,27,0.5);
+      padding-bottom: 1px;
+      transition: all 0.15s ease;
+    }
+
+    .link-row a:hover {
+      color: #ffffff;
+      border-bottom-color: var(--accent-red);
     }
 
     footer {
@@ -327,6 +214,8 @@
       border-top: 1px solid var(--border);
       background: rgba(2, 3, 8, 0.96);
       backdrop-filter: blur(8px);
+      width: 100%;
+      overflow-x: hidden;
     }
 
     .mini-line {
@@ -340,11 +229,16 @@
       margin-top: 12px;
       font-size: 0.7rem;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-family: 'Oswald', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0.12em;
+      text-align: center;
+      max-width: 100%;
+      white-space: normal;
+      word-break: break-word;
     }
 
     .footer-links a {
+      display: inline-block;
+      margin: 0 0.25rem;
       color: var(--accent-red);
       text-decoration: none;
       border-bottom: 1px solid rgba(195,27,27,0.5);
@@ -356,6 +250,11 @@
       border-bottom-color: var(--accent-red);
     }
 
+    @media (max-width: 600px) {
+      .footer-links {
+        line-height: 1.6;
+      }
+    }
   </style>
 </head>
 <body>
@@ -374,90 +273,31 @@
 
   <main>
     <div class="wrap">
-
-      <!-- Hero banner image -->
-      <div class="hero-image">
-        <img src="hero-e9x-autohaus.png" alt="E9X AutoHaus banner logo" />
+      <div class="icon-circle">
+        <span>✓</span>
       </div>
 
-      <!-- Brand name -->
-      <h1>E9X Auto<span class="haus-red">Haus</span></h1>
-      <div class="accent-bar"></div>
+      <h1>Enquiry Sent</h1>
+      <div class="accent"></div>
 
-      <div class="tagline-static">
-        Street + Track Focused Hardware for E9X, E8X BMWs and Wheel Stud Conversion Kits.
+      <p class="lead">
+        Thanks for reaching out to E9X AutoHaus.
+      </p>
+
+      <p class="body-copy">
+        Your message has been submitted and sent to <strong>info@e9xautohaus.com</strong>.
+        We’ll review it and get back to you as soon as we can.
+      </p>
+
+      <p class="body-copy">
+        If you don’t see a reply after a while, it’s worth checking your junk or spam folder
+        and marking any emails from us as safe.
+      </p>
+
+      <div class="link-row">
+        <a href="/">← Back to Home</a>
+        <a href="/products.html">View Products / Roadmap</a>
       </div>
-
-      <!-- Rotating slogan -->
-      <div class="slogan-rotator" aria-label="Brand slogan">
-        <div class="slogan-line">DESIGNED FOR THE DRIVE.</div>
-        <div class="slogan-line">TRUSTED AT THE LIMIT.</div>
-        <div class="slogan-line">ZERO COMPROMISE.</div>
-      </div>
-
-      <!-- Launch notice -->
-      <div class="launch">
-        <span>LAUNCHING 2026</span>
-      </div>
-
-      <!-- Contact teaser -->
-      <div class="email-block">
-        Prefer not to use forms? Email
-        <a href="mailto:info@e9xautohaus.com">info@e9xautohaus.com</a>.
-      </div>
-
-   <form class="contact-form"
-      action="https://formsubmit.co/info@e9xautohaus.com"
-      method="POST">
-
-  <!-- Prevent spam -->
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_template" value="table">
-
-  <!-- Redirect to your success page -->
-  <input type="hidden" name="_next" value="https://e9xautohaus.com/success.html">
-
-  <div class="field-group">
-    <label for="name">Name</label>
-    <input id="name" name="Name" type="text" required />
-  </div>
-
-  <div class="field-group">
-    <label for="email">Email</label>
-    <input id="email" name="Email" type="email" required />
-  </div>
-
-  <div class="field-group">
-    <label for="subject">What are you reaching out about?</label>
-    <select id="subject" name="Subject">
-      <option value="Register interest – stud kit / shirts">Register interest – stud kit / shirts</option>
-      <option value="Stud kit enquiry">Stud Kit Enquiry</option>
-      <option value="Fitment / technical question">Fitment / Technical Question</option>
-      <option value="Future products / ideas">Future Products / Ideas</option>
-      <option value="Other">Other</option>
-    </select>
-  </div>
-
-  <div class="field-group">
-    <label for="message">Message</label>
-    <textarea id="message" name="Message" required></textarea>
-    <div class="form-note">
-      Including your car (e.g. E90 335i, E92 M3) and how you use it (street / track / both) helps.
-    </div>
-  </div>
-
-  <button type="submit" class="btn-submit">Send enquiry</button>
-
-</form>
-
-        </div>
-      </section>
-
-      <!-- Brand phrases -->
-      <div class="phrases">
-        <p><em>“Zero Compromise doesn’t mean overpriced. It means we don’t cut corners — we cut the bullshit.”</em></p>
-      </div>
-
     </div>
   </main>
 
@@ -479,6 +319,3 @@
 </script>
 </body>
 </html>
-
-
-
