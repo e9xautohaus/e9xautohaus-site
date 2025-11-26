@@ -38,7 +38,7 @@
     }
 
     /* Header nav (same as index/other pages) */
-    .site-header {
+     .site-header {
       width: 100%;
       padding: 0.6rem 1.4rem;
       border-bottom: 1px solid var(--border);
@@ -87,6 +87,45 @@
     .nav-links a:hover {
       color: var(--fg);
       border-bottom-color: var(--accent-red);
+    }
+
+    /* Mobile header fix */
+    @media (max-width: 600px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .nav-brand {
+        font-size: 0.85rem;
+        letter-spacing: 0.12em;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+      }
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.4rem 1.4rem;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      text-align: center;
     }
 
     main {
@@ -305,7 +344,6 @@
     <div class="mini-line">DESIGNED FOR THE DRIVE · TRUSTED AT THE LIMIT · ZERO COMPROMISE</div>
 
     <div class="footer-links">
-      <a href="/enthusiasts.html">Built by Enthusiasts</a> ·
       <a href="/terms.html">Terms &amp; Conditions</a> ·
       <a href="/privacy.html">Privacy Policy</a> ·
       <a href="/returns.html">Returns &amp; Refunds</a> ·
