@@ -1,42 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terms & Conditions – E9X AutoHaus</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms &amp; Conditions – E9X AutoHaus</title>
+  <meta name="description" content="Terms and conditions for purchasing and using E9X AutoHaus products. Please read carefully before placing an order or installing any components." />
 
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Brand font -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
-:root {
-  --bg: #020308;
-  --fg: #f5f5f7;
-  --muted: #9b9fb0;
-  --border: #262a38;
-  --accent-red: #c31b1b;
-  --accent-blue: #2c7af7;
-  --max-width: 820px;
-}
+  <style>
+    :root {
+      --bg: #020308;
+      --fg: #f5f5f7;
+      --muted: #9b9fb0;
+      --border: #262a38;
+      --accent-red: #c31b1b;
+      --accent-blue: #2c7af7;
+      --max-width: 900px;
+    }
 
-body {
-  margin:0;
-  font-family:'Oswald', sans-serif;
-  background: radial-gradient(circle at top, #141827, #020308);
-  color:#f5f5f7;
-}
-  
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-  
-.page {
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-}
+    * { box-sizing: border-box; }
 
-/* Header (matches your main site) */
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Oswald', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, #141827 0, #050611 40%, #020308 100%);
+      color: var(--fg);
+      line-height: 1.5;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header nav (same as others) */
     .site-header {
       width: 100%;
       padding: 0.6rem 1.4rem;
@@ -115,85 +121,90 @@ html, body {
     main {
       flex: 1;
       display: flex;
-      align-items: center;
       justify-content: center;
-      padding: 2.4rem 1.4rem;
+      padding: 2.8rem 1.6rem 2.8rem;
     }
 
     .wrap {
       width: 100%;
       max-width: var(--max-width);
       margin: 0 auto;
-      text-align: center;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
 
-h1 {
-  text-align:center;
-  text-transform:uppercase;
-  letter-spacing:0.22em;
-}
+    h1 {
+      text-align: center;
+      font-size: clamp(1.7rem, 2.2vw + 1.3rem, 2.1rem);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      margin: 0 0 0.4rem;
+    }
 
-h2 {
-  margin-top:2rem;
-  font-size:0.95rem;
-  text-transform:uppercase;
-  letter-spacing:0.12em;
-}
+    .accent {
+      width: 140px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-red), var(--accent-blue));
+      margin: 1.2rem auto 2.2rem;
+    }
 
-p, li {
-  font-family:system-ui, sans-serif;
-  color:#9b9fb0;
-  font-size:0.94rem;
-  line-height:1.6;
-}
+    h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin: 2rem 0 0.4rem;
+    }
 
-ul {
-  margin-left:1.2rem;
-}
+    p, li {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.65;
+      margin: 0.35rem 0;
+    }
 
-.accent {
-  width:120px;
-  height:2px;
-  background:linear-gradient(90deg,#c31b1b,#2c7af7);
-  margin:1.2rem auto 2.2rem;
-}
+    ul {
+      margin: 0.4rem 0 0.8rem 1.2rem;
+      padding: 0;
+      list-style: disc;
+    }
 
-/* Footer (matches your site) */
-footer {
-  border-top:1px solid var(--border);
-  padding:1.4rem;
-  text-align:center;
-  font-size:0.75rem;
-  color:var(--muted);
-  background: rgba(2,3,8,0.96);
-  backdrop-filter: blur(8px);
-}
+    footer {
+      padding: 0.9rem 1.4rem 1.5rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid var(--border);
+      background: rgba(2, 3, 8, 0.96);
+      backdrop-filter: blur(8px);
+    }
 
-.mini-line {
-  font-size:0.7rem;
-  margin-top:0.3rem;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-}
+    .mini-line {
+      font-size: 0.7rem;
+      margin-top: 0.3rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
 
-.footer-links {
-  margin-top:12px;
-  font-size:0.7rem;
-  text-transform:uppercase;
-  letter-spacing:0.14em;
-}
+    .footer-links {
+      margin-top: 12px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-family: 'Oswald', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
 
-.footer-links a {
-  color: var(--accent-red);
-  text-decoration: none;
-  border-bottom:1px solid rgba(195,27,27,0.5);
-}
+    .footer-links a {
+      color: var(--accent-red);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(195,27,27,0.5);
+      transition: all 0.15s ease;
+    }
 
-a {
-  color:#c31b1b;
-  text-decoration:none;
-  border-bottom:1px solid rgba(195,27,27,0.4);
-}
+    .footer-links a:hover {
+      color: #ffffff;
+      border-bottom-color: var(--accent-red);
+    }
   </style>
 </head>
 <body>
@@ -210,86 +221,94 @@ a {
     </div>
   </header>
 
-<!-- Main content -->
-<main>
-<div class="wrap">
-  <h1>Terms & Conditions</h1>
-  <div class="accent"></div>
+  <main>
+    <div class="wrap">
+      <h1>Terms &amp; Conditions</h1>
+      <div class="accent"></div>
 
-  <h2>1. Introduction</h2>
-  <p>
-    E9X AutoHaus supplies automotive hardware intended for enthusiast, performance and motorsport-oriented
-    vehicles. By purchasing, installing or using any product supplied by E9X AutoHaus, you agree to be bound
-    by these Terms and Conditions.
-  </p>
+      <p>
+        These Terms &amp; Conditions govern the purchase and use of products supplied by E9X AutoHaus.
+        By placing an order, installing, or using any E9X AutoHaus product, you agree to the following.
+      </p>
 
-  <h2>2. Motorsport Risk Acknowledgement</h2>
-  <p>
-    You acknowledge that motorsport and performance vehicle use are inherently dangerous activities that
-    involve risks of property damage, serious injury or death. No aftermarket component can eliminate
-    these risks.
-  </p>
-  <p>
-    You accept full responsibility for assessing the fitness, suitability and condition of any product
-    before use on public roads, private roads, circuits or closed-course events.
-  </p>
+      <h2>1. General</h2>
+      <p>
+        E9X AutoHaus is a small, enthusiast-run business based in North Brisbane, Australia.
+        All products are intended primarily for off-road, motorsport, or closed-course use unless
+        otherwise stated. It is your responsibility to ensure that any modifications comply with
+        local laws and regulations.
+      </p>
 
-  <h2>3. Installation Responsibility</h2>
-  <p>
-    All products must be installed by a suitably qualified individual using appropriate tools and
-    manufacturer-recommended procedures.
-  </p>
-  <ul>
-    <li>Improper installation may cause component failure</li>
-    <li>Incorrect torque or fitment may result in wheel detachment or loss of vehicle control</li>
-    <li>Periodic re-torque checks are required for critical fasteners</li>
-  </ul>
+      <h2>2. Product Use &amp; Suitability</h2>
+      <p>
+        All components should be installed by a competent person with appropriate mechanical knowledge,
+        using proper tools and following safe workshop practices. Incorrect installation, misuse, or
+        operation outside the intended purpose may result in damage, failure, or injury.
+      </p>
+      <p>
+        You are responsible for checking:
+      </p>
+      <ul>
+        <li>Compatibility with your specific vehicle model and setup;</li>
+        <li>Clearances, torque settings, and fastener engagement;</li>
+        <li>That all components are re-checked periodically, especially after track use.</li>
+      </ul>
 
-  <h2>4. Product Use</h2>
-  <p>You agree that you are solely responsible for:</p>
-  <ul>
-    <li>Confirming compatibility with your vehicle’s exact model, variant and condition</li>
-    <li>Ensuring compliance with local, state and federal laws</li>
-    <li>Ongoing inspection and maintenance of all fitted components</li>
-  </ul>
+      <h2>3. Motorsport &amp; High-Performance Use</h2>
+      <p>
+        Motorsport, track use, and spirited driving place significantly higher loads on components than
+        normal road use. While E9X AutoHaus aims to design hardware suitable for these conditions, no part
+        can be guaranteed to withstand every possible scenario or misuse.
+      </p>
+      <p>
+        By using E9X AutoHaus products in any motorsport or high-performance environment, you acknowledge
+        and accept the increased risk of wear, damage, and potential failure.
+      </p>
 
-  <h2>5. Limitation of Liability</h2>
-  <p>
-    To the maximum extent permitted by law, E9X AutoHaus disclaims all warranties, express or implied.
-  </p>
-  <ul>
-    <li>Indirect or consequential loss</li>
-    <li>Loss of use of the vehicle</li>
-    <li>Loss of enjoyment, track fees or event costs</li>
-    <li>Personal injury or property damage</li>
-  </ul>
+      <h2>4. Orders, Pricing &amp; Availability</h2>
+      <p>
+        As a small-batch operation, product availability may be limited and lead times may vary.
+        Pricing is subject to change without notice. An order is not confirmed until payment is received.
+      </p>
 
-  <h2>6. Australian Consumer Law</h2>
-  <p>
-    Nothing in these Terms excludes rights under Australian Consumer Law that cannot be lawfully excluded.
-  </p>
+      <h2>5. Liability</h2>
+      <p>
+        To the maximum extent permitted by law, E9X AutoHaus is not liable for:
+      </p>
+      <ul>
+        <li>Any indirect, incidental, or consequential loss or damage; or</li>
+        <li>Any damage arising from incorrect installation, misuse, neglect, or operation outside intended use.</li>
+      </ul>
+      <p>
+        Your sole remedy in relation to a defective product is limited to repair, replacement, or refund
+        as outlined in the Warranty &amp; Returns policies (where applicable).
+      </p>
 
-  <h2>7. Product Variations</h2>
-  <p>
-    E9X AutoHaus reserves the right to revise designs, specifications and finishes without notice.
-  </p>
+      <h2>6. Compliance With Laws</h2>
+      <p>
+        You are solely responsible for ensuring that any modifications and components are legal for road use
+        in your region. E9X AutoHaus does not provide legal advice regarding registration, insurance, or compliance.
+      </p>
 
-  <h2>8. Governing Law</h2>
-  <p>
-    These Terms are governed by the laws of Queensland, Australia.
-  </p>
+      <h2>7. Changes to These Terms</h2>
+      <p>
+        E9X AutoHaus may update these Terms &amp; Conditions from time to time. The version in force at the
+        time of purchase will apply to that order. It is your responsibility to review this page for updates.
+      </p>
 
-  <h2>9. Contact</h2>
-  <p>
-    For clarification, contact <a href="mailto:info@e9xautohaus.com">info@e9xautohaus.com</a>
-  </p>
-</div>
-</main>
+      <h2>8. Contact</h2>
+      <p>
+        If you have any questions regarding these Terms &amp; Conditions, please contact:
+      </p>
+      <p>
+        <strong><a href="mailto:info@e9xautohaus.com">info@e9xautohaus.com</a></strong>
+      </p>
+    </div>
+  </main>
 
-<!-- Footer -->
-<footer>
-  © <span id="year"></span> E9X AutoHaus · North Brisbane, Australia
-  <div class="mini-line">DESIGNED FOR THE DRIVE · TRUSTED AT THE LIMIT · ZERO COMPROMISE</div>
+  <footer>
+    © <span id="year"></span> E9X AutoHaus · North Brisbane, Australia
+    <div class="mini-line">DESIGNED FOR THE DRIVE · TRUSTED AT THE LIMIT · ZERO COMPROMISE</div>
 
     <div class="footer-links">
       <a href="/terms.html">Terms &amp; Conditions</a> ·
@@ -298,12 +317,10 @@ a {
       <a href="/warranty.html">Warranty &amp; Quality</a>
     </div>
   </footer>
-
 </div>
 
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("year").textContent = new Date().getFullYear();
 </script>
-
 </body>
 </html>
