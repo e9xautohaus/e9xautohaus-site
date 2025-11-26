@@ -65,6 +65,11 @@
       letter-spacing: 0.18em;
     }
 
+    .haus-red {
+      color: var(--accent-red);
+      text-shadow: 0 0 8px rgba(195, 27, 27, 0.35);
+    }
+
     .nav-links {
       display: flex;
       gap: 1.2rem;
@@ -84,6 +89,30 @@
     .nav-links a:hover {
       color: var(--fg);
       border-bottom-color: var(--accent-red);
+    }
+
+    /* Mobile header fix */
+    @media (max-width: 600px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .nav-brand {
+        font-size: 0.85rem;
+        letter-spacing: 0.12em;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+      }
     }
 
     main {
@@ -117,11 +146,6 @@
       letter-spacing: 0.22em;
       text-transform: uppercase;
       font-weight: 700;
-    }
-
-    .haus-red {
-      color: var(--accent-red);
-      text-shadow: 0 0 8px rgba(195, 27, 27, 0.35);
     }
 
     .accent-bar {
@@ -343,6 +367,7 @@
       <nav class="nav-links">
         <a href="/">Home</a>
         <a href="/enthusiasts.html">Built by Enthusiasts</a>
+        <a href="/warranty.html">Warranty</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -441,8 +466,7 @@
     © <span id="year"></span> E9X AutoHaus · North Brisbane, Australia
     <div class="mini-line">DESIGNED FOR THE DRIVE · TRUSTED AT THE LIMIT · ZERO COMPROMISE</div>
 
-       <div class="footer-links">
-      <a href="/enthusiasts.html">Built by Enthusiasts</a> ·
+    <div class="footer-links">
       <a href="/terms.html">Terms &amp; Conditions</a> ·
       <a href="/privacy.html">Privacy Policy</a> ·
       <a href="/returns.html">Returns &amp; Refunds</a> ·
@@ -456,6 +480,3 @@
 </script>
 </body>
 </html>
-
-
-
