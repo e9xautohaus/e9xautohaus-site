@@ -406,50 +406,50 @@
         <a href="mailto:info@e9xautohaus.com">info@e9xautohaus.com</a>.
       </div>
 
-      <!-- Contact form -->
-      <section class="contact-section" id="contact">
-        <div class="contact-inner">
-          <h2 class="contact-title">Contact / Enquiries</h2>
-          <p class="contact-copy">
-            Use the form below if you’re interested in the first stud kits, have questions about fitment,
-            or just want to talk E9X/E8X hardware.
-          </p>
+   <form class="contact-form"
+      action="https://formsubmit.co/info@e9xautohaus.com"
+      method="POST">
 
-          <!-- Uses mailto: so it opens their email client -->
-          <form class="contact-form" method="POST" action="mailto:info@e9xautohaus.com" enctype="text/plain">
-            <div class="field-group">
-              <label for="name">Name</label>
-              <input id="name" name="Name" type="text" required />
-            </div>
+  <!-- Prevent spam -->
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
 
-            <div class="field-group">
-              <label for="email">Email</label>
-              <input id="email" name="Email" type="email" required />
-            </div>
+  <!-- Redirect to your success page -->
+  <input type="hidden" name="_next" value="https://e9xautohaus.com/success.html">
 
-            <div class="field-group">
-              <label for="subject">What are you reaching out about?</label>
-              <select id="subject" name="Subject">
-                <option value="Stud kit enquiry">Stud Kit Enquiry</option>
-                <option value="Fitment / technical question">Fitment / Technical Question</option>
-                <option value="Future products / ideas">Future Products / Ideas</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
+  <div class="field-group">
+    <label for="name">Name</label>
+    <input id="name" name="Name" type="text" required />
+  </div>
 
-            <div class="field-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="Message" required></textarea>
-              <div class="form-note">
-                Including your car (e.g. E90 335i, E92 M3) and how you use it (street / track / both) helps.
-              </div>
-            </div>
+  <div class="field-group">
+    <label for="email">Email</label>
+    <input id="email" name="Email" type="email" required />
+  </div>
 
-            <button type="submit" class="btn-submit">Send enquiry</button>
-            <div class="form-note">
-              This form will open your email client with the details pre-filled. You can review before sending.
-            </div>
-          </form>
+  <div class="field-group">
+    <label for="subject">What are you reaching out about?</label>
+    <select id="subject" name="Subject">
+      <option value="Register interest – stud kit / shirts">Register interest – stud kit / shirts</option>
+      <option value="Stud kit enquiry">Stud Kit Enquiry</option>
+      <option value="Fitment / technical question">Fitment / Technical Question</option>
+      <option value="Future products / ideas">Future Products / Ideas</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+
+  <div class="field-group">
+    <label for="message">Message</label>
+    <textarea id="message" name="Message" required></textarea>
+    <div class="form-note">
+      Including your car (e.g. E90 335i, E92 M3) and how you use it (street / track / both) helps.
+    </div>
+  </div>
+
+  <button type="submit" class="btn-submit">Send enquiry</button>
+
+</form>
+
         </div>
       </section>
 
@@ -479,5 +479,6 @@
 </script>
 </body>
 </html>
+
 
 
