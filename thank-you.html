@@ -1,59 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Thank You – E9X AutoHaus</title>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You – E9X AutoHaus</title>
 
-<style>
-  body {
-    margin: 0;
-    background: radial-gradient(circle at top, #141827 0, #050611 40%, #020308 100%);
-    font-family: 'Oswald', sans-serif;
-    color: #f5f5f7;
-    text-align: center;
-    padding: 4rem 1.5rem;
-  }
-  .box {
-    max-width: 420px;
-    margin: 0 auto;
-    padding: 2.6rem 1.8rem;
-    border-radius: 14px;
-    background: rgba(4,6,16,0.88);
-    border: 1px solid #262a38;
-    box-shadow: 0 18px 40px rgba(0,0,0,0.6);
-  }
-  h1 {
-    font-size: 1.9rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-  }
-  p {
-    font-size: 0.95rem;
-    color: #9b9fb0;
-    line-height: 1.6;
-  }
-  a {
-    display: inline-block;
-    margin-top: 1.4rem;
-    padding: 0.7rem 1.8rem;
-    border-radius: 999px;
-    text-decoration: none;
-    background: linear-gradient(90deg, #c31b1b, #2c7af7);
-    color: #fff;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-</style>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:#020308;
+      --fg:#f5f5f7;
+      --muted:#9b9fb0;
+      --border:#262a38;
+      --accent-red:#c31b1b;
+      --accent-blue:#2c7af7;
+      --max-width:780px;
+    }
+
+    *{ box-sizing:border-box; }
+
+    body {
+      margin:0;
+      padding:0;
+      background:radial-gradient(circle at top,#141827 0,#050611 40%,#020308 100%);
+      font-family:'Oswald',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      color:var(--fg);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .wrap {
+      text-align:center;
+      max-width:var(--max-width);
+      padding:2rem 1.4rem;
+    }
+
+    h1 {
+      font-size:clamp(2rem,2.4vw + 1.3rem,2.5rem);
+      text-transform:uppercase;
+      letter-spacing:0.22em;
+      margin:0 0 0.8rem;
+    }
+
+    .haus-red {
+      color:var(--accent-red);
+      text-shadow:0 0 8px rgba(195,27,27,.35);
+    }
+
+    .accent {
+      width:140px;
+      height:2px;
+      background:linear-gradient(90deg,var(--accent-red),var(--accent-blue));
+      margin:1rem auto 1.6rem;
+      border-radius:999px;
+    }
+
+    .thanks-text {
+      font-size:1rem;
+      color:var(--muted);
+      line-height:1.6;
+      margin-bottom:1.8rem;
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+    }
+
+    .slogan {
+      font-size:0.9rem;
+      color:var(--muted);
+      margin-top:1.8rem;
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+    }
+
+    .slogan strong {
+      color:var(--accent-red);
+    }
+
+    /* Button */
+    .btn {
+      display:inline-block;
+      margin-top:1.6rem;
+      padding:0.75rem 1.8rem;
+      border-radius:999px;
+      background:linear-gradient(90deg,var(--accent-red),var(--accent-blue));
+      color:#fff;
+      text-decoration:none;
+      text-transform:uppercase;
+      letter-spacing:0.14em;
+      font-size:0.9rem;
+      transition:opacity .15s ease;
+    }
+
+    .btn:hover {
+      opacity:0.85;
+    }
+
+    footer {
+      margin-top:2.4rem;
+      font-size:0.7rem;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+    }
+  </style>
 </head>
 
 <body>
-<div class="box">
-  <h1>Thank You</h1>
-  <p>Your message has been sent successfully.</p>
-  <p><strong style="color:#c31b1b;">We reply personally</strong> — usually within 24 hours.</p>
-  <a href="/">Return Home</a>
-</div>
+  <div class="wrap">
+
+    <h1>Thank You</h1>
+    <div class="accent"></div>
+
+    <p class="thanks-text">
+      Your message has been sent.<br>
+      <span style="color:var(--accent-red)">We reply personally</span> — no bots, no mailing lists, no spam.<br>
+      Expect a response shortly.
+    </p>
+
+    <div class="slogan">
+      <strong>Designed for the Drive.</strong> Trusted at the Limit. Zero Compromise.
+    </div>
+
+    <a class="btn" href="/">Return Home</a>
+
+    <footer>
+      © <script>document.write(new Date().getFullYear());</script> E9X AutoHaus
+    </footer>
+
+  </div>
 </body>
 </html>
