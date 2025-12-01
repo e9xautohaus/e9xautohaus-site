@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Products – E9X AutoHaus</title>
-  <meta name="description" content="E9X AutoHaus products – street and track focused hardware for E9X and E8X BMWs. Stud conversion kits and track essentials coming 2026." />
+  <meta name="description" content="E9X AutoHaus products – street and track focused hardware and apparel for E9X and E8X BMWs. Stud conversion kits and Founders Edition tees." />
 
   <!-- Brand font -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -37,7 +37,7 @@
       flex-direction: column;
     }
 
-    /* Header nav (matching rest of site) */
+    /* Header nav */
     .site-header {
       width: 100%;
       padding: 0.6rem 1.4rem;
@@ -89,7 +89,6 @@
       border-bottom-color: var(--accent-red);
     }
 
-    /* Mobile header fix */
     @media (max-width: 600px) {
       .nav-inner {
         flex-direction: column;
@@ -113,6 +112,7 @@
       }
     }
 
+    /* Main layout */
     main {
       flex: 1;
       display: flex;
@@ -154,15 +154,15 @@
       margin: 0.4rem 0;
     }
 
+    /* Product grid */
     .product-grid {
       display: grid;
       gap: 1.6rem;
     }
 
-    @media (min-width: 780px) {
+    @media (min-width: 760px) {
       .product-grid {
-        grid-template-columns: 1.3fr 1fr;
-        align-items: flex-start;
+        grid-template-columns: 1fr 1fr;
       }
     }
 
@@ -172,6 +172,29 @@
       padding: 1.4rem 1.3rem 1.5rem;
       background: rgba(4, 6, 16, 0.9);
       box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
+    }
+
+    .product-media {
+      margin-bottom: 1.1rem;
+    }
+
+    .product-card img {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .product-placeholder {
+      border-radius: 10px;
+      border: 1px dashed var(--border);
+      padding: 2.4rem 1rem;
+      background: rgba(3, 4, 12, 0.85);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      text-align: center;
     }
 
     .product-tag {
@@ -184,22 +207,22 @@
     }
 
     .product-title {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      margin: 0 0 0.5rem;
+      margin: 0.1rem 0 0.4rem;
     }
 
     .product-sub {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
+      color: var(--muted);
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: var(--muted);
       margin-bottom: 0.9rem;
     }
 
     .spec-list {
-      margin: 0.4rem 0 1rem 1.1rem;
+      margin: 0.4rem 0 0.8rem 1.1rem;
       padding: 0;
       list-style: disc;
     }
@@ -212,16 +235,20 @@
       margin-bottom: 0.2rem;
     }
 
+    .product-desc {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+
     .status {
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      margin-top: 0.8rem;
       color: var(--accent-red);
-    }
-
-    .status span {
-      color: var(--fg);
+      margin-top: 0.8rem;
     }
 
     .cta-note {
@@ -241,28 +268,7 @@
       border-bottom-color: var(--accent-red);
     }
 
-    .coming-card {
-      border: 1px dashed var(--border);
-      border-radius: 14px;
-      padding: 1.4rem 1.3rem 1.5rem;
-      background: rgba(3, 4, 12, 0.85);
-    }
-
-    .coming-title {
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      margin: 0 0 0.6rem;
-    }
-
-    .coming-card p {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.6;
-      margin: 0.3rem 0;
-    }
-
+    /* Footer */
     footer {
       padding: 0.9rem 1.4rem 1.5rem;
       font-size: 0.75rem;
@@ -322,80 +328,72 @@
 
       <div class="intro">
         <p>
-          E9X AutoHaus focuses on simple, reliable, street + track hardware for E9X and E8X BMWs —
-          the kind of parts we’d trust on our own cars.
+          E9X AutoHaus focuses on simple, reliable, street + track hardware and apparel for E9X and E8X BMWs —
+          the kind of gear we’d actually run on our own cars.
         </p>
       </div>
 
       <div class="product-grid">
-        <!-- Main product: Stud kit -->
+        <!-- Stud kit product with placeholder image -->
         <section class="product-card">
+          <div class="product-media">
+            <div class="product-placeholder">
+              PRODUCT IMAGE COMING SOON
+            </div>
+          </div>
+
           <div class="product-tag">Track Essentials · Coming 2026</div>
           <h2 class="product-title">Wheel Stud Conversion Kit</h2>
           <div class="product-sub">For E9X / E8X BMW Platforms</div>
 
           <ul class="spec-list">
             <li>M12 x 1.5 studs with M12 x 1.5 nuts, 75mm length, black finish.</li>
-            <li>Designed around 20× stud + 20× nut kit format.</li>
+            <li>Designed around a 20× stud + 20× nut kit format.</li>
             <li>Focus on strength, consistency and ease of wheel changes.</li>
-            <li>Developed by E9X owners, tested on real cars and trusted at real tracks.</li>
+            <li>Developed by E9X owners, intended for real street + track use.</li>
           </ul>
 
           <div class="status">
-            <span>STATUS:</span> IN DEVELOPMENT · FIRST BATCH PLANNED FOR 2026
+            STATUS: IN DEVELOPMENT · FIRST BATCH PLANNED FOR 2026
           </div>
 
           <div class="cta-note">
             Interested in the first production run?<br />
-            Email <a href="mailto:info@e9xautohaus.com">info@e9xautohaus.com</a> or use the
-            <a href="/index.html#contact">contact form</a> and mention “Stud Kit”.
+            Email <a href="mailto:info@e9xautohaus.com">info@e9xautohaus.com</a> and mention “Stud Kit” in the subject.
           </div>
         </section>
 
-        <!-- Merch / shirts -->
+        <!-- Founders Edition Tee - Front -->
         <section class="product-card">
-          <div class="product-tag">Merch · Limited Runs</div>
-          <h2 class="product-title">E9X AutoHaus Logo Tee</h2>
-          <div class="product-sub">Front Crest · Rear Graphic</div>
-
-          <ul class="spec-list">
-            <li>Black tee with small front crest logo.</li>
-            <li>Large rear print with E9X silhouette and brand slogan.</li>
-            <li>Designed to match the brand look – “Designed for the Drive, Trusted at the Limit, Zero Compromise.”</li>
-            <li>Planned sizing: core unisex sizes suitable for street + track wear.</li>
-          </ul>
-
-          <div class="status">
-            <span>STATUS:</span> SAMPLE STAGE · NOT YET AVAILABLE FOR PURCHASE
+          <div class="product-media">
+            <img src="images/shirt-1.jfif" alt="Founders Edition Tee – front crest" />
           </div>
 
-          <div class="cta-note">
-            Want to know when the first shirts are ready?<br />
-            Email <a href="mailto:info@e9xautohaus.com">info@e9xautohaus.com</a> with “Shirt List” in the subject
-            and we’ll keep you in the loop.
-          </div>
+          <div class="product-tag">Merch · Prototype</div>
+          <h2 class="product-title">Founders Edition Tee</h2>
+          <div class="product-sub">Front Silhouette</div>
+          <p class="product-desc">
+            Early sample featuring the minimal silhouette logo. Built to be something you’d wear daily and still be
+            comfortable wrenching or driving in.
+          </p>
+          <div class="status">STATUS: SAMPLE STAGE · NOT YET AVAILABLE FOR PURCHASE</div>
         </section>
 
-        <!-- Future products / roadmap -->
-        <section class="coming-card">
-          <div class="product-tag">Roadmap</div>
-          <h2 class="coming-title">Future Hardware (Planned)</h2>
+        <!-- Founders Edition Tee - Back -->
+        <section class="product-card">
+          <div class="product-media">
+            <img src="images/shirt-2.jfif" alt="Founders Edition Tee – rear graphic" />
+          </div>
 
-          <p>
-            E9X AutoHaus is focused on “track essentials” — no gimmicks, no fluff. As the brand grows,
-            we plan to expand.
+          <div class="product-tag">Merch · Prototype</div>
+          <h2 class="product-title">Founders Edition Tee</h2>
+          <div class="product-sub">Rear Graphic</div>
+          <p class="product-desc">
+            Rear print featuring the E90 silhouette and signature slogan:
+            “Designed for the Drive. Trusted at the Limit. Zero Compromise.”
+            Print density and alignment currently being dialled in.
           </p>
-          
-          <p>
-            Everything we release will follow the same rule:
-            <strong>if we wouldn’t run it on our own cars, it doesn’t ship.</strong>
-          </p>
-
-          <p class="cta-note" style="margin-top:0.9rem;">
-            Have a product idea or something you wish existed for your E9X/E8X?<br />
-            Reach out any time:
-            <a href="mailto:info@e9xautohaus.com">info@e9xautohaus.com</a>
-          </p>
+          <div class="status">STATUS: SAMPLE STAGE · NOT YET AVAILABLE FOR PURCHASE</div>
         </section>
       </div>
     </div>
