@@ -22,6 +22,12 @@
 
     * { box-sizing: border-box; }
 
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     body {
       margin: 0;
       font-family: 'Oswald', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -61,6 +67,7 @@
       font-size: 0.9rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
+      white-space: nowrap;
     }
 
     .haus-red {
@@ -74,6 +81,8 @@
       font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .nav-links a {
@@ -100,6 +109,7 @@
         font-size: 0.85rem;
         letter-spacing: 0.12em;
         text-align: center;
+        white-space: nowrap;
       }
 
       .nav-links {
@@ -107,6 +117,7 @@
         justify-content: center;
         gap: 0.8rem;
         font-size: 0.7rem;
+        letter-spacing: 0.1em;
       }
     }
 
@@ -170,30 +181,16 @@
       padding: 1.4rem 1.3rem 1.5rem;
       background: rgba(4, 6, 16, 0.9);
       box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
-      transition: box-shadow 0.25s ease; /* <-- NEW */
-    }
-
-    /* Red glow hover */
-    .product-card:hover {  /* <-- NEW */
-      box-shadow: 0 0 20px rgba(195, 27, 27, 0.35), 0 18px 40px rgba(0, 0, 0, 0.65);
     }
 
     .product-media {
       margin-bottom: 1.1rem;
     }
 
-    /* Hover zoom for images */
-    .product-card img { /* <-- NEW */
+    .product-card img {
       width: 100%;
       border-radius: 10px;
       display: block;
-      transition: transform 0.25s ease, filter 0.25s ease;
-      cursor: pointer;
-    }
-
-    .product-card img:hover { /* <-- NEW */
-      transform: scale(1.03);
-      filter: brightness(1.05);
     }
 
     .product-placeholder {
@@ -201,7 +198,7 @@
       border: 1px dashed var(--border);
       padding: 2.4rem 1rem;
       background: rgba(3, 4, 12, 0.85);
-      font-family: system-ui;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.16em;
@@ -240,7 +237,7 @@
     }
 
     .spec-list li {
-      font-family: system-ui;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--muted);
       font-size: 0.9rem;
       line-height: 1.6;
@@ -248,7 +245,7 @@
     }
 
     .product-desc {
-      font-family: system-ui;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--muted);
       font-size: 0.9rem;
       line-height: 1.6;
@@ -264,7 +261,7 @@
     }
 
     .cta-note {
-      font-family: system-ui;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       font-size: 0.9rem;
       color: var(--muted);
       margin-top: 0.9rem;
@@ -276,27 +273,73 @@
       border-bottom: 1px solid rgba(245,245,247,0.4);
     }
 
-    /* Lightbox Styles */  /* <-- NEW */
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.85);
+    .cta-note a:hover {
+      border-bottom-color: var(--accent-red);
+    }
+
+    /* Slider styles for shirt product */
+    .slider {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .shirt-slide {
       display: none;
+    }
+
+    .shirt-slide.active {
+      display: block;
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid rgba(245,245,247,0.4);
+      background: rgba(3,4,12,0.85);
+      color: var(--fg);
+      font-size: 1rem;
+      display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 9999;
+      cursor: pointer;
+      padding: 0;
+      line-height: 1;
     }
 
-    .lightbox img {
-      max-width: 92%;
-      max-height: 92%;
-      border-radius: 10px;
-      cursor: zoom-out;
-      box-shadow: 0 0 25px rgba(0,0,0,0.7);
+    .slider-btn:hover {
+      border-color: var(--accent-red);
     }
 
-    .lightbox.show {
-      display: flex;
+    .slider-btn.prev {
+      left: 8px;
+    }
+
+    .slider-btn.next {
+      right: 8px;
+    }
+
+    .slider-dots {
+      margin-top: 0.6rem;
+      text-align: center;
+    }
+
+    .slider-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      margin: 0 4px;
+      background: rgba(155,159,176,0.5);
+      cursor: pointer;
+    }
+
+    .slider-dot.active {
+      background: var(--accent-red);
     }
 
     /* Footer */
@@ -307,6 +350,7 @@
       text-align: center;
       border-top: 1px solid var(--border);
       background: rgba(2, 3, 8, 0.96);
+      backdrop-filter: blur(8px);
     }
 
     .mini-line {
@@ -321,6 +365,7 @@
       font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
+      font-family: 'Oswald', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     .footer-links a {
@@ -329,13 +374,15 @@
       border-bottom: 1px solid rgba(195,27,27,0.5);
       transition: all 0.15s ease;
     }
+
+    .footer-links a:hover {
+      color: #ffffff;
+      border-bottom-color: var(--accent-red);
+    }
   </style>
 </head>
-
 <body>
 <div class="page">
-
-  <!-- HEADER -->
   <header class="site-header">
     <div class="nav-inner">
       <div class="nav-brand">E9X Auto<span class="haus-red">Haus</span></div>
@@ -348,10 +395,8 @@
     </div>
   </header>
 
-  <!-- MAIN -->
   <main>
     <div class="wrap">
-
       <h1>Products</h1>
       <div class="accent"></div>
 
@@ -363,8 +408,7 @@
       </div>
 
       <div class="product-grid">
-
-        <!-- STUD KIT -->
+        <!-- Stud kit product with placeholder image -->
         <section class="product-card">
           <div class="product-media">
             <div class="product-placeholder">
@@ -372,7 +416,7 @@
             </div>
           </div>
 
-          <div class="product-tag">Track Essentials · Coming 2026</div>
+          <div class="product-tag">Track Essentials · Coming Christmas 2025</div>
           <h2 class="product-title">Wheel Stud Conversion Kit</h2>
           <div class="product-sub">For E9X / E8X BMW Platforms</div>
 
@@ -384,84 +428,124 @@
           </ul>
 
           <div class="status">
-            STATUS: IN DEVELOPMENT · FIRST BATCH PLANNED FOR 2026
+            STATUS: 9x KITS AVAILABLE FOR PRE-ORDER · FOUNDERS EDITION · $209AUD
           </div>
 
           <div class="cta-note">
-  Interested in the first production run?<br />
-  Use the enquiry form on the home page and select
-  <strong>“Wheel Stud Conversion Kit”</strong>, or email
-  <a href="mailto:info@e9xautohaus.com">info@e9xautohaus.com</a>.
-</div>
+            Interested in the Founders Edition run?<br />
+            Use the enquiry form on the home page and select
+            <strong>“Wheel Stud Conversion Kit”</strong>, or email
+            <a href="mailto:info@e9xautohaus.com">info@e9xautohaus.com</a>.
+          </div>
         </section>
 
-        <!-- SHIRT FRONT -->
+        <!-- Founders Edition Tee - single product with slider -->
         <section class="product-card">
           <div class="product-media">
-            <img src="images/shirt-1.jfif" alt="Founders Edition Tee – front crest" />
+            <div class="slider" aria-label="Founders Edition Tee images">
+              <div class="shirt-slide active">
+                <img src="images/shirt-1.jfif" alt="Founders Edition Tee – front silhouette print" />
+              </div>
+              <div class="shirt-slide">
+                <img src="images/shirt-2.jfif" alt="Founders Edition Tee – rear graphic" />
+              </div>
+
+              <button class="slider-btn prev" type="button" aria-label="Previous image">&#10094;</button>
+              <button class="slider-btn next" type="button" aria-label="Next image">&#10095;</button>
+            </div>
+
+            <div class="slider-dots">
+              <span class="slider-dot active" data-slide="0"></span>
+              <span class="slider-dot" data-slide="1"></span>
+            </div>
           </div>
 
           <div class="product-tag">Merch · Prototype</div>
           <h2 class="product-title">Founders Edition Tee</h2>
-          <div class="product-sub">Front Silhouette</div>
-          <p class="product-desc">
-            Early sample featuring the minimal silhouette logo. Built to be something you’d wear daily and still be
-            comfortable wrenching or driving in.
-          </p>
-          <div class="status">STATUS: SAMPLE STAGE</div>
-        </section>
+          <div class="product-sub">Front Silhouette · Rear Graphic</div>
 
-        <!-- SHIRT BACK -->
-        <section class="product-card">
-          <div class="product-media">
-            <img src="images/shirt-2.jfif" alt="Founders Edition Tee – rear graphic" />
-          </div>
-
-          <div class="product-tag">Merch · Prototype</div>
-          <h2 class="product-title">Founders Edition Tee</h2>
-          <div class="product-sub">Rear Graphic</div>
           <p class="product-desc">
-            Rear print featuring the E90 silhouette and signature slogan:
+            Founders Edition tee featuring the E9X silhouette and full brand slogan:
             “Designed for the Drive. Trusted at the Limit. Zero Compromise.”
+            Built to be something you’d wear daily and still be comfortable wrenching or driving in.
           </p>
-          <div class="status">STATUS: SAMPLE STAGE</div>
-        </section>
 
+          <ul class="spec-list">
+            <li>Black tee with subtle front silhouette print.</li>
+            <li>Large rear graphic with E90-inspired artwork and slogan.</li>
+            <li>Designed to match the E9X AutoHaus brand – street + track friendly.</li>
+          </ul>
+
+          <div class="status">
+            STATUS: AVAILABLE FOR PRE-ORDER · $50AUD
+          </div>
+
+          <div class="cta-note">
+            Want to know how to secure a Founders Edition tee?<br />
+            Use the enquiry form and select <strong>“Founders Edition Tee”</strong>, or email
+            <a href="mailto:info@e9xautohaus.com">info@e9xautohaus.com</a> with “Shirt List” in the subject.
+          </div>
+        </section>
       </div>
     </div>
   </main>
 
-  <!-- FOOTER -->
   <footer>
     © <span id="year"></span> E9X AutoHaus · North Brisbane, Australia
     <div class="mini-line">DESIGNED FOR THE DRIVE · TRUSTED AT THE LIMIT · ZERO COMPROMISE</div>
+
+    <div class="footer-links">
+      <a href="/terms.html">Terms &amp; Conditions</a> ·
+      <a href="/privacy.html">Privacy Policy</a> ·
+      <a href="/returns.html">Returns &amp; Refunds</a> ·
+      <a href="/warranty.html">Warranty &amp; Quality</a>
+    </div>
   </footer>
-
-</div>
-
-<!-- LIGHTBOX -->
-<div id="lightbox" class="lightbox">  <!-- <-- NEW -->
-  <img id="lightbox-img" src="">
 </div>
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  /* Lightbox script */  /* <-- NEW */
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
+  // Simple slider logic for the Founders Edition Tee
+  (function () {
+    const slides = document.querySelectorAll('.shirt-slide');
+    const dots = document.querySelectorAll('.slider-dot');
+    const prevBtn = document.querySelector('.slider-btn.prev');
+    const nextBtn = document.querySelector('.slider-btn.next');
+    let current = 0;
 
-  document.querySelectorAll(".product-card img").forEach(img => {
-    img.addEventListener("click", () => {
-      lightboxImg.src = img.src;
-      lightbox.classList.add("show");
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+      current = index;
+    }
+
+    function nextSlide() {
+      const next = (current + 1) % slides.length;
+      showSlide(next);
+    }
+
+    function prevSlide() {
+      const prev = (current - 1 + slides.length) % slides.length;
+      showSlide(prev);
+    }
+
+    if (nextBtn && prevBtn) {
+      nextBtn.addEventListener('click', nextSlide);
+      prevBtn.addEventListener('click', prevSlide);
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const index = parseInt(dot.getAttribute('data-slide'), 10);
+        showSlide(index);
+      });
     });
-  });
-
-  lightbox.addEventListener("click", () => {
-    lightbox.classList.remove("show");
-  });
+  })();
 </script>
-
 </body>
 </html>
