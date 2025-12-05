@@ -67,6 +67,16 @@
       letter-spacing:0.08em;
     }
 
+    /* NEW dynamic order summary text */
+    #order-summary {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      color: var(--fg);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      line-height: 1.6;
+    }
+
     .slogan {
       font-size:0.9rem;
       color:var(--muted);
@@ -115,10 +125,13 @@
     <div class="accent"></div>
 
     <p class="thanks-text">
-      Your message has been sent.<br>
-      <span style="color:var(--accent-red)">We reply personally</span> — no bots, no mailing lists, no spam.<br>
-      Expect a response shortly.
+      Your order has been received.<br>
+      <span style="color:var(--accent-red)">Everything here is handled by us directly</span> — no bots, no automated support.<br>
+      Expect confirmation shortly.
     </p>
+
+    <!-- 🔥 Dynamic order message goes here -->
+    <div id="order-summary">Loading your order details...</div>
 
     <div class="slogan">
       <strong>Designed for the Drive.</strong> Trusted at the Limit. Zero Compromise.
@@ -131,5 +144,28 @@
     </footer>
 
   </div>
+
+  <!-- 🔥 JavaScript: Reads ?product=...&size=... and updates the summary -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const product = params.get("product");
+    const size = params.get("size");
+
+    const summary = document.getElementById("order-summary");
+
+    const productNames = {
+      "essentials": "E9X AutoHaus Essentials Tee",
+      "anti-wheel-bolt": "Anti Wheel Bolt Club Tee"
+    };
+
+    if (product && size) {
+      summary.textContent = `You purchased the ${productNames[product] || product} in size ${size}.`;
+    } else if (product) {
+      summary.textContent = `You purchased the ${productNames[product] || product}.`;
+    } else {
+      summary.textContent = "Thank you for your order!";
+    }
+  </script>
+
 </body>
 </html>
