@@ -67,7 +67,7 @@
       letter-spacing:0.08em;
     }
 
-    /* NEW dynamic order summary text */
+    /* Dynamic order summary text */
     #order-summary {
       margin-top: 1rem;
       font-size: 1.1rem;
@@ -89,10 +89,17 @@
       color:var(--accent-red);
     }
 
-    /* Button */
+    /* Buttons */
+    .btn-row {
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:0.8rem;
+      margin-top:1.8rem;
+    }
+
     .btn {
       display:inline-block;
-      margin-top:1.6rem;
       padding:0.75rem 1.8rem;
       border-radius:999px;
       background:linear-gradient(90deg,var(--accent-red),var(--accent-blue));
@@ -102,6 +109,13 @@
       letter-spacing:0.14em;
       font-size:0.9rem;
       transition:opacity .15s ease;
+      border:none;
+    }
+
+    .btn-secondary {
+      background:transparent;
+      border:1px solid var(--border);
+      color:var(--fg);
     }
 
     .btn:hover {
@@ -130,14 +144,17 @@
       Expect confirmation shortly.
     </p>
 
-    <!-- 🔥 Dynamic order message goes here -->
-    <div id="order-summary">Loading your order details...</div>
+    <!-- Dynamic order message -->
+    <div id="order-summary">Thank you for your order!</div>
 
     <div class="slogan">
       <strong>Designed for the Drive.</strong> Trusted at the Limit. Zero Compromise.
     </div>
 
-    <a class="btn" href="/">Return Home</a>
+    <div class="btn-row">
+      <a class="btn" href="/products.html">Continue Shopping</a>
+      <a class="btn btn-secondary" href="/">Return Home</a>
+    </div>
 
     <footer>
       © <script>document.write(new Date().getFullYear());</script> E9X AutoHaus
@@ -145,7 +162,7 @@
 
   </div>
 
-  <!-- 🔥 JavaScript: Reads ?product=...&size=... and updates the summary -->
+  <!-- JS: Read ?product=...&size=... and update summary -->
   <script>
     const params = new URLSearchParams(window.location.search);
     const product = params.get("product");
