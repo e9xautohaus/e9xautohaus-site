@@ -437,31 +437,34 @@
         <!-- STUD KIT -->
         <section class="product-card">
           <div class="product-media">
-            <div class="product-placeholder">
-              PRODUCT IMAGE COMING SOON
-            </div>
+            <!-- Use your stud kit hero image -->
+            <img src="images/wheel stud 1.jpeg" alt="E9X AutoHaus Wheel Stud Conversion Kit">
           </div>
 
-          <div class="product-tag">Track Essentials · Coming Christmas 2025</div>
+          <div class="product-tag">Track Essentials · Pre-Order · Founders Run</div>
           <h2 class="product-title">Wheel Stud Conversion Kit</h2>
           <div class="product-sub">For E9X / E8X BMW Platforms</div>
 
           <ul class="spec-list">
-            <li>M12 x 1.5 studs with M12 x 1.5 nuts, 75mm length, black finish.</li>
-            <li>Designed around a 20× stud + 20× nut kit format.</li>
-            <li>Focus on strength, consistency and ease of wheel changes.</li>
-            <li>Developed by E9X owners, intended for real street + track use.</li>
+            <li>20× black wheel studs and 20× black wheel nuts.</li>
+            <li>75mm length, M12 × 1.5 thread, 19mm hex nuts.</li>
+            <li>Designed for repeat wheel changes and track use.</li>
+            <li>Developed by E9X owners, intended for real street + track duty.</li>
           </ul>
 
           <div class="status">
-            STATUS: 9x KITS AVAILABLE FOR PRE-ORDER · FOUNDERS EDITION · LAUNCH PRICE: $209AUD
+            STATUS: PRE-ORDER · LIMITED FIRST RUN · LAUNCH PRICE: $209 AUD
           </div>
 
           <div class="cta-note">
-            Interested in the Founders Edition run?<br />
-            Use the enquiry form on the home page and select
-            <strong>“Wheel Stud Conversion Kit”</strong>, or email
-            <a href="mailto:info@e9xautohaus.com">info@e9xautohaus.com</a>.
+            This is a <strong>pre-order</strong> for our first production batch. Orders will ship once the initial run
+            lands and passes inspection. You’ll receive email updates as we move through production, QC and dispatch.
+          </div>
+
+          <button class="buy-btn" id="stud-buy">Pre-Order Now</button>
+
+          <div style="font-size:0.8rem; margin-top:0.4rem; color:var(--muted);">
+            You’ll be redirected to our secure Stripe checkout to complete your pre-order.
           </div>
         </section>
 
@@ -552,7 +555,7 @@
 
           <div class="product-tag">Merch · Anti Wheel Bolt Club</div>
           <h2 class="product-title">Anti Wheel Bolt Club Tee</h2>
-          <div class="product-sub">Because studs > bolts · Street + Track</div>
+          <div class="product-sub">Because studs &gt; bolts · Street + Track</div>
 
           <p class="product-desc">
             Anti Wheel Bolt Club tee with the E9X AutoHaus crest on the front and bold rear typography with stud graphic.
@@ -670,6 +673,8 @@
     }
   };
 
+  const STUD_KIT_STRIPE_LINK = "https://buy.stripe.com/aFa14ogim1tu1ZgdRL5c40a"; // <-- paste your Stripe link here
+
   function setupShirtBuy(selectId, errorId, buttonId, key) {
     const select = document.getElementById(selectId);
     const error = document.getElementById(errorId);
@@ -690,6 +695,14 @@
 
   setupShirtBuy('essentials-size', 'essentials-error', 'essentials-buy', 'essentials');
   setupShirtBuy('anti-size', 'anti-error', 'anti-buy', 'anti');
+
+  // Stud kit pre-order button
+  const studBtn = document.getElementById('stud-buy');
+  if (studBtn && STUD_KIT_STRIPE_LINK && STUD_KIT_STRIPE_LINK !== "https://buy.stripe.com/aFa14ogim1tu1ZgdRL5c40a") {
+    studBtn.addEventListener('click', function () {
+      window.location.href = STUD_KIT_STRIPE_LINK;
+    });
+  }
 </script>
 </body>
 </html>
