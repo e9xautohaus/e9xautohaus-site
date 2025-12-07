@@ -70,7 +70,7 @@
     /* Dynamic order summary text */
     #order-summary {
       margin-top: 1rem;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: var(--fg);
       text-transform: uppercase;
       letter-spacing: 0.1em;
@@ -140,12 +140,12 @@
 
     <p class="thanks-text">
       Your order has been received.<br>
-      <span style="color:var(--accent-red)">Everything here is handled by us directly</span> — no bots, no automated support.<br>
-      Expect confirmation shortly.
+      <span style="color:var(--accent-red)">Everything here is handled by us directly</span> — no call centres, no scripted support.<br>
+      Your payment has been processed and confirmation will be emailed shortly.
     </p>
 
     <!-- Dynamic order message -->
-    <div id="order-summary">Thank you for your order!</div>
+    <div id="order-summary">Thank you for your order.</div>
 
     <div class="slogan">
       <strong>Designed for the Drive.</strong> Trusted at the Limit. Zero Compromise.
@@ -172,15 +172,21 @@
 
     const productNames = {
       "essentials": "E9X AutoHaus Essentials Tee",
-      "anti-wheel-bolt": "Anti Wheel Bolt Club Tee"
+      "anti-wheel-bolt": "Anti Wheel Bolt Club Tee",
+      "stud-kit": "Wheel Stud Conversion Kit (Pre-Order)"
     };
 
-    if (product && size) {
+    if (product === "stud-kit") {
+      summary.innerHTML = `
+        Thank you for pre-ordering the <strong>Wheel Stud Conversion Kit</strong>.<br>
+        You’ll receive email updates as production, coating, QC and dispatch progress.
+      `;
+    } else if (product && size) {
       summary.textContent = `You purchased the ${productNames[product] || product} in size ${size}.`;
     } else if (product) {
       summary.textContent = `You purchased the ${productNames[product] || product}.`;
     } else {
-      summary.textContent = "Thank you for your order!";
+      summary.textContent = "Thank you for your order.";
     }
   </script>
 
