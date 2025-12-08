@@ -138,21 +138,6 @@
       display: block;
     }
 
-    h1{
-      font-size:clamp(1.9rem,2.4vw + 1.3rem,2.4rem);
-      text-transform:uppercase;
-      letter-spacing:.22em;
-      margin:0 0 .4rem;
-    }
-
-    .accent{
-      width:96px;
-      height:2px;
-      margin:.4rem auto 1rem;
-      background:linear-gradient(90deg,var(--accent-red),var(--accent-blue));
-      border-radius:999px;
-    }
-
     .tagline-static{
       font-size:.85rem;
       color:var(--muted);
@@ -187,9 +172,52 @@
       100%{opacity:0;}
     }
 
+    /* Feature row under hero */
+    .feature-row{
+      margin: 1.6rem auto 0;
+      max-width: 720px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem;
+    }
+
+    .feature-card{
+      flex: 1 1 180px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      background: radial-gradient(circle at top, rgba(44,122,247,0.06), rgba(2,3,8,0.95));
+      text-align: left;
+    }
+
+    .feature-icon{
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .feature-title{
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 0.25rem;
+    }
+
+    .feature-body{
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 600px){
+      .feature-card{
+        text-align: left;
+      }
+    }
+
     .launch{
       font-size:.88rem;
-      margin-bottom:1.4rem;
+      margin:1.6rem 0 1.4rem;
     }
 
     .launch span{
@@ -339,12 +367,38 @@
         <div class="slogan-line">ZERO COMPROMISE.</div>
       </div>
 
+      <!-- Feature row -->
+      <div class="feature-row">
+        <div class="feature-card">
+          <div class="feature-icon">⚙️</div>
+          <div class="feature-title">Engineered Performance</div>
+          <div class="feature-body">
+            Precision hardware for E9X and E8X BMWs, built to handle street miles and track abuse.
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🏁</div>
+          <div class="feature-title">Street + Track Focused</div>
+          <div class="feature-body">
+            Zero-compromise parts that balance reliability, ease of use, and repeatable performance.
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🇦🇺</div>
+          <div class="feature-title">Built by Enthusiasts</div>
+          <div class="feature-body">
+            Designed in North Brisbane by E9X owners, tested on real cars &amp; real circuits.
+          </div>
+        </div>
+      </div>
+
       <div class="launch">
         <span>Launching Christmas 2025!</span>
       </div>
 
-           <!-- Contact / Early Access -->
-           <!-- Contact / Early Access -->
+      <!-- Contact / Early Access -->
       <section class="contact-section" id="contact">
         <div class="contact-inner">
 
@@ -459,11 +513,3 @@
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
