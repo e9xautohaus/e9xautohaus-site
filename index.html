@@ -346,29 +346,31 @@
         <span>Launching 2026</span>
       </div>
 
-      <!-- Contact -->
+           <!-- Contact / Early Access -->
       <section class="contact-section" id="contact">
         <div class="contact-inner">
 
-          <h2>Enquiry &amp; Register Interest</h2>
+          <h2>Enquiry &amp; Early Access</h2>
 
-          <p class="tagline-static" style="margin-bottom:0.8rem;">
-            Ask a question or register interest for upcoming products.
+          <p class="tagline-static" style="margin-bottom:0.6rem;">
+            Ask a question or join the pre-launch list for upcoming products.
           </p>
 
           <p style="
             font-size:0.82rem;
             color:var(--muted);
-            margin:0 0 1.2rem;
+            margin:0 0 1.0rem;
             letter-spacing:0.04em;
           ">
-            <strong style="color:var(--accent-red);">We reply personally</strong> — no bots, no mailing lists, no spam.
+            <strong style="color:var(--accent-red);">No spam, no newsletters</strong> &mdash; just early access to 
+            wheel stud conversion kits, Founders Edition tees, and direct replies from the person building E9X AutoHaus.
           </p>
 
           <form action="https://formsubmit.co/info@e9xautohaus.com" method="POST">
-            <input type="hidden" name="_subject" value="New enquiry — E9X AutoHaus">
+            <input type="hidden" name="_subject" value="New enquiry / early access — E9X AutoHaus">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://e9xautohaus.com/thank-you.html">
 
             <div class="field-group">
               <label for="name">Name</label>
@@ -381,20 +383,46 @@
             </div>
 
             <div class="field-group">
+              <label for="chassis">Chassis</label>
+              <input id="chassis" type="text" name="chassis" placeholder="E90 / E92 / E82 / E87 etc.">
+            </div>
+
+            <div class="field-group">
               <label for="interest">What are you interested in?</label>
               <select id="interest" name="interest" required>
                 <option value="" selected>Select one...</option>
-                <option value="Stud Kit">Wheel Stud Conversion Kit</option>
+                <option value="Stud Kit – Early Access">Wheel Stud Conversion Kit – Early Access</option>
                 <option value="Founders Tee">Founders Edition Tee</option>
-                <option value="Both">Both – Stud Kit &amp; Tee</option>
+                <option value="Both – Stud Kit & Tee">Both – Stud Kit &amp; Tee</option>
+                <option value="Wholesale / Dealer">Wholesale / Dealer</option>
                 <option value="Other">Something else</option>
               </select>
             </div>
 
             <div class="field-group">
               <label for="message">Message</label>
-              <textarea id="message" name="message" required></textarea>
+              <textarea id="message" name="message" placeholder="Tell us about your car, use case, or any questions." required></textarea>
             </div>
+
+            <button type="submit">Send Enquiry</button>
+
+            <div id="successPopup" style="
+              display:none;
+              margin-top:1rem;
+              padding:0.8rem 1rem;
+              border-radius:8px;
+              background:rgba(30,170,60,0.25);
+              color:#8affc1;
+              font-size:0.85rem;
+              letter-spacing:0.05em;
+            ">
+              Sending your message…
+            </div>
+          </form>
+
+        </div>
+      </section>
+
 
             <!-- Redirect after submit -->
             <input type="hidden" name="_next" value="https://e9xautohaus.com/thank-you.html">
@@ -455,6 +483,7 @@
 </script>
 </body>
 </html>
+
 
 
 
