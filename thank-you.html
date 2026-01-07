@@ -173,13 +173,13 @@
     const productNames = {
       "essentials": "E9X AutoHaus Essentials Tee",
       "anti-wheel-bolt": "Anti Wheel Bolt Club Tee",
-      "stud-kit": "Wheel Stud Conversion Kit (Pre-Order)"
+      "stud-kit": "Wheel Stud Conversion Kit"
     };
 
     if (product === "stud-kit") {
       summary.innerHTML = `
-        Thank you for pre-ordering the <strong>Wheel Stud Conversion Kit</strong>.<br>
-        You’ll receive email updates as production, coating, QC and dispatch progress.
+        Thank you for ordering the <strong>Wheel Stud Conversion Kit</strong>.<br>
+        You’ll receive an email update when it is ready for pick-up.
       `;
     } else if (product && size) {
       summary.textContent = `You purchased the ${productNames[product] || product} in size ${size}.`;
