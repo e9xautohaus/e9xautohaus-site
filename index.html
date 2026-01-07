@@ -317,6 +317,46 @@
       backdrop-filter:blur(8px);
     }
 
+    .mini-line{
+      margin-top:6px;
+      color:var(--muted);
+      font-size:.72rem;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+
+    /* NEW: Socials */
+    .socials{
+      margin: 14px auto 0;
+      display:flex;
+      gap:24px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    .socials a{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-family:'Oswald',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      font-size:.72rem;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      color:var(--muted);
+      text-decoration:none;
+      transition:color .2s ease;
+    }
+
+    .socials a:hover{
+      color:var(--accent-red);
+    }
+
+    .socials svg{
+      width:18px;
+      height:18px;
+      fill:currentColor;
+    }
+
     .footer-links{
       margin-top:12px;
       font-size:.7rem;
@@ -441,73 +481,4 @@
                 <option value="" selected>Select one...</option>
                 <option value="Stud Kit">Wheel Stud Conversion Kit</option>
                 <option value="Founders Tee">Founders Edition Tee</option>
-                <option value="Anti Wheel Bolt Club Tee">Anti Wheel Bolt Club Tee</option>
-                <option value="Wholesale / Dealer">Wholesale / Dealer</option>
-                <option value="Other">Something Else</option>
-              </select>
-            </div>
-
-            <div class="field-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message"
-                placeholder="Tell us about your car, or ask any questions." required></textarea>
-            </div>
-
-            <button type="submit">Send Enquiry</button>
-
-            <!-- Inline success popup -->
-            <div id="successPopup" style="
-              display:none;
-              margin-top:1rem;
-              padding:0.8rem 1rem;
-              border-radius:8px;
-              background:rgba(30,170,60,0.25);
-              color:#8affc1;
-              font-size:0.85rem;
-              letter-spacing:0.05em;
-            ">
-              Sending your message…
-            </div>
-          </form>
-
-        </div>
-      </section>
-
-      <div class="phrases">
-        <p><em>“Zero Compromise doesn’t mean overpriced. It means we don’t cut corners — we cut the bullshit.”</em></p>
-      </div>
-
-    </div>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    © <span id="year"></span> E9X AutoHaus · North Brisbane, Australia
-    <div class="mini-line">DESIGNED FOR THE DRIVE · TRUSTED AT THE LIMIT · ZERO COMPROMISE</div>
-
-    <div class="footer-links">
-      <a href="/terms.html">Terms &amp; Conditions</a> ·
-      <a href="/privacy.html">Privacy Policy</a> ·
-      <a href="/returns.html">Returns &amp; Refunds</a> ·
-      <a href="/warranty.html">Warranty &amp; Quality</a>
-    </div>
-  </footer>
-
-</div>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  // Inline success popup on submit
-  const form = document.querySelector("form");
-  if (form) {
-    form.addEventListener("submit", () => {
-      const popup = document.getElementById("successPopup");
-      if (popup) popup.style.display = "block";
-    });
-  }
-</script>
-</body>
-</html>
-
-
+                <option value="Anti
