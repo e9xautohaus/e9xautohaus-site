@@ -566,6 +566,38 @@
           </div>
         </section>
 
+        <!-- BRAKE KIT (NEW) -->
+        <section class="product-card" id="brake-kit">
+          <div class="product-media">
+            <img src="images/1000001893.png" alt="E9X AutoHaus Brake Kit">
+          </div>
+
+          <div class="product-tag">Street + Track · Brake Upgrade</div>
+          <h2 class="product-title">15&quot; Brake Kit</h2>
+          <div class="product-sub">For E9X / E8X BMW Platforms</div>
+
+          <p class="product-desc">
+            Compact brake setup aimed at 15&quot; wheel clearance for Drag Wheels, reduced rotating mass, and dependable street + track performance.
+            Built around OEM-style serviceability and real-world parts support.
+          </p>
+
+          <ul class="spec-list">
+            <li>Designed for improved wheel clearance and repeatable braking.</li>
+            <li>Street-friendly feel with track-day durability.</li>
+            <li>OEM-style serviceability for easy future maintenance.</li>
+          </ul>
+
+          <div class="status">
+            STATUS: AVAILABLE · PRICE: $649 AUD
+          </div>
+
+          <button class="buy-btn" id="brake-buy">Buy Now</button>
+
+          <div style="font-size:0.8rem; margin-top:0.4rem; color:var(--muted);">
+            You’ll be redirected to our secure Stripe checkout to complete your order.
+          </div>
+        </section>
+
         <!-- ESSENTIALS TEE (Merch anchor target) -->
         <section class="product-card" id="merch">
           <div class="product-media">
@@ -792,6 +824,7 @@
   };
 
   const STUD_KIT_STRIPE_LINK = "https://buy.stripe.com/aFa14ogim1tu1ZgdRL5c40a";
+  const BRAKE_KIT_STRIPE_LINK = "https://buy.stripe.com/9B68wQ9TY5JKgUa14Z5c40c";
 
   function setupShirtBuy(selectId, errorId, buttonId, key) {
     const select = document.getElementById(selectId);
@@ -819,6 +852,14 @@
   if (studBtn && STUD_KIT_STRIPE_LINK) {
     studBtn.addEventListener('click', function () {
       window.location.href = STUD_KIT_STRIPE_LINK;
+    });
+  }
+
+  // Brake kit buy button
+  const brakeBtn = document.getElementById('brake-buy');
+  if (brakeBtn && BRAKE_KIT_STRIPE_LINK) {
+    brakeBtn.addEventListener('click', function () {
+      window.location.href = BRAKE_KIT_STRIPE_LINK;
     });
   }
 </script>
