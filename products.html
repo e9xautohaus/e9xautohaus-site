@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Products – E9X AutoHaus</title>
-  <meta name="description" content="E9X AutoHaus products – street and track focused hardware and apparel for E9X and E8X BMWs. Stud conversion kits and apparel." />
+  <meta name="description" content="E9X AutoHaus products – street and track focused hardware and apparel for E9X and E8X BMWs." />
 
   <!-- Brand font -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -98,35 +98,56 @@
       border-bottom-color: var(--accent-red);
     }
 
-    /* Dropdown nav */
-    .nav-dropdown{ position: relative; }
+    /* Dropdown nav (click-toggle like your home page) */
+    .nav-dropdown{
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-    .nav-dropdown > a{
+    .nav-dropbtn{
       display:inline-flex;
       align-items:center;
-      gap:6px;
+      justify-content:center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      background: rgba(5,7,15,.35);
+      color: var(--muted);
+      cursor: pointer;
+      padding: 0;
+      line-height: 1;
+    }
+
+    .nav-dropbtn:hover{
+      color: var(--fg);
+      border-color: rgba(195,27,27,.35);
     }
 
     .nav-caret{
-      font-size:.85em;
-      opacity:.8;
+      font-size: .9rem;
+      opacity: .9;
       transform: translateY(-1px);
     }
 
     .dropdown-menu{
       position:absolute;
-      top: calc(100% + 10px);
-      right:0;
+      top: calc(100% + 12px);
+      right: 0;
       min-width: 220px;
       border:1px solid var(--border);
       border-radius: 12px;
       background: rgba(2,3,8,.98);
       backdrop-filter: blur(10px);
-      padding: 10px;
+      padding: 8px;
       box-shadow: 0 18px 40px rgba(0,0,0,.7);
       display:none;
       z-index: 50;
     }
+
+    .nav-dropdown.open .dropdown-menu{ display:block; }
 
     .dropdown-menu a{
       display:block;
@@ -140,11 +161,6 @@
     .dropdown-menu a:hover{
       color: var(--fg);
       background: rgba(195,27,27,0.10);
-    }
-
-    .nav-dropdown:hover .dropdown-menu,
-    .nav-dropdown:focus-within .dropdown-menu{
-      display:block;
     }
 
     @media (max-width: 600px) {
@@ -170,14 +186,10 @@
       }
 
       .dropdown-menu{
-        position: static;
-        min-width: unset;
+        left: 0;
+        right: 0;
         width: 100%;
-        margin-top: 8px;
-        display: block;
-        box-shadow: none;
-        background: transparent;
-        border: 1px solid var(--border);
+        min-width: unset;
       }
     }
 
@@ -235,7 +247,9 @@
       }
     }
 
+    /* Makes anchor scrolling feel nicer with sticky header */
     .product-card {
+      scroll-margin-top: 110px;
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 1.4rem 1.3rem 1.5rem;
@@ -418,7 +432,6 @@
       color: var(--muted);
     }
 
-    /* Socials (matches index.html) */
     .socials{
       margin: 14px auto 0;
       display:flex;
@@ -448,7 +461,6 @@
       fill:currentColor;
     }
 
-    /* Back to top */
     .back-to-top{
       margin-top: 12px;
       font-size: .7rem;
@@ -502,11 +514,15 @@
         <a href="/">Home</a>
         <a href="/enthusiasts.html">Built by Enthusiasts</a>
 
-        <div class="nav-dropdown">
-          <a href="/products.html">Shop <span class="nav-caret">▾</span></a>
-          <div class="dropdown-menu">
-            <a href="/products.html#hardware">Street + Track</a>
-            <a href="/products.html#merch">Merch</a>
+        <!-- Click-toggle dropdown -->
+        <div class="nav-dropdown" id="shopDropdown">
+          <a href="/products.html">Shop</a>
+          <button class="nav-dropbtn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Open shop menu">
+            <span class="nav-caret">▾</span>
+          </button>
+          <div class="dropdown-menu" role="menu" aria-label="Shop menu">
+            <a href="/products.html#hardware" role="menuitem">Street + Track</a>
+            <a href="/products.html#merch" role="menuitem">Merch</a>
           </div>
         </div>
 
@@ -530,11 +546,8 @@
 
       <div class="product-grid">
 
-        <!-- Anchor for dropdown -->
-        <div id="hardware"></div>
-
-        <!-- STUD KIT -->
-        <section class="product-card" id="studs">
+        <!-- STUD KIT (Hardware anchor lives here now - FIXES THE EMPTY GRID CELL) -->
+        <section class="product-card" id="hardware">
           <div class="product-media">
             <img src="images/wheel stud 1.jpg" alt="E9X AutoHaus Wheel Stud Conversion Kit">
           </div>
@@ -569,33 +582,31 @@
         <!-- BRAKE KIT (NEW) -->
         <section class="product-card" id="brake-kit">
           <div class="product-media">
+            <!-- If your file is .png, change to 1000001893.png -->
             <img src="images/1000001893.png" alt="E9X AutoHaus Brake Kit">
           </div>
 
-          <div class="product-tag">Street + Track · Brake Upgrade</div>
-          <h2 class="product-title">15&quot; Brake Kit</h2>
-          <div class="product-sub">For E9X / E8X BMW Platforms</div>
-
-          <p class="product-desc">
-            Compact brake setup aimed at 15&quot; wheel clearance for Drag Wheels, reduced rotating mass, and dependable street + track performance.
-            Built around OEM-style serviceability and real-world parts support.
-          </p>
+          <div class="product-tag">Street + Track · 15" Brake Clearance Upgrade</div>
+          <h2 class="product-title">15" Brake Clearance Kit</h2>
+          <div class="product-sub">E9X / E8X Conversion</div>
 
           <ul class="spec-list">
-            <li>Designed for improved wheel clearance and repeatable braking.</li>
-            <li>Street-friendly feel with track-day durability.</li>
-            <li>OEM-style serviceability for easy future maintenance.</li>
+            <li>Small brake conversion package to fit 15" Drag Wheels and Tyres.</li>
+            <li>Replacement Calipers, Carriers and Rotors.</li>
+            <li>Designed as a street + track-friendly upgrade for E9X / E8X platforms.</li>
+            <li>Built around proven OEM components for availability and serviceability.</li>
+            <li>Hardware-focused, no-nonsense setup intended for real track abuse.</li>
           </ul>
 
           <div class="status">
-            STATUS: AVAILABLE · PRICE: $649 AUD
+            STATUS: AVAILABLE · PRICE: $649 AUD ·
+          </div>
+
+          <div class="cta-note">
+            You’ll be redirected to our secure Stripe checkout to complete your order.
           </div>
 
           <button class="buy-btn" id="brake-buy">Buy Now</button>
-
-          <div style="font-size:0.8rem; margin-top:0.4rem; color:var(--muted);">
-            You’ll be redirected to our secure Stripe checkout to complete your order.
-          </div>
         </section>
 
         <!-- ESSENTIALS TEE (Merch anchor target) -->
@@ -635,7 +646,7 @@
           </ul>
 
           <div class="status">
-            STATUS: AVAILABLE  · $49 AUD
+            STATUS: AVAILABLE · $49 AUD
           </div>
 
           <div class="cta-note">
@@ -731,7 +742,6 @@
     © <span id="year"></span> E9X AutoHaus · North Brisbane, Australia
     <div class="mini-line">DESIGNED FOR THE DRIVE · TRUSTED AT THE LIMIT · ZERO COMPROMISE</div>
 
-    <!-- Socials -->
     <div class="socials">
       <a href="https://www.instagram.com/e9xautohaus" target="_blank" rel="noopener" aria-label="Instagram">
         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -748,7 +758,6 @@
       </a>
     </div>
 
-    <!-- Back to top -->
     <div class="back-to-top">
       <a href="#top">Back to top ↑</a>
     </div>
@@ -776,33 +785,20 @@
     let current = 0;
 
     function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-      });
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-      });
+      slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
       current = index;
     }
 
-    function nextSlide() {
-      const next = (current + 1) % slides.length;
-      showSlide(next);
-    }
-
-    function prevSlide() {
-      const prev = (current - 1 + slides.length) % slides.length;
-      showSlide(prev);
-    }
+    function nextSlide() { showSlide((current + 1) % slides.length); }
+    function prevSlide() { showSlide((current - 1 + slides.length) % slides.length); }
 
     if (nextBtn && prevBtn) {
       nextBtn.addEventListener('click', nextSlide);
       prevBtn.addEventListener('click', prevSlide);
     }
 
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => showSlide(index));
-    });
+    dots.forEach((dot, index) => dot.addEventListener('click', () => showSlide(index)));
   });
 
   // Stripe links for tees
@@ -823,7 +819,7 @@
     }
   };
 
-  const STUD_KIT_STRIPE_LINK = "https://buy.stripe.com/aFa14ogim1tu1ZgdRL5c40a";
+  const STUD_KIT_STRIPE_LINK  = "https://buy.stripe.com/aFa14ogim1tu1ZgdRL5c40a";
   const BRAKE_KIT_STRIPE_LINK = "https://buy.stripe.com/9B68wQ9TY5JKgUa14Z5c40c";
 
   function setupShirtBuy(selectId, errorId, buttonId, key) {
@@ -850,18 +846,46 @@
   // Stud kit buy button
   const studBtn = document.getElementById('stud-buy');
   if (studBtn && STUD_KIT_STRIPE_LINK) {
-    studBtn.addEventListener('click', function () {
-      window.location.href = STUD_KIT_STRIPE_LINK;
-    });
+    studBtn.addEventListener('click', () => window.location.href = STUD_KIT_STRIPE_LINK);
   }
 
   // Brake kit buy button
   const brakeBtn = document.getElementById('brake-buy');
   if (brakeBtn && BRAKE_KIT_STRIPE_LINK) {
-    brakeBtn.addEventListener('click', function () {
-      window.location.href = BRAKE_KIT_STRIPE_LINK;
-    });
+    brakeBtn.addEventListener('click', () => window.location.href = BRAKE_KIT_STRIPE_LINK);
   }
+
+  // Shop dropdown: click-toggle (PC + mobile)
+  (function () {
+    const dd = document.getElementById('shopDropdown');
+    if (!dd) return;
+
+    const btn = dd.querySelector('.nav-dropbtn');
+
+    function setOpen(isOpen) {
+      dd.classList.toggle('open', isOpen);
+      btn.setAttribute('aria-expanded', String(isOpen));
+    }
+
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      setOpen(!dd.classList.contains('open'));
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!dd.contains(e.target)) setOpen(false);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setOpen(false);
+    });
+
+    dd.querySelector('.dropdown-menu')?.addEventListener('click', function (e) {
+      const link = e.target.closest('a');
+      if (link) setOpen(false);
+    });
+  })();
 </script>
 </body>
 </html>
