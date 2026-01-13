@@ -82,6 +82,7 @@
       letter-spacing:.14em;
       flex-wrap:wrap;
       justify-content:center;
+      align-items:center;
     }
 
     .nav-links a{
@@ -97,10 +98,82 @@
       border-bottom-color:var(--accent-red);
     }
 
+    /* Dropdown nav (click-toggle) */
+    .nav-dropdown{
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-dropbtn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      background: rgba(5,7,15,.35);
+      color: var(--muted);
+      cursor: pointer;
+      padding: 0;
+      line-height: 1;
+    }
+
+    .nav-dropbtn:hover{
+      color: var(--fg);
+      border-color: rgba(195,27,27,.35);
+    }
+
+    .nav-caret{
+      font-size: .9rem;
+      opacity: .9;
+      transform: translateY(-1px);
+    }
+
+    .dropdown-menu{
+      position:absolute;
+      top: calc(100% + 12px);
+      right: 0;
+      min-width: 220px;
+      border:1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(2,3,8,.98);
+      backdrop-filter: blur(10px);
+      padding: 8px;
+      box-shadow: 0 18px 40px rgba(0,0,0,.7);
+      display:none;
+      z-index: 50;
+    }
+
+    .nav-dropdown.open .dropdown-menu{ display:block; }
+
+    .dropdown-menu a{
+      display:block;
+      padding: 10px 10px;
+      border-radius: 10px;
+      color: var(--muted);
+      text-decoration:none;
+      border-bottom: none;
+    }
+
+    .dropdown-menu a:hover{
+      color: var(--fg);
+      background: rgba(195,27,27,0.10);
+    }
+
     @media(max-width:600px){
       .nav-inner{
         flex-direction:column;
         gap:.5rem;
+      }
+
+      .dropdown-menu{
+        left: 0;
+        right: 0;
+        width: 100%;
+        min-width: unset;
       }
     }
 
@@ -348,7 +421,19 @@
       <nav class="nav-links">
         <a href="/">Home</a>
         <a href="/enthusiasts.html">Built by Enthusiasts</a>
-        <a href="/products.html">Products</a>
+
+        <!-- Shop (new structure) -->
+        <div class="nav-dropdown" id="shopDropdown">
+          <a href="/shop.html">Shop</a>
+          <button class="nav-dropbtn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Open shop menu">
+            <span class="nav-caret">▾</span>
+          </button>
+          <div class="dropdown-menu" role="menu" aria-label="Shop menu">
+            <a href="/parts.html" role="menuitem">Street + Track</a>
+            <a href="/merch.html" role="menuitem">Merch</a>
+          </div>
+        </div>
+
         <a href="/index.html#contact">Contact</a>
       </nav>
     </div>
@@ -457,7 +542,8 @@
       </div>
 
       <div class="cta-row">
-        <a class="primary" href="/products.html">View Products &amp; Roadmap</a>
+        <a class="primary" href="/shop.html">Shop</a>
+        <a href="/parts.html">Street + Track Hardware</a>
         <a href="/index.html#contact">Enquiry &amp; Register Interest</a>
       </div>
 
@@ -491,6 +577,39 @@
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Shop dropdown: click-toggle (PC + mobile)
+  (function () {
+    const dd = document.getElementById('shopDropdown');
+    if (!dd) return;
+
+    const btn = dd.querySelector('.nav-dropbtn');
+    const menu = dd.querySelector('.dropdown-menu');
+
+    function setOpen(isOpen) {
+      dd.classList.toggle('open', isOpen);
+      btn.setAttribute('aria-expanded', String(isOpen));
+    }
+
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      setOpen(!dd.classList.contains('open'));
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!dd.contains(e.target)) setOpen(false);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setOpen(false);
+    });
+
+    menu.addEventListener('click', function (e) {
+      const link = e.target.closest('a');
+      if (link) setOpen(false);
+    });
+  })();
 </script>
 </body>
 </html>
