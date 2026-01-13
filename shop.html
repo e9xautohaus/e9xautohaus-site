@@ -225,14 +225,10 @@
     .intro {
       text-align: center;
       margin-bottom: 2.4rem;
-    }
-
-    .intro p {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--muted);
       font-size: 0.95rem;
       line-height: 1.7;
-      margin: 0.4rem 0;
     }
 
     /* Product grid */
@@ -247,7 +243,7 @@
       }
     }
 
-    /* Makes anchor scrolling feel nicer with sticky header */
+    /* Card */
     .product-card {
       scroll-margin-top: 110px;
       border: 1px solid var(--border);
@@ -257,10 +253,7 @@
       box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
     }
 
-    .product-media {
-      margin-bottom: 1.1rem;
-    }
-
+    .product-media { margin-bottom: 1.1rem; }
     .product-card img {
       width: 100%;
       border-radius: 10px;
@@ -329,12 +322,7 @@
     }
 
     /* Slider */
-    .slider {
-      position: relative;
-      overflow: hidden;
-      border-radius: 10px;
-    }
-
+    .slider { position: relative; overflow: hidden; border-radius: 10px; }
     .shirt-slide { display: none; }
     .shirt-slide.active { display: block; }
 
@@ -360,11 +348,7 @@
     .slider-btn.prev { left: 8px; }
     .slider-btn.next { right: 8px; }
 
-    .slider-dots {
-      margin-top: 0.6rem;
-      text-align: center;
-    }
-
+    .slider-dots { margin-top: 0.6rem; text-align: center; }
     .slider-dot {
       display: inline-block;
       width: 7px;
@@ -374,10 +358,9 @@
       background: rgba(155,159,176,0.5);
       cursor: pointer;
     }
-
     .slider-dot.active { background: var(--accent-red); }
 
-    /* Simple select + button for shirts */
+    /* Tee select + button */
     .size-select {
       width: 100%;
       padding: 10px;
@@ -415,80 +398,6 @@
       font-size: 0.75rem;
       margin-top: 4px;
     }
-
-    /* ---------- Stickers section (FIXED sizing + no overlap) ---------- */
-    .sticker-grid{
-      display:grid;
-      gap: 1.6rem;
-    }
-
-    @media (min-width: 760px){
-      .sticker-grid{
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .sticker-card{
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.4rem 1.3rem 1.5rem;
-      background: rgba(4, 6, 16, 0.9);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
-    }
-
-    .sticker-media{
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      border-radius: 10px;
-      background: rgba(3,4,12,0.55);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      overflow:hidden;
-      margin-bottom: 1rem;
-    }
-
-    .sticker-media img{
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      padding: 14px;
-      display:block;
-      border-radius: 0;
-    }
-
-    .sticker-title{
-      font-size: 1.05rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      margin: 0.1rem 0 0.5rem;
-    }
-
-    .sticker-price{
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--accent-red);
-      margin-top: 0.2rem;
-    }
-
-    .sticker-card .buy-btn{
-      display:block;
-      width: 100%;
-      text-align:center;
-      margin-top: 12px;
-      padding: 12px;
-      border-radius: 8px;
-      background: var(--accent-red);
-      color:#fff;
-      text-decoration:none;
-      font-family:'Oswald', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: 0.85rem;
-      border: none;
-    }
-    .sticker-card .buy-btn:hover{ opacity: .94; }
 
     /* Footer */
     footer {
@@ -615,15 +524,14 @@
       <div class="accent"></div>
 
       <div class="intro">
-        <p>
-          E9X AutoHaus focuses on simple, reliable, street + track hardware and apparel for E9X and E8X BMWs —
-          the kind of gear we’d actually run on our own cars.
-        </p>
+        E9X AutoHaus focuses on simple, reliable, street + track hardware and apparel for E9X and E8X BMWs —
+        the kind of gear we’d actually run on our own cars.
       </div>
 
+      <!-- EVERYTHING in one matching grid (including stickers) -->
       <div class="product-grid">
 
-        <!-- STUD KIT (Hardware anchor lives here now - FIXES THE EMPTY GRID CELL) -->
+        <!-- STUD KIT -->
         <section class="product-card" id="hardware">
           <div class="product-media">
             <img src="images/wheel stud 1.jpg" alt="E9X AutoHaus Wheel Stud Conversion Kit">
@@ -646,12 +554,12 @@
 
           <button class="buy-btn" id="stud-buy">Buy Now</button>
 
-          <div style="font-size:0.8rem; margin-top:0.4rem; color:var(--muted);">
+          <div style="font-size:0.8rem; margin-top:0.4rem; color:var(--muted); font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
             You’ll be redirected to our secure Stripe checkout to complete your order.
           </div>
         </section>
 
-        <!-- BRAKE KIT (NEW) -->
+        <!-- BRAKE KIT -->
         <section class="product-card" id="brake-kit">
           <div class="product-media">
             <img src="images/1000001893.png" alt="E9X AutoHaus Brake Kit">
@@ -680,7 +588,7 @@
           <button class="buy-btn" id="brake-buy">Buy Now</button>
         </section>
 
-        <!-- ESSENTIALS TEE (Merch anchor target) -->
+        <!-- ESSENTIALS TEE -->
         <section class="product-card" id="merch">
           <div class="product-media">
             <div class="slider">
@@ -720,25 +628,23 @@
             STATUS: AVAILABLE · $50 AUD
           </div>
 
-          <div class="cta-note">
-            <label for="essentials-size" style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--muted);">
-              Select Size
-            </label>
-            <select id="essentials-size" class="size-select">
-              <option value="">Choose…</option>
-              <option value="S">Small (S)</option>
-              <option value="M">Medium (M)</option>
-              <option value="L">Large (L)</option>
-              <option value="XL">X-Large (XL)</option>
-              <option value="2XL">2X-Large (2XL)</option>
-            </select>
-            <div id="essentials-error" class="error-msg">Please select a size.</div>
+          <label for="essentials-size" style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--muted);">
+            Select Size
+          </label>
+          <select id="essentials-size" class="size-select">
+            <option value="">Choose…</option>
+            <option value="S">Small (S)</option>
+            <option value="M">Medium (M)</option>
+            <option value="L">Large (L)</option>
+            <option value="XL">X-Large (XL)</option>
+            <option value="2XL">2X-Large (2XL)</option>
+          </select>
+          <div id="essentials-error" class="error-msg">Please select a size.</div>
 
-            <button class="buy-btn" id="essentials-buy">Buy Now</button>
+          <button class="buy-btn" id="essentials-buy">Buy Now</button>
 
-            <div style="font-size:0.8rem; margin-top:0.4rem; color:var(--muted);">
-              You’ll be redirected to our secure Stripe checkout to complete your order.
-            </div>
+          <div style="font-size:0.8rem; margin-top:0.4rem; color:var(--muted); font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+            You’ll be redirected to our secure Stripe checkout to complete your order.
           </div>
         </section>
 
@@ -782,32 +688,27 @@
             STATUS: AVAILABLE · $50 AUD
           </div>
 
-          <div class="cta-note">
-            <label for="anti-size" style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--muted);">
-              Select Size
-            </label>
-            <select id="anti-size" class="size-select">
-              <option value="">Choose…</option>
-              <option value="S">Small (S)</option>
-              <option value="M">Medium (M)</option>
-              <option value="L">Large (L)</option>
-              <option value="XL">X-Large (XL)</option>
-              <option value="2XL">2X-Large (2XL)</option>
-            </select>
-            <div id="anti-error" class="error-msg">Please select a size.</div>
+          <label for="anti-size" style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--muted);">
+            Select Size
+          </label>
+          <select id="anti-size" class="size-select">
+            <option value="">Choose…</option>
+            <option value="S">Small (S)</option>
+            <option value="M">Medium (M)</option>
+            <option value="L">Large (L)</option>
+            <option value="XL">X-Large (XL)</option>
+            <option value="2XL">2X-Large (2XL)</option>
+          </select>
+          <div id="anti-error" class="error-msg">Please select a size.</div>
 
-            <button class="buy-btn" id="anti-buy">Buy Now</button>
+          <button class="buy-btn" id="anti-buy">Buy Now</button>
 
-            <div style="font-size:0.8rem; margin-top:0.4rem; color:var(--muted);">
-              You’ll be redirected to our secure Stripe checkout to complete your order.
-            </div>
+          <div style="font-size:0.8rem; margin-top:0.4rem; color:var(--muted); font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+            You’ll be redirected to our secure Stripe checkout to complete your order.
           </div>
         </section>
 
-      </div>
-
-      <!-- Stickers (FIXED) -->
-      <!-- STICKER: CREST -->
+        <!-- STICKER: CREST -->
         <section class="product-card" id="sticker-crest">
           <div class="product-media">
             <img src="images/E9X%20AutoHaus%20Crest.png" alt="E9X AutoHaus Crest Sticker">
@@ -822,11 +723,10 @@
           </p>
 
           <div class="status">STATUS: AVAILABLE · $5.95 AUD</div>
-
           <button class="buy-btn" id="sticker-crest-buy">Buy Now</button>
         </section>
 
-        <!-- STICKER: E90 / SILHOUETTE -->
+        <!-- STICKER: E90 -->
         <section class="product-card" id="sticker-e90">
           <div class="product-media">
             <img src="images/E9X%20AutoHaus%20E90.png" alt="E9X AutoHaus E90 Sticker">
@@ -841,7 +741,6 @@
           </p>
 
           <div class="status">STATUS: AVAILABLE · $5.95 AUD</div>
-
           <button class="buy-btn" id="sticker-e90-buy">Buy Now</button>
         </section>
 
@@ -860,7 +759,6 @@
           </p>
 
           <div class="status">STATUS: AVAILABLE · $5.95 AUD</div>
-
           <button class="buy-btn" id="sticker-logo-buy">Buy Now</button>
         </section>
 
@@ -975,16 +873,33 @@
   setupShirtBuy('anti-size', 'anti-error', 'anti-buy', 'anti');
 
   // Stud kit buy button
-  const studBtn = document.getElementById('stud-buy');
-  if (studBtn && STUD_KIT_STRIPE_LINK) {
-    studBtn.addEventListener('click', () => window.location.href = STUD_KIT_STRIPE_LINK);
-  }
+  document.getElementById('stud-buy')?.addEventListener('click', () => {
+    window.location.href = STUD_KIT_STRIPE_LINK;
+  });
 
   // Brake kit buy button
-  const brakeBtn = document.getElementById('brake-buy');
-  if (brakeBtn && BRAKE_KIT_STRIPE_LINK) {
-    brakeBtn.addEventListener('click', () => window.location.href = BRAKE_KIT_STRIPE_LINK);
-  }
+  document.getElementById('brake-buy')?.addEventListener('click', () => {
+    window.location.href = BRAKE_KIT_STRIPE_LINK;
+  });
+
+  // Sticker Stripe links (added, like merch page)
+  const STICKER_LINKS = {
+    logo:  "https://buy.stripe.com/eVqdRa8PUgooeM24hb5c40d",
+    crest: "https://buy.stripe.com/cNibJ28PUa00gUa9Bv5c40e",
+    e90:   "https://buy.stripe.com/00w9AU9TY1tu6fw5lf5c40f"
+  };
+
+  document.getElementById('sticker-logo-buy')?.addEventListener('click', () => {
+    window.location.href = STICKER_LINKS.logo;
+  });
+
+  document.getElementById('sticker-crest-buy')?.addEventListener('click', () => {
+    window.location.href = STICKER_LINKS.crest;
+  });
+
+  document.getElementById('sticker-e90-buy')?.addEventListener('click', () => {
+    window.location.href = STICKER_LINKS.e90;
+  });
 
   // Shop dropdown: click-toggle (PC + mobile)
   (function () {
