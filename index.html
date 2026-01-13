@@ -247,7 +247,7 @@
       100%{opacity:0;}
     }
 
-    /* CTA buttons (Shop / Buy path) */
+    /* CTA buttons */
     .cta-row{
       margin: 1.2rem auto 0;
       display:flex;
@@ -317,12 +317,6 @@
       font-size: 0.8rem;
       color: var(--muted);
       line-height: 1.5;
-    }
-
-    @media (max-width: 600px){
-      .feature-card{
-        text-align: left;
-      }
     }
 
     /* Contact form */
@@ -444,9 +438,7 @@
       transition:color .2s ease;
     }
 
-    .socials a:hover{
-      color:var(--accent-red);
-    }
+    .socials a:hover{ color:var(--accent-red); }
 
     .socials svg{
       width:18px;
@@ -481,15 +473,15 @@
         <a href="/">Home</a>
         <a href="/enthusiasts.html">Built by Enthusiasts</a>
 
-        <!-- UPDATED: Click-toggle dropdown -->
+        <!-- UPDATED: Shop dropdown now points to landing + split pages -->
         <div class="nav-dropdown" id="shopDropdown">
           <a href="/products.html">Shop</a>
           <button class="nav-dropbtn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Open shop menu">
             <span class="nav-caret">▾</span>
           </button>
           <div class="dropdown-menu" role="menu" aria-label="Shop menu">
-            <a href="/products.html#hardware" role="menuitem">Street + Track</a>
-            <a href="/products.html#merch" role="menuitem">Merch</a>
+            <a href="/parts.html" role="menuitem">Street + Track</a>
+            <a href="/merch.html" role="menuitem">Merch</a>
           </div>
         </div>
 
@@ -518,7 +510,11 @@
 
       <!-- Shop path -->
       <div class="cta-row">
-        <a class="cta cta-primary" href="/products.html">View Products</a>
+        <!-- Keep this going to the new Shop landing page -->
+        <a class="cta cta-primary" href="/products.html">View Shop</a>
+        <!-- Optional: direct links (nice UX) -->
+        <a class="cta" href="/parts.html">Street + Track</a>
+        <a class="cta" href="/merch.html">Merch</a>
       </div>
 
       <!-- Feature row -->
@@ -595,8 +591,9 @@
                 <option value="" selected>Select one...</option>
                 <option value="Stud Kit">Wheel Stud Conversion Kit</option>
                 <option value="Brake Kit">Brake Kit</option>
-                <option value="Founders Tee">Founders Edition Tee</option>
-                <option value="Anti Wheel Bolt Club Tee">Anti Wheel Bolt Club Tee</option>
+                <option value="Parts / Hardware">Street + Track (Parts)</option>
+                <option value="Merch">Merch</option>
+                <option value="Sticker">Stickers</option>
                 <option value="Wholesale / Dealer">Wholesale / Dealer</option>
                 <option value="Other">Something Else</option>
               </select>
