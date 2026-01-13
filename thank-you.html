@@ -67,7 +67,6 @@
       letter-spacing:0.08em;
     }
 
-    /* Dynamic order summary text */
     #order-summary {
       margin-top: 1rem;
       font-size: 1.05rem;
@@ -85,11 +84,8 @@
       letter-spacing:0.12em;
     }
 
-    .slogan strong {
-      color:var(--accent-red);
-    }
+    .slogan strong { color:var(--accent-red); }
 
-    /* Buttons */
     .btn-row {
       display:flex;
       flex-wrap:wrap;
@@ -118,9 +114,7 @@
       color:var(--fg);
     }
 
-    .btn:hover {
-      opacity:0.85;
-    }
+    .btn:hover { opacity:0.85; }
 
     footer {
       margin-top:2.4rem;
@@ -144,7 +138,6 @@
       Your payment has been processed and confirmation will be emailed shortly.
     </p>
 
-    <!-- Dynamic order message -->
     <div id="order-summary">Thank you for your order.</div>
 
     <div class="slogan">
@@ -152,7 +145,9 @@
     </div>
 
     <div class="btn-row">
-      <a class="btn" href="/products.html">Continue Shopping</a>
+      <!-- If your new shop landing becomes /shop.html, keep this.
+           If not, change back to /products.html -->
+      <a class="btn" href="/shop.html">Continue Shopping</a>
       <a class="btn btn-secondary" href="/">Return Home</a>
     </div>
 
@@ -165,28 +160,60 @@
   <!-- JS: Read ?product=...&size=... and update summary -->
   <script>
     const params = new URLSearchParams(window.location.search);
-    const product = params.get("product");
+    const product = (params.get("product") || "").toLowerCase();
     const size = params.get("size");
 
     const summary = document.getElementById("order-summary");
 
+    // Friendly display names (add anything new here)
     const productNames = {
+      // Tees
       "essentials": "E9X AutoHaus Essentials Tee",
       "anti-wheel-bolt": "Anti Wheel Bolt Club Tee",
-      "stud-kit": "Wheel Stud Conversion Kit"
+
+      // Hardware
+      "stud-kit": "Wheel Stud Conversion Kit",
+      "brake-kit": "15\" Brake Clearance Kit",
+
+      // Stickers
+      "sticker-logo": "E9X AutoHaus Logo Sticker",
+      "sticker-crest": "E9X AutoHaus Crest Sticker",
+      "sticker-silhouette": "E9X AutoHaus E90 Silhouette Sticker"
     };
 
-    if (product === "stud-kit") {
-      summary.innerHTML = `
-        Thank you for ordering the <strong>Wheel Stud Conversion Kit</strong>.<br>
-        You’ll receive an email update when it is ready for pick-up.
-      `;
-    } else if (product && size) {
-      summary.textContent = `You purchased the ${productNames[product] || product} in size ${size}.`;
-    } else if (product) {
-      summary.textContent = `You purchased the ${productNames[product] || product}.`;
-    } else {
+    // Per-product extra notes
+    const productNotes = {
+      "stud-kit": "You’ll receive an email update when it is ready for dispatch or pick-up.",
+      "brake-kit": "We’ll email you shortly with next steps and any fitment confirmation needed.",
+      "sticker-logo": "Stickers ship quickly — keep an eye on your email for confirmation.",
+      "sticker-crest": "Stickers ship quickly — keep an eye on your email for confirmation.",
+      "sticker-silhouette": "Stickers ship quickly — keep an eye on your email for confirmation."
+    };
+
+    function setDefault() {
       summary.textContent = "Thank you for your order.";
+    }
+
+    if (!product) {
+      setDefault();
+    } else {
+      const niceName = productNames[product] || product;
+
+      // Shirts with size
+      if ((product === "essentials" || product === "anti-wheel-bolt") && size) {
+        summary.innerHTML = `
+          You purchased the <strong>${niceName}</strong> in size <strong>${size}</strong>.<br>
+          You’ll receive confirmation by email shortly.
+        `;
+      }
+      // Everything else
+      else {
+        const note = productNotes[product];
+        summary.innerHTML = `
+          Thank you for ordering the <strong>${niceName}</strong>.<br>
+          ${note ? note : "You’ll receive confirmation by email shortly."}
+        `;
+      }
     }
   </script>
 
