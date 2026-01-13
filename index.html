@@ -82,6 +82,7 @@
       letter-spacing:.14em;
       flex-wrap:wrap;
       justify-content:center;
+      align-items:center;
     }
 
     .nav-links a{
@@ -97,10 +98,70 @@
       border-bottom-color:var(--accent-red);
     }
 
+    /* Dropdown nav */
+    .nav-dropdown{ position: relative; }
+
+    .nav-dropdown > a{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+    }
+
+    .nav-caret{
+      font-size:.85em;
+      opacity:.8;
+      transform: translateY(-1px);
+    }
+
+    .dropdown-menu{
+      position:absolute;
+      top: calc(100% + 10px);
+      right:0;
+      min-width: 220px;
+      border:1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(2,3,8,.98);
+      backdrop-filter: blur(10px);
+      padding: 10px;
+      box-shadow: 0 18px 40px rgba(0,0,0,.7);
+      display:none;
+      z-index: 50;
+    }
+
+    .dropdown-menu a{
+      display:block;
+      padding: 10px 10px;
+      border-radius: 10px;
+      color: var(--muted);
+      text-decoration:none;
+      border-bottom: none;
+    }
+
+    .dropdown-menu a:hover{
+      color: var(--fg);
+      background: rgba(195,27,27,0.10);
+    }
+
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:focus-within .dropdown-menu{
+      display:block;
+    }
+
     @media(max-width:600px){
       .nav-inner{
         flex-direction:column;
         gap:.5rem;
+      }
+
+      .dropdown-menu{
+        position: static;
+        min-width: unset;
+        width: 100%;
+        margin-top: 8px;
+        display: block;
+        box-shadow: none;
+        background: transparent;
+        border: 1px solid var(--border);
       }
     }
 
@@ -172,7 +233,7 @@
       100%{opacity:0;}
     }
 
-    /* NEW: CTA buttons (Shop / Buy path) */
+    /* CTA buttons (Shop / Buy path) */
     .cta-row{
       margin: 1.2rem auto 0;
       display:flex;
@@ -205,17 +266,6 @@
     .cta-primary:hover{
       transform: translateY(-1px);
       filter: brightness(1.04);
-    }
-
-    .cta-secondary{
-      color: var(--fg);
-      background: rgba(5,7,15,.55);
-    }
-
-    .cta-secondary:hover{
-      border-color: rgba(195,27,27,.55);
-      color: var(--accent-red);
-      transform: translateY(-1px);
     }
 
     /* Feature row under hero */
@@ -261,18 +311,6 @@
       }
     }
 
-    .launch{
-      font-size:.88rem;
-      margin:1.6rem 0 1.4rem;
-    }
-
-    .launch span{
-      color:var(--accent-red);
-      font-weight:600;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
-
     /* Contact form */
     .contact-section{
       margin-top:2rem;
@@ -304,7 +342,6 @@
       padding-bottom:4px;
     }
 
-    /* Animated underline on focus */
     .field-group label::after{
       content:"";
       position:absolute;
@@ -429,7 +466,15 @@
       <nav class="nav-links">
         <a href="/">Home</a>
         <a href="/enthusiasts.html">Built by Enthusiasts</a>
-        <a href="/products.html">Products</a>
+
+        <div class="nav-dropdown">
+          <a href="/products.html">Shop <span class="nav-caret">▾</span></a>
+          <div class="dropdown-menu">
+            <a href="/products.html#hardware">Street + Track</a>
+            <a href="/products.html#merch">Merch</a>
+          </div>
+        </div>
+
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -453,7 +498,7 @@
         <div class="slogan-line">ZERO COMPROMISE.</div>
       </div>
 
-      <!-- NEW: Shop / Buy path -->
+      <!-- Shop path -->
       <div class="cta-row">
         <a class="cta cta-primary" href="/products.html">View Products</a>
       </div>
@@ -485,7 +530,7 @@
         </div>
       </div>
 
-      <!-- Contact / Early Access -->
+      <!-- Contact -->
       <section class="contact-section" id="contact">
         <div class="contact-inner">
 
@@ -531,6 +576,7 @@
               <select id="interest" name="interest" required>
                 <option value="" selected>Select one...</option>
                 <option value="Stud Kit">Wheel Stud Conversion Kit</option>
+                <option value="Brake Kit">Brake Kit</option>
                 <option value="Founders Tee">Founders Edition Tee</option>
                 <option value="Anti Wheel Bolt Club Tee">Anti Wheel Bolt Club Tee</option>
                 <option value="Wholesale / Dealer">Wholesale / Dealer</option>
@@ -546,7 +592,6 @@
 
             <button type="submit">Send Enquiry</button>
 
-            <!-- Inline success popup -->
             <div id="successPopup" style="
               display:none;
               margin-top:1rem;
@@ -616,5 +661,3 @@
 </script>
 </body>
 </html>
-
-
