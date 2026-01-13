@@ -28,95 +28,168 @@ body {
 }
 
 /* Header */
-    .site-header {
-      width: 100%;
-      padding: 0.6rem 1.4rem;
-      border-bottom: 1px solid var(--border);
-      background: rgba(2, 3, 8, 0.96);
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      z-index: 20;
-    }
+.site-header {
+  width: 100%;
+  padding: 0.6rem 1.4rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(2, 3, 8, 0.96);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
 
-    .nav-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+.nav-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-    .nav-brand {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-    }
+.nav-brand {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
 
-    .haus-red {
-      color: var(--accent-red);
-      text-shadow: 0 0 8px rgba(195, 27, 27, 0.35);
-    }
+.haus-red {
+  color: var(--accent-red);
+  text-shadow: 0 0 8px rgba(195, 27, 27, 0.35);
+}
 
-    .nav-links {
-      display: flex;
-      gap: 1.2rem;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-    }
+.nav-links {
+  display: flex;
+  gap: 1.2rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  align-items: center;
+}
 
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      padding-bottom: 2px;
-      transition: color 0.15s ease, border-bottom-color 0.15s ease;
-    }
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: color 0.15s ease, border-bottom-color 0.15s ease;
+}
 
-    .nav-links a:hover {
-      color: var(--fg);
-      border-bottom-color: var(--accent-red);
-    }
+.nav-links a:hover {
+  color: var(--fg);
+  border-bottom-color: var(--accent-red);
+}
 
-    /* Mobile header fix */
-    @media (max-width: 600px) {
-      .nav-inner {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.4rem;
-      }
+/* Dropdown nav (click-toggle) */
+.nav-dropdown{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
 
-      .nav-brand {
-        font-size: 0.85rem;
-        letter-spacing: 0.12em;
-        text-align: center;
-        white-space: nowrap;
-      }
+.nav-dropbtn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: rgba(5,7,15,.35);
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
 
-      .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.8rem;
-        font-size: 0.7rem;
-        letter-spacing: 0.1em;
-      }
-    }
+.nav-dropbtn:hover{
+  color: var(--fg);
+  border-color: rgba(195,27,27,.35);
+}
 
-    main {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2.4rem 1.4rem;
-    }
+.nav-caret{
+  font-size: .9rem;
+  opacity: .9;
+  transform: translateY(-1px);
+}
 
-    .wrap {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      text-align: center;
-    }
+.dropdown-menu{
+  position:absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  min-width: 220px;
+  border:1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(2,3,8,.98);
+  backdrop-filter: blur(10px);
+  padding: 8px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.7);
+  display:none;
+  z-index: 50;
+}
+
+.nav-dropdown.open .dropdown-menu{ display:block; }
+
+.dropdown-menu a{
+  display:block;
+  padding: 10px 10px;
+  border-radius: 10px;
+  color: var(--muted);
+  text-decoration:none;
+  border-bottom: none;
+}
+
+.dropdown-menu a:hover{
+  color: var(--fg);
+  background: rgba(195,27,27,0.10);
+}
+
+/* Mobile header fix */
+@media (max-width: 600px) {
+  .nav-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .nav-brand {
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+  }
+
+  .dropdown-menu{
+    left: 0;
+    right: 0;
+    width: 100%;
+    min-width: unset;
+  }
+}
+
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.4rem 1.4rem;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: center;
+}
 
 h1 {
   text-align: center;
@@ -180,7 +253,7 @@ footer {
   color: #ffffff;
   border-bottom-color: var(--accent-red);
 }
-  </style>
+</style>
 </head>
 <body>
 <div class="page">
@@ -190,7 +263,19 @@ footer {
       <nav class="nav-links">
         <a href="/">Home</a>
         <a href="/enthusiasts.html">Built by Enthusiasts</a>
-        <a href="/products.html">Products</a>
+
+        <!-- UPDATED: Shop dropdown -->
+        <div class="nav-dropdown" id="shopDropdown">
+          <a href="/shop.html">Shop</a>
+          <button class="nav-dropbtn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Open shop menu">
+            <span class="nav-caret">▾</span>
+          </button>
+          <div class="dropdown-menu" role="menu" aria-label="Shop menu">
+            <a href="/parts.html" role="menuitem">Street + Track</a>
+            <a href="/merch.html" role="menuitem">Merch</a>
+          </div>
+        </div>
+
         <a href="/index.html#contact">Contact</a>
       </nav>
     </div>
@@ -236,18 +321,50 @@ footer {
     © <span id="year"></span> E9X AutoHaus · North Brisbane, Australia
     <div class="mini-line">DESIGNED FOR THE DRIVE · TRUSTED AT THE LIMIT · ZERO COMPROMISE</div>
 
-       <div class="footer-links">
+    <div class="footer-links">
       <a href="/terms.html">Terms &amp; Conditions</a> ·
       <a href="/privacy.html">Privacy Policy</a> ·
       <a href="/returns.html">Returns &amp; Refunds</a> ·
       <a href="/warranty.html">Warranty &amp; Quality</a>
     </div>
   </footer>
-
 </div>
 
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Shop dropdown: click-toggle (PC + mobile)
+  (function () {
+    const dd = document.getElementById('shopDropdown');
+    if (!dd) return;
+
+    const btn = dd.querySelector('.nav-dropbtn');
+    const menu = dd.querySelector('.dropdown-menu');
+
+    function setOpen(isOpen) {
+      dd.classList.toggle('open', isOpen);
+      btn.setAttribute('aria-expanded', String(isOpen));
+    }
+
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      setOpen(!dd.classList.contains('open'));
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!dd.contains(e.target)) setOpen(false);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setOpen(false);
+    });
+
+    menu.addEventListener('click', function (e) {
+      const link = e.target.closest('a');
+      if (link) setOpen(false);
+    });
+  })();
 </script>
 
 </body>
