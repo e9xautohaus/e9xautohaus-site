@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Returns &amp; Refunds – E9X AutoHaus</title>
+<meta name="description" content="Returns and refunds policy for E9X AutoHaus orders. How to request a return, eligibility, and what to do if an item arrives damaged or faulty." />
 
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -20,11 +21,19 @@
 
 * { box-sizing: border-box; }
 
+html, body { max-width:100%; overflow-x:hidden; }
+
 body {
   margin: 0;
   font-family: 'Oswald', sans-serif;
   background: radial-gradient(circle at top, #141827, #020308);
   color: var(--fg);
+}
+
+.page{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
 }
 
 /* Header */
@@ -179,33 +188,49 @@ body {
 main {
   flex: 1;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 2.4rem 1.4rem;
+  padding: 2.6rem 1.4rem;
 }
 
 .wrap {
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  text-align: center;
 }
 
 h1 {
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.22em;
+  margin: 0 0 0.4rem;
 }
 
 .accent {
   width: 120px;
   height: 2px;
   background: linear-gradient(90deg, var(--accent-red), var(--accent-blue));
-  margin: 1.2rem auto 2.2rem;
+  margin: 1.2rem auto 1.8rem;
+}
+
+.intro{
+  text-align:center;
+  font-family: system-ui, sans-serif;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 740px;
+  margin: 0 auto 1.4rem;
+}
+
+.section{
+  max-width: 740px;
+  margin: 0 auto;
+  text-align: left;
 }
 
 h2 {
-  margin-top: 2rem;
+  margin-top: 1.6rem;
   font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -215,28 +240,33 @@ p, li {
   font-family: system-ui, sans-serif;
   color: var(--muted);
   font-size: 0.94rem;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 ul{
-  max-width: 740px;
-  margin: 0.6rem auto 0;
+  margin: 0.6rem 0 0;
   padding-left: 1.2rem;
-  text-align: left;
 }
 
 .note {
-  max-width: 740px;
-  margin: 1.1rem auto 0;
+  margin-top: 1.1rem;
   padding: 0.9rem 1rem;
   border-radius: 12px;
   border: 1px dashed var(--border);
   background: rgba(2,3,8,0.55);
-  text-align: left;
 }
 
-.note strong{
-  color: var(--fg);
+.note strong{ color: var(--fg); }
+
+a{
+  color: var(--accent-red);
+  text-decoration:none;
+  border-bottom:1px solid rgba(195,27,27,.5);
+}
+
+a:hover{
+  color:#fff;
+  border-bottom-color: var(--accent-red);
 }
 
 footer {
@@ -307,39 +337,45 @@ footer {
       <h1>Returns &amp; Refunds</h1>
       <div class="accent"></div>
 
-      <h2>1. Change of Mind</h2>
-      <p>
-        If you change your mind, contact us as soon as possible. If your order has not shipped yet,
-        we’ll do our best to cancel or adjust it.
+      <p class="intro">
+        If something isn’t right, we’ll sort it. This page explains how returns work for E9X AutoHaus orders.
       </p>
 
-      <h2>2. Faulty or Damaged Items</h2>
-      <p>
-        If an item arrives damaged or faulty, email us with your order details and clear photos.
-        We’ll organise a replacement, repair, or refund where appropriate.
-      </p>
+      <div class="section">
+        <h2>1. Change of Mind</h2>
+        <p>
+          If you change your mind, contact us as soon as possible. If your order has not shipped yet,
+          we’ll do our best to cancel or adjust it.
+        </p>
 
-      <h2>3. Eligibility</h2>
-      <p>
-        To be eligible for a return, the item must be unused and in original condition/packaging.
-        Some items may not be eligible due to safety or hygiene reasons.
-      </p>
+        <h2>2. Faulty or Damaged Items</h2>
+        <p>
+          If an item arrives damaged or faulty, email us with your order details and clear photos.
+          We’ll organise a replacement, repair, or refund where appropriate.
+        </p>
 
-      <h2>4. Return Process</h2>
-      <ul>
-        <li>Email <strong>info@e9xautohaus.com</strong> with your order number and reason for return.</li>
-        <li>We’ll reply with return instructions and the correct return address.</li>
-        <li>Once received and inspected, we’ll confirm the outcome via email.</li>
-      </ul>
+        <h2>3. Eligibility</h2>
+        <p>
+          To be eligible for a return, the item must be unused and in original condition/packaging.
+          Some items may not be eligible due to safety or hygiene reasons.
+        </p>
 
-      <h2>5. Shipping Costs</h2>
-      <p>
-        Return shipping is generally the buyer’s responsibility unless the item is faulty or incorrect.
-      </p>
+        <h2>4. Return Process</h2>
+        <ul>
+          <li>Email <a href="mailto:info@e9xautohaus.com"><strong>info@e9xautohaus.com</strong></a> with your order number and reason for return.</li>
+          <li>We’ll reply with return instructions and the correct return address.</li>
+          <li>Once received and inspected, we’ll confirm the outcome via email.</li>
+        </ul>
 
-      <div class="note">
-        <strong>Note:</strong> Some of our hardware is intended for motorsport/track use.
-        If you’re unsure about fitment or compatibility, contact us before ordering and we’ll help you choose correctly.
+        <h2>5. Shipping Costs</h2>
+        <p>
+          Return shipping is generally the buyer’s responsibility unless the item is faulty or incorrect.
+        </p>
+
+        <div class="note">
+          <strong>Note:</strong> Some of our hardware is intended for motorsport/track use.
+          If you’re unsure about fitment or compatibility, contact us before ordering and we’ll help you choose correctly.
+        </div>
       </div>
     </div>
   </main>
