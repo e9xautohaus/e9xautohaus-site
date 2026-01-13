@@ -1,1 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Merch – E9X AutoHaus</title>
+  <meta name="description" content="E9X AutoHaus merch – tees and stickers." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#020308; --fg:#f5f5f7; --muted:#9b9fb0; --border:#262a38;
+      --accent-red:#c31b1b; --accent-blue:#2c7af7; --max-width:900px;
+    }
+    *{box-sizing:border-box;}
+    html,body{width:100%;max-width:100%;overflow-x:hidden;}
+    body{
+      margin:0;
+      font-family:'Oswald',system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:radial-gradient(circle at top,#141827 0,#050611 40%,#020308 100%);
+      color:var(--fg);
+      line-height:1.5;
+    }
+    .page{min-height:100vh;display:flex;flex-direction:column;}
+
+    /* Header nav */
+    .site-header{
+      width:100%;
+      padding:0.6rem 1.4rem;
+      border-bottom:1px solid var(--border);
+      background:rgba(2,3,8,0.96);
+      backdrop-filter:blur(10px);
+      position:sticky;
+      top:0;
+      z-index:20;
+    }
+    .nav-inner{
+      max-width:var(--max-width);
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .nav-brand{
+      font-size:0.9rem;
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      white-space:nowrap;
+    }
+    .haus-red{color:var(--accent-red);text-shadow:0 0 8px rgba(195,27,27,0.35);}
+    .nav-links{
+      display:flex;
+      gap:1.2rem;
+      font-size:0.78rem;
+      text-transform:uppercase;
+      letter-spacing:0.14em;
+      flex-wrap:wrap;
+      justify-content:center;
+      align-items:center;
+    }
+    .nav-links a{
+      color:var(--muted);
+      text-decoration:none;
+      border-bottom:1px solid transparent;
+      padding-bottom:2px;
+      transition:color .15s ease,border-bottom-color .15s ease;
+    }
+    .nav-links a:hover{color:var(--fg);border-bottom-color:var(--accent-red);}
+
+    /* Dropdown nav (click-toggle) */
+    .nav-dropdown{position:relative;display:inline-flex;align-items:center;gap:8px;}
+    .nav-dropbtn{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:28px;height:28px;border-radius:8px;border:1px solid transparent;
+      background:rgba(5,7,15,.35);color:var(--muted);cursor:pointer;padding:0;line-height:1;
+    }
+    .nav-dropbtn:hover{color:var(--fg);border-color:rgba(195,27,27,.35);}
+    .nav-caret{font-size:.9rem;opacity:.9;transform:translateY(-1px);}
+    .dropdown-menu{
+      position:absolute;top:calc(100% + 12px);right:0;min-width:220px;
+      border:1px solid var(--border);border-radius:12px;background:rgba(2,3,8,.98);
+      backdrop-filter:blur(10px);padding:8px;box-shadow:0 18px 40px rgba(0,0,0,.7);
+      display:none;z-index:50;
+    }
+    .nav-dropdown.open .dropdown-menu{display:block;}
+    .dropdown-menu a{
+      display:block;padding:10px 10px;border-radius:10px;color:var(--muted);
+      text-decoration:none;border-bottom:none;
+    }
+    .dropdown-menu a:hover{color:var(--fg);background:rgba(195,27,27,0.10);}
+
+    @media(max-width:600px){
+      .nav-inner{flex-direction:column;align-items:center;gap:.4rem;}
+      .nav-brand{font-size:.85rem;letter-spacing:.12em;text-align:center;white-space:nowrap;}
+      .nav-links{flex-wrap:wrap;justify-content:center;gap:.8rem;font-size:.7rem;letter-spacing:.1em;}
+      .dropdown-menu{left:0;right:0;width:100%;min-width:unset;}
+    }
+
+    /* Main */
+    main{flex:1;display:flex;justify-content:center;padding:2.8rem 1.6rem 2.8rem;}
+    .wrap{width:100%;max-width:var(--max-width);margin:0 auto;}
+    h1{
+      text-align:center;margin:0 0 .4rem;
+      font-size:clamp(1.7rem,2.2vw + 1.3rem,2.1rem);
+      text-transform:uppercase;letter-spacing:.22em;
+    }
+    .accent{
+      width:140px;height:2px;background:linear-gradient(90deg,var(--accent-red),var(--accent-blue));
+      margin:1.2rem auto 2.2rem;
+    }
+    .intro{
+      text-align:center;margin-bottom:2.4rem;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--muted);font-size:.95rem;line-height:1.7;
+    }
+
+    .product-grid{display:grid;gap:1.6rem;}
+    @media(min-width:760px){.product-grid{grid-template-columns:1fr 1fr;}}
+    .product-card{
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:1.4rem 1.3rem 1.5rem;
+      background:rgba(4,6,16,.9);
+      box-shadow:0 18px 40px rgba(0,0,0,.65);
+    }
+    .product-media{margin-bottom:1.1rem;}
+    .product-card img{width:100%;border-radius:10px;display:block;}
+    .product-tag{
+      display:inline-block;font-size:.7rem;text-transform:uppercase;letter-spacing:.14em;
+      color:var(--muted);margin-bottom:.35rem;
+    }
+    .product-title{
+      font-size:1.05rem;text-transform:uppercase;letter-spacing:.14em;margin:.1rem 0 .4rem;
+    }
+    .product-sub{
+      font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.9rem;
+    }
+    .product-desc{
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--muted);font-size:.9rem;line-height:1.6;margin-bottom:.5rem;
+    }
+    .status{
+      font-size:.8rem;text-transform:uppercase;letter-spacing:.14em;color:var(--accent-red);margin-top:.8rem;
+    }
+
+    /* Slider */
+    .slider{position:relative;overflow:hidden;border-radius:10px;}
+    .shirt-slide{display:none;}
+    .shirt-slide.active{display:block;}
+    .slider-btn{
+      position:absolute;top:50%;transform:translateY(-50%);
+      width:28px;height:28px;border-radius:50%;
+      border:1px solid rgba(245,245,247,0.4);
+      background:rgba(3,4,12,0.85);
+      color:var(--fg);font-size:1rem;
+      display:flex;align-items:center;justify-content:center;
+      cursor:pointer;padding:0;
+    }
+    .slider-btn:hover{border-color:var(--accent-red);}
+    .slider-btn.prev{left:8px;}
+    .slider-btn.next{right:8px;}
+    .slider-dots{margin-top:.6rem;text-align:center;}
+    .slider-dot{
+      display:inline-block;width:7px;height:7px;border-radius:50%;
+      margin:0 4px;background:rgba(155,159,176,0.5);cursor:pointer;
+    }
+    .slider-dot.active{background:var(--accent-red);}
+
+    /* Tee size */
+    .size-select{
+      width:100%;padding:10px;border-radius:8px;background:#05060c;color:var(--fg);
+      border:1px solid var(--border);margin-top:6px;font-size:.9rem;
+    }
+    .buy-btn{
+      margin-top:12px;width:100%;
+      padding:12px;border:none;border-radius:8px;background:var(--accent-red);color:#fff;
+      font-family:'Oswald',system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      text-transform:uppercase;letter-spacing:.18em;cursor:pointer;font-size:.85rem;
+    }
+    .buy-btn:hover{opacity:.94;}
+    .error-msg{display:none;color:#ff6b6b;font-size:.75rem;margin-top:4px;}
+
+    footer{
+      padding:0.9rem 1.4rem 1.5rem;
+      font-size:0.75rem;color:var(--muted);text-align:center;
+      border-top:1px solid var(--border);
+      background:rgba(2,3,8,0.96);
+      backdrop-filter:blur(8px);
+    }
+    .mini-line{font-size:.7rem;margin-top:.3rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+  </style>
+</head>
+
+<body>
+<div class="page" id="top">
+
+  <header class="site-header">
+    <div class="nav-inner">
+      <div class="nav-brand">E9X Auto<span class="haus-red">Haus</span></div>
+
+      <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="/enthusiasts.html">Built by Enthusiasts</a>
+
+        <div class="nav-dropdown" id="shopDropdown">
+          <a href="/products.html">Shop</a>
+          <button class="nav-dropbtn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Open shop menu">
+            <span class="nav-caret">▾</span>
+          </button>
+          <div class="dropdown-menu" role="menu" aria-label="Shop menu">
+            <a href="/parts.html" role="menuitem">Street + Track</a>
+            <a href="/merch.html" role="menuitem">Merch</a>
+          </div>
+        </div>
+
+        <a href="/index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <h1>Merch</h1>
+      <div class="accent"></div>
+
+      <div class="intro">
+        Shirts and sticker range — built to match the brand, simple and clean.
+      </div>
+
+      <div class="product-grid">
+
+        <!-- ESSENTIALS TEE -->
+        <section class="product-card" id="essentials-tee">
+          <div class="product-media">
+            <div class="slider">
+              <div class="shirt-slide active">
+                <img src="images/shirt-1.jfif" alt="Essentials Tee front">
+              </div>
+              <div class="shirt-slide">
+                <img src="images/shirt-2.jfif" alt="Essentials Tee rear">
+              </div>
+              <button class="slider-btn prev" type="button" aria-label="Previous image">&#10094;</button>
+              <button class="slider-btn next" type="button" aria-label="Next image">&#10095;</button>
+            </div>
+            <div class="slider-dots">
+              <span class="slider-dot active" data-slide="0"></span>
+              <span class="slider-dot" data-slide="1"></span>
+            </div>
+          </div>
+
+          <div class="product-tag">Merch · Essentials</div>
+          <h2 class="product-title">E9X AutoHaus Essentials Tee</h2>
+          <div class="product-sub">Designed for the Drive · Trusted at the Limit · Zero Compromise</div>
+
+          <p class="product-desc">
+            Minimal front crest, full rear motorsport-inspired graphic. Built for daily comfort and street + track use.
+          </p>
+
+          <div class="status">STATUS: AVAILABLE · $50 AUD</div>
+
+          <label for="essentials-size" style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--muted);">
+            Select Size
+          </label>
+          <select id="essentials-size" class="size-select">
+            <option value="">Choose…</option>
+            <option value="S">Small (S)</option>
+            <option value="M">Medium (M)</option>
+            <option value="L">Large (L)</option>
+            <option value="XL">X-Large (XL)</option>
+            <option value="2XL">2X-Large (2XL)</option>
+          </select>
+          <div id="essentials-error" class="error-msg">Please select a size.</div>
+
+          <button class="buy-btn" id="essentials-buy">Buy Now</button>
+        </section>
+
+        <!-- ANTI WHEEL BOLT CLUB TEE -->
+        <section class="product-card" id="anti-tee">
+          <div class="product-media">
+            <div class="slider">
+              <div class="shirt-slide active">
+                <img src="images/shirt-1.jfif" alt="Anti Wheel Bolt Club Tee front">
+              </div>
+              <div class="shirt-slide">
+                <img src="images/anti wheel bolt.jfif" alt="Anti Wheel Bolt Club Tee rear">
+              </div>
+              <button class="slider-btn prev" type="button" aria-label="Previous image">&#10094;</button>
+              <button class="slider-btn next" type="button" aria-label="Next image">&#10095;</button>
+            </div>
+            <div class="slider-dots">
+              <span class="slider-dot active" data-slide="0"></span>
+              <span class="slider-dot" data-slide="1"></span>
+            </div>
+          </div>
+
+          <div class="product-tag">Merch · Anti Wheel Bolt Club</div>
+          <h2 class="product-title">Anti Wheel Bolt Club Tee</h2>
+          <div class="product-sub">Because studs &gt; bolts · Street + Track</div>
+
+          <p class="product-desc">
+            Crest on the front, bold rear typography and stud artwork. Track days, workshop sessions, and calling out wheel bolts.
+          </p>
+
+          <div class="status">STATUS: AVAILABLE · $50 AUD</div>
+
+          <label for="anti-size" style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--muted);">
+            Select Size
+          </label>
+          <select id="anti-size" class="size-select">
+            <option value="">Choose…</option>
+            <option value="S">Small (S)</option>
+            <option value="M">Medium (M)</option>
+            <option value="L">Large (L)</option>
+            <option value="XL">X-Large (XL)</option>
+            <option value="2XL">2X-Large (2XL)</option>
+          </select>
+          <div id="anti-error" class="error-msg">Please select a size.</div>
+
+          <button class="buy-btn" id="anti-buy">Buy Now</button>
+        </section>
+
+        <!-- STICKER: CREST -->
+        <section class="product-card" id="sticker-crest">
+          <div class="product-media">
+            <img src="images/E9X%20AutoHaus%20Crest.png" alt="E9X AutoHaus Crest Sticker">
+          </div>
+
+          <div class="product-tag">Stickers</div>
+          <h2 class="product-title">E9X AutoHaus Crest Sticker</h2>
+          <div class="product-sub">$5.95 AUD</div>
+
+          <p class="product-desc">
+            Clean crest sticker to match the brand. Perfect for toolboxes, windows, laptops, and workshop gear.
+          </p>
+
+          <div class="status">STATUS: AVAILABLE · $5.95 AUD</div>
+
+          <button class="buy-btn" id="sticker-crest-buy">Buy Now</button>
+        </section>
+
+        <!-- STICKER: E90 / SILHOUETTE -->
+        <section class="product-card" id="sticker-e90">
+          <div class="product-media">
+            <img src="images/E9X%20AutoHaus%20E90.png" alt="E9X AutoHaus E90 Sticker">
+          </div>
+
+          <div class="product-tag">Stickers</div>
+          <h2 class="product-title">E9X AutoHaus E90 Sticker</h2>
+          <div class="product-sub">$5.95 AUD</div>
+
+          <p class="product-desc">
+            E90 silhouette sticker with the signature AutoHaus styling. Built for the people who actually drive them.
+          </p>
+
+          <div class="status">STATUS: AVAILABLE · $5.95 AUD</div>
+
+          <button class="buy-btn" id="sticker-e90-buy">Buy Now</button>
+        </section>
+
+        <!-- STICKER: LOGO -->
+        <section class="product-card" id="sticker-logo">
+          <div class="product-media">
+            <img src="images/E9X%20AutoHaus%20Logo.png" alt="E9X AutoHaus Logo Sticker">
+          </div>
+
+          <div class="product-tag">Stickers</div>
+          <h2 class="product-title">E9X AutoHaus Logo Sticker</h2>
+          <div class="product-sub">$5.95 AUD</div>
+
+          <p class="product-desc">
+            The classic logo sticker. Simple, bold, and fits anywhere.
+          </p>
+
+          <div class="status">STATUS: AVAILABLE · $5.95 AUD</div>
+
+          <button class="buy-btn" id="sticker-logo-buy">Buy Now</button>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="year"></span> E9X AutoHaus · North Brisbane, Australia
+    <div class="mini-line">DESIGNED FOR THE DRIVE · TRUSTED AT THE LIMIT · ZERO COMPROMISE</div>
+  </footer>
+</div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Slider logic: supports multiple sliders on the page
+  document.querySelectorAll('.product-card .slider').forEach(function (slider) {
+    const card = slider.closest('.product-card');
+    const slides = slider.querySelectorAll('.shirt-slide');
+    const dots = card.querySelectorAll('.slider-dots .slider-dot');
+    const prevBtn = slider.querySelector('.slider-btn.prev');
+    const nextBtn = slider.querySelector('.slider-btn.next');
+    let current = 0;
+
+    function showSlide(index) {
+      slides.forEach((s, i) => s.classList.toggle('active', i === index));
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+      current = index;
+    }
+    function nextSlide(){ showSlide((current + 1) % slides.length); }
+    function prevSlide(){ showSlide((current - 1 + slides.length) % slides.length); }
+
+    nextBtn?.addEventListener('click', nextSlide);
+    prevBtn?.addEventListener('click', prevSlide);
+    dots.forEach((dot, i) => dot.addEventListener('click', () => showSlide(i)));
+  });
+
+  // Stripe links for tees
+  const STRIPE_LINKS = {
+    essentials: {
+      S:  "https://buy.stripe.com/8x26oI2rwegg7jAfZT5c400",
+      M:  "https://buy.stripe.com/dRm8wQ3vA2xygUabJD5c401",
+      L:  "https://buy.stripe.com/3cI00kaY21tu8nE9Bv5c402",
+      XL: "https://buy.stripe.com/3cI7sM3vAdcc8nE8xr5c403",
+      "2XL": "https://buy.stripe.com/cNidRaaY28VW47o14Z5c404"
+    },
+    anti: {
+      S:  "https://buy.stripe.com/dRm00kc266NO5bs5lf5c405",
+      M:  "https://buy.stripe.com/dRmcN6d6afkkdHY7tn5c406",
+      L:  "https://buy.stripe.com/9B63cweaedccgUa9Bv5c407",
+      XL: "https://buy.stripe.com/bJe28seaefkkgUa00V5c408",
+      "2XL": "https://buy.stripe.com/8x2eVeeaea00cDU6pj5c409"
+    }
+  };
+
+  function setupShirtBuy(selectId, errorId, buttonId, key) {
+    const select = document.getElementById(selectId);
+    const error = document.getElementById(errorId);
+    const btn = document.getElementById(buttonId);
+    if (!select || !error || !btn) return;
+
+    btn.addEventListener('click', function () {
+      const size = select.value;
+      if (!size || !STRIPE_LINKS[key][size]) {
+        error.style.display = 'block';
+        return;
+      }
+      error.style.display = 'none';
+      window.location.href = STRIPE_LINKS[key][size];
+    });
+  }
+
+  setupShirtBuy('essentials-size', 'essentials-error', 'essentials-buy', 'essentials');
+  setupShirtBuy('anti-size', 'anti-error', 'anti-buy', 'anti');
+
+  // Sticker Stripe links (NEW)
+  const STICKER_LINKS = {
+    logo:  "https://buy.stripe.com/eVqdRa8PUgooeM24hb5c40d",
+    crest: "https://buy.stripe.com/cNibJ28PUa00gUa9Bv5c40e",
+    e90:   "https://buy.stripe.com/00w9AU9TY1tu6fw5lf5c40f"
+  };
+
+  document.getElementById('sticker-logo-buy')?.addEventListener('click', () => {
+    window.location.href = STICKER_LINKS.logo;
+  });
+
+  document.getElementById('sticker-crest-buy')?.addEventListener('click', () => {
+    window.location.href = STICKER_LINKS.crest;
+  });
+
+  document.getElementById('sticker-e90-buy')?.addEventListener('click', () => {
+    window.location.href = STICKER_LINKS.e90;
+  });
+
+  // Shop dropdown: click-toggle (PC + mobile)
+  (function () {
+    const dd = document.getElementById('shopDropdown');
+    if (!dd) return;
+
+    const btn = dd.querySelector('.nav-dropbtn');
+
+    function setOpen(isOpen) {
+      dd.classList.toggle('open', isOpen);
+      btn.setAttribute('aria-expanded', String(isOpen));
+    }
+
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      setOpen(!dd.classList.contains('open'));
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!dd.contains(e.target)) setOpen(false);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setOpen(false);
+    });
+
+    dd.querySelector('.dropdown-menu')?.addEventListener('click', function (e) {
+      const link = e.target.closest('a');
+      if (link) setOpen(false);
+    });
+  })();
+</script>
+</body>
+</html>
 
