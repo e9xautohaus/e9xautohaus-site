@@ -1,1 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parts – E9X AutoHaus</title>
+  <meta name="description" content="E9X AutoHaus parts – street + track focused hardware for E9X and E8X BMWs." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#020308; --fg:#f5f5f7; --muted:#9b9fb0; --border:#262a38;
+      --accent-red:#c31b1b; --accent-blue:#2c7af7; --max-width:900px;
+    }
+    *{box-sizing:border-box;}
+    html,body{width:100%;max-width:100%;overflow-x:hidden;}
+    body{
+      margin:0;
+      font-family:'Oswald',system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:radial-gradient(circle at top,#141827 0,#050611 40%,#020308 100%);
+      color:var(--fg);
+      line-height:1.5;
+    }
+    .page{min-height:100vh;display:flex;flex-direction:column;}
+
+    /* Header nav */
+    .site-header{
+      width:100%;
+      padding:0.6rem 1.4rem;
+      border-bottom:1px solid var(--border);
+      background:rgba(2,3,8,0.96);
+      backdrop-filter:blur(10px);
+      position:sticky;
+      top:0;
+      z-index:20;
+    }
+    .nav-inner{
+      max-width:var(--max-width);
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .nav-brand{
+      font-size:0.9rem;
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      white-space:nowrap;
+    }
+    .haus-red{color:var(--accent-red);text-shadow:0 0 8px rgba(195,27,27,0.35);}
+    .nav-links{
+      display:flex;
+      gap:1.2rem;
+      font-size:0.78rem;
+      text-transform:uppercase;
+      letter-spacing:0.14em;
+      flex-wrap:wrap;
+      justify-content:center;
+      align-items:center;
+    }
+    .nav-links a{
+      color:var(--muted);
+      text-decoration:none;
+      border-bottom:1px solid transparent;
+      padding-bottom:2px;
+      transition:color .15s ease,border-bottom-color .15s ease;
+    }
+    .nav-links a:hover{color:var(--fg);border-bottom-color:var(--accent-red);}
+
+    /* Dropdown nav (click-toggle) */
+    .nav-dropdown{position:relative;display:inline-flex;align-items:center;gap:8px;}
+    .nav-dropbtn{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:28px;height:28px;border-radius:8px;border:1px solid transparent;
+      background:rgba(5,7,15,.35);color:var(--muted);cursor:pointer;padding:0;line-height:1;
+    }
+    .nav-dropbtn:hover{color:var(--fg);border-color:rgba(195,27,27,.35);}
+    .nav-caret{font-size:.9rem;opacity:.9;transform:translateY(-1px);}
+    .dropdown-menu{
+      position:absolute;top:calc(100% + 12px);right:0;min-width:220px;
+      border:1px solid var(--border);border-radius:12px;background:rgba(2,3,8,.98);
+      backdrop-filter:blur(10px);padding:8px;box-shadow:0 18px 40px rgba(0,0,0,.7);
+      display:none;z-index:50;
+    }
+    .nav-dropdown.open .dropdown-menu{display:block;}
+    .dropdown-menu a{
+      display:block;padding:10px 10px;border-radius:10px;color:var(--muted);
+      text-decoration:none;border-bottom:none;
+    }
+    .dropdown-menu a:hover{color:var(--fg);background:rgba(195,27,27,0.10);}
+
+    @media(max-width:600px){
+      .nav-inner{flex-direction:column;align-items:center;gap:.4rem;}
+      .nav-brand{font-size:.85rem;letter-spacing:.12em;text-align:center;white-space:nowrap;}
+      .nav-links{flex-wrap:wrap;justify-content:center;gap:.8rem;font-size:.7rem;letter-spacing:.1em;}
+      .dropdown-menu{left:0;right:0;width:100%;min-width:unset;}
+    }
+
+    /* Main */
+    main{flex:1;display:flex;justify-content:center;padding:2.8rem 1.6rem 2.8rem;}
+    .wrap{width:100%;max-width:var(--max-width);margin:0 auto;}
+    h1{
+      text-align:center;margin:0 0 .4rem;
+      font-size:clamp(1.7rem,2.2vw + 1.3rem,2.1rem);
+      text-transform:uppercase;letter-spacing:.22em;
+    }
+    .accent{
+      width:140px;height:2px;background:linear-gradient(90deg,var(--accent-red),var(--accent-blue));
+      margin:1.2rem auto 2.2rem;
+    }
+    .intro{
+      text-align:center;margin-bottom:2.4rem;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--muted);font-size:.95rem;line-height:1.7;
+    }
+
+    .product-grid{display:grid;gap:1.6rem;}
+    @media(min-width:760px){.product-grid{grid-template-columns:1fr 1fr;}}
+    .product-card{
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:1.4rem 1.3rem 1.5rem;
+      background:rgba(4,6,16,.9);
+      box-shadow:0 18px 40px rgba(0,0,0,.65);
+    }
+    .product-media{margin-bottom:1.1rem;}
+    .product-card img{width:100%;border-radius:10px;display:block;}
+    .product-tag{
+      display:inline-block;font-size:.7rem;text-transform:uppercase;letter-spacing:.14em;
+      color:var(--muted);margin-bottom:.35rem;
+    }
+    .product-title{
+      font-size:1.05rem;text-transform:uppercase;letter-spacing:.14em;margin:.1rem 0 .4rem;
+    }
+    .product-sub{
+      font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.9rem;
+    }
+    .spec-list{margin:.4rem 0 .8rem 1.1rem;padding:0;list-style:disc;}
+    .spec-list li{
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--muted);font-size:.9rem;line-height:1.6;margin-bottom:.2rem;
+    }
+    .status{
+      font-size:.8rem;text-transform:uppercase;letter-spacing:.14em;color:var(--accent-red);margin-top:.8rem;
+    }
+    .cta-note{
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      font-size:.9rem;color:var(--muted);margin-top:.9rem;
+    }
+    .buy-btn{
+      margin-top:12px;width:100%;
+      padding:12px;border:none;border-radius:8px;background:var(--accent-red);color:#fff;
+      font-family:'Oswald',system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      text-transform:uppercase;letter-spacing:.18em;cursor:pointer;font-size:.85rem;
+    }
+    .buy-btn:hover{opacity:.94;}
+
+    footer{
+      padding:0.9rem 1.4rem 1.5rem;
+      font-size:0.75rem;color:var(--muted);text-align:center;
+      border-top:1px solid var(--border);
+      background:rgba(2,3,8,0.96);
+      backdrop-filter:blur(8px);
+    }
+    .mini-line{font-size:.7rem;margin-top:.3rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+  </style>
+</head>
+
+<body>
+<div class="page" id="top">
+
+  <header class="site-header">
+    <div class="nav-inner">
+      <div class="nav-brand">E9X Auto<span class="haus-red">Haus</span></div>
+
+      <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="/enthusiasts.html">Built by Enthusiasts</a>
+
+        <div class="nav-dropdown" id="shopDropdown">
+          <a href="/products.html">Shop</a>
+          <button class="nav-dropbtn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Open shop menu">
+            <span class="nav-caret">▾</span>
+          </button>
+          <div class="dropdown-menu" role="menu" aria-label="Shop menu">
+            <a href="/parts.html" role="menuitem">Street + Track</a>
+            <a href="/merch.html" role="menuitem">Merch</a>
+          </div>
+        </div>
+
+        <a href="/index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <h1>Parts</h1>
+      <div class="accent"></div>
+
+      <div class="intro">
+        Street + track focused hardware for E9X and E8X BMWs — proven, serviceable, and built for real use.
+      </div>
+
+      <div class="product-grid">
+
+        <!-- STUD KIT -->
+        <section class="product-card" id="studs">
+          <div class="product-media">
+            <img src="images/wheel stud 1.jpg" alt="E9X AutoHaus Wheel Stud Conversion Kit">
+          </div>
+
+          <div class="product-tag">Track Essentials · Founders Run</div>
+          <h2 class="product-title">Wheel Stud Conversion Kit</h2>
+          <div class="product-sub">For E9X / E8X BMW Platforms</div>
+
+          <ul class="spec-list">
+            <li>20× black wheel studs and 20× black wheel nuts.</li>
+            <li>75mm length, M12 × 1.5 thread, 19mm hex nuts.</li>
+            <li>Designed for repeat wheel changes and track use.</li>
+            <li>Developed by E9X owners, intended for real street + track duty.</li>
+          </ul>
+
+          <div class="status">STATUS: AVAILABLE · LIMITED FIRST RUN · PRICE: $249 AUD</div>
+
+          <button class="buy-btn" id="stud-buy">Buy Now</button>
+
+          <div class="cta-note">
+            You’ll be redirected to our secure Stripe checkout to complete your order.
+          </div>
+        </section>
+
+        <!-- BRAKE KIT -->
+        <section class="product-card" id="brake-kit">
+          <div class="product-media">
+            <!-- If your image is .jpg, change to 1000001893.jpg -->
+            <img src="images/1000001893.png" alt="E9X AutoHaus Brake Kit">
+          </div>
+
+          <div class="product-tag">Street + Track · 15&quot; Brake Clearance</div>
+          <h2 class="product-title">15&quot; Brake Clearance Kit</h2>
+          <div class="product-sub">E9X / E8X Conversion</div>
+
+          <ul class="spec-list">
+            <li>Conversion package designed for 15&quot; drag wheels and tyres.</li>
+            <li>Replacement calipers, carriers and rotors.</li>
+            <li>Built around proven OEM components for availability and serviceability.</li>
+            <li>Hardware-focused, no-nonsense setup intended for real street + track use.</li>
+          </ul>
+
+          <div class="status">STATUS: AVAILABLE · PRICE: $649 AUD</div>
+
+          <button class="buy-btn" id="brake-buy">Buy Now</button>
+
+          <div class="cta-note">
+            You’ll be redirected to our secure Stripe checkout to complete your order.
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="year"></span> E9X AutoHaus · North Brisbane, Australia
+    <div class="mini-line">DESIGNED FOR THE DRIVE · TRUSTED AT THE LIMIT · ZERO COMPROMISE</div>
+  </footer>
+</div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const STUD_KIT_STRIPE_LINK  = "https://buy.stripe.com/aFa14ogim1tu1ZgdRL5c40a";
+  const BRAKE_KIT_STRIPE_LINK = "https://buy.stripe.com/9B68wQ9TY5JKgUa14Z5c40c";
+
+  document.getElementById('stud-buy')?.addEventListener('click', () => {
+    window.location.href = STUD_KIT_STRIPE_LINK;
+  });
+
+  document.getElementById('brake-buy')?.addEventListener('click', () => {
+    window.location.href = BRAKE_KIT_STRIPE_LINK;
+  });
+
+  // Shop dropdown: click-toggle (PC + mobile)
+  (function () {
+    const dd = document.getElementById('shopDropdown');
+    if (!dd) return;
+
+    const btn = dd.querySelector('.nav-dropbtn');
+
+    function setOpen(isOpen) {
+      dd.classList.toggle('open', isOpen);
+      btn.setAttribute('aria-expanded', String(isOpen));
+    }
+
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      setOpen(!dd.classList.contains('open'));
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!dd.contains(e.target)) setOpen(false);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setOpen(false);
+    });
+
+    dd.querySelector('.dropdown-menu')?.addEventListener('click', function (e) {
+      const link = e.target.closest('a');
+      if (link) setOpen(false);
+    });
+  })();
+</script>
+</body>
+</html>
 
