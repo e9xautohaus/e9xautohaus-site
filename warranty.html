@@ -1,32 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Warranty & Quality Guarantee – E9X AutoHaus</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Warranty &amp; Quality – E9X AutoHaus</title>
+  <meta name="description" content="Warranty and quality policy for E9X AutoHaus products. Please read before purchasing or installing any components." />
 
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Brand font -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
-:root {
-  --bg: #020308;
-  --fg: #f5f5f7;
-  --muted: #9b9fb0;
-  --border: #262a38;
-  --accent-red: #c31b1b;
-  --accent-blue: #2c7af7;
-  --max-width: 820px;
-}
+  <style>
+    :root {
+      --bg: #020308;
+      --fg: #f5f5f7;
+      --muted: #9b9fb0;
+      --border: #262a38;
+      --accent-red: #c31b1b;
+      --accent-blue: #2c7af7;
+      --max-width: 900px;
+    }
 
-* { box-sizing: border-box; }
+    * { box-sizing: border-box; }
 
-body {
-  margin: 0;
-  font-family: 'Oswald', sans-serif;
-  background: radial-gradient(circle at top, #141827, #020308);
-  color: var(--fg);
-}
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
 
+    body {
+      margin: 0;
+      font-family: 'Oswald', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #141827 0, #050611 40%, #020308 100%);
+      color: var(--fg);
+      line-height: 1.5;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header nav */
     .site-header {
       width: 100%;
       padding: 0.6rem 1.4rem;
@@ -50,6 +65,7 @@ body {
       font-size: 0.9rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
+      white-space: nowrap;
     }
 
     .haus-red {
@@ -63,6 +79,9 @@ body {
       font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
     }
 
     .nav-links a {
@@ -76,6 +95,71 @@ body {
     .nav-links a:hover {
       color: var(--fg);
       border-bottom-color: var(--accent-red);
+    }
+
+    /* Dropdown nav (click-toggle) */
+    .nav-dropdown{
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-dropbtn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      background: rgba(5,7,15,.35);
+      color: var(--muted);
+      cursor: pointer;
+      padding: 0;
+      line-height: 1;
+    }
+
+    .nav-dropbtn:hover{
+      color: var(--fg);
+      border-color: rgba(195,27,27,.35);
+    }
+
+    .nav-caret{
+      font-size: .9rem;
+      opacity: .9;
+      transform: translateY(-1px);
+    }
+
+    .dropdown-menu{
+      position:absolute;
+      top: calc(100% + 12px);
+      right: 0;
+      min-width: 220px;
+      border:1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(2,3,8,.98);
+      backdrop-filter: blur(10px);
+      padding: 8px;
+      box-shadow: 0 18px 40px rgba(0,0,0,.7);
+      display:none;
+      z-index: 50;
+    }
+
+    .nav-dropdown.open .dropdown-menu{ display:block; }
+
+    .dropdown-menu a{
+      display:block;
+      padding: 10px 10px;
+      border-radius: 10px;
+      color: var(--muted);
+      text-decoration:none;
+      border-bottom: none;
+    }
+
+    .dropdown-menu a:hover{
+      color: var(--fg);
+      background: rgba(195,27,27,0.10);
     }
 
     /* Mobile header fix */
@@ -100,79 +184,130 @@ body {
         font-size: 0.7rem;
         letter-spacing: 0.1em;
       }
+
+      .dropdown-menu{
+        left: 0;
+        right: 0;
+        width: 100%;
+        min-width: unset;
+      }
     }
 
     main {
       flex: 1;
       display: flex;
-      align-items: center;
       justify-content: center;
-      padding: 2.4rem 1.4rem;
+      padding: 2.8rem 1.6rem 2.8rem;
     }
 
     .wrap {
       width: 100%;
       max-width: var(--max-width);
       margin: 0 auto;
-      text-align: center;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
 
-h1 {
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-}
+    h1 {
+      text-align: center;
+      font-size: clamp(1.7rem, 2.2vw + 1.3rem, 2.1rem);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      margin: 0 0 0.4rem;
+    }
 
-.accent {
-  width: 120px;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent-red), var(--accent-blue));
-  margin: 1.2rem auto 2.2rem;
-}
+    .accent {
+      width: 140px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-red), var(--accent-blue));
+      margin: 1.2rem auto 2.2rem;
+    }
 
-h2 {
-  margin-top: 2rem;
-  font-size: 0.95rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-}
+    h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin: 2rem 0 0.4rem;
+    }
 
-p, li {
-  font-family: system-ui, sans-serif;
-  color: var(--muted);
-  font-size: 0.94rem;
-  line-height: 1.6;
-}
+    p, li {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--muted);
+      font-size: 0.94rem;
+      line-height: 1.65;
+      margin: 0.35rem 0;
+    }
 
-footer {
-  border-top: 1px solid var(--border);
-  padding: 1.4rem 1.4rem 1.6rem;
-  text-align: center;
-  font-size: 0.75rem;
-  color: var(--muted);
-  background: rgba(2,3,8,0.96);
-  backdrop-filter: blur(8px);
-}
+    .note {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      background: rgba(4,6,16,.8);
+      margin: 1.2rem 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
 
-.mini-line {
-  font-size: 0.7rem;
-  margin-top: 0.3rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
+    .note strong{
+      color: var(--fg);
+    }
 
-.footer-links {
-  margin-top: 12px;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-}
+    /* Content links */
+    .wrap a{
+      color: var(--accent-red);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(195,27,27,0.5);
+      transition: .15s ease;
+    }
+    .wrap a:hover{
+      color: #ffffff;
+      border-bottom-color: var(--accent-red);
+    }
 
-.footer-links a {
-  color: var(--accent-red);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(195,27,27,0.5);
-}
+    ul {
+      margin: 0.4rem 0 0.8rem 1.2rem;
+      padding: 0;
+      list-style: disc;
+    }
+
+    footer {
+      padding: 0.9rem 1.4rem 1.5rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid var(--border);
+      background: rgba(2, 3, 8, 0.96);
+      backdrop-filter: blur(8px);
+    }
+
+    .mini-line {
+      font-size: 0.7rem;
+      margin-top: 0.3rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .footer-links {
+      margin-top: 12px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-family: 'Oswald', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .footer-links a {
+      color: var(--accent-red);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(195,27,27,0.5);
+      transition: all 0.15s ease;
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+      border-bottom-color: var(--accent-red);
+    }
   </style>
 </head>
 <body>
@@ -183,81 +318,151 @@ footer {
       <nav class="nav-links">
         <a href="/">Home</a>
         <a href="/enthusiasts.html">Built by Enthusiasts</a>
-        <a href="/products.html">Products</a>
+
+        <!-- Shop dropdown -->
+        <div class="nav-dropdown" id="shopDropdown">
+          <a href="/shop.html">Shop</a>
+          <button class="nav-dropbtn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Open shop menu">
+            <span class="nav-caret">▾</span>
+          </button>
+          <div class="dropdown-menu" role="menu" aria-label="Shop menu">
+            <a href="/parts.html" role="menuitem">Street + Track</a>
+            <a href="/merch.html" role="menuitem">Merch</a>
+          </div>
+        </div>
+
         <a href="/index.html#contact">Contact</a>
       </nav>
     </div>
   </header>
 
-<div class="wrap">
-  <h1>Warranty & Quality</h1>
-  <div class="accent"></div>
+  <main>
+    <div class="wrap">
+      <h1>Warranty &amp; Quality</h1>
+      <div class="accent"></div>
 
-  <h2>1. Our Philosophy</h2>
-  <p>
-    Every part produced by E9X AutoHaus is designed, inspected, and packaged with a single objective:
-    to deliver hardware we would confidently install on our own cars.
-    No shortcuts. No compromises. No inflated marketing claims.
-  </p>
+      <p>
+        E9X AutoHaus is a small-batch, enthusiast-run brand. We back what we sell — but we also build parts
+        designed for modified cars, street use, and track use. This page explains what we cover, what we don’t,
+        and how to get help if something isn’t right.
+      </p>
 
-  <h2>2. Manufacturing Standards</h2>
-  <p>
-    All products are manufactured using controlled processes, dimensional checks, and batch traceability
-    where practical. Small-batch production allows for stricter quality oversight compared to mass-market alternatives.
-  </p>
+      <div class="note">
+        <strong>Important:</strong> If you’re unsure about fitment or installation, contact us before installing.
+        Many issues can be prevented with a quick check of chassis, wheel specs, and intended use.
+      </div>
 
-  <h2>3. Limited Warranty Coverage</h2>
-  <p>
-    E9X AutoHaus products are covered by a limited manufacturing defect warranty from the date of purchase.
-    This warranty covers defects in material or workmanship under normal intended use.
-  </p>
+      <h2>1. Quality Commitment</h2>
+      <p>
+        We aim to supply hardware and merch that meets the standard we’d run on our own cars.
+        Products are inspected before dispatch where practical, and we continuously improve packaging,
+        instructions, and component selection based on real customer feedback.
+      </p>
 
-  <h2>4. What This Warranty Does Not Cover</h2>
-  <ul>
-    <li>Incorrect installation or torque procedures</li>
-    <li>Track abuse beyond reasonable use</li>
-    <li>Damage from impact, collision, or misuse</li>
-    <li>Wear items subjected to heat cycling and motorsport conditions</li>
-  </ul>
+      <h2>2. Warranty Coverage</h2>
+      <p>
+        Warranty coverage applies to manufacturing defects under normal intended use. Where a defect is confirmed,
+        our remedy is at our discretion:
+      </p>
+      <ul>
+        <li>Replacement of the product or the defective component; or</li>
+        <li>Repair (where practical); or</li>
+        <li>Refund (where replacement/repair is not possible).</li>
+      </ul>
 
-  <h2>5. Motorsport Use Disclaimer</h2>
-  <p>
-    Our products are designed to tolerate aggressive street and track conditions.
-    However, motorsport inherently carries increased mechanical risk.
-    By purchasing and installing E9X AutoHaus components, you acknowledge and accept this risk.
-  </p>
+      <h2>3. What Is Not Covered</h2>
+      <p>Warranty does not cover issues caused by:</p>
+      <ul>
+        <li>Incorrect installation, incorrect torque procedures, or failure to re-check fasteners;</li>
+        <li>Normal wear and tear (especially track use);</li>
+        <li>Accidents, impacts, abuse, neglect, or corrosion due to harsh environments/chemicals;</li>
+        <li>Misuse or use outside the intended purpose (including competition where relevant);</li>
+        <li>Modifications or alterations to the product after purchase;</li>
+        <li>Fitment issues caused by non-standard setups (aftermarket wheels, spacers, hubs, custom brakes, etc.).</li>
+      </ul>
 
-  <h2>6. Claims Process</h2>
-  <p>
-    If you believe a product has a manufacturing defect, contact
-    <a href="mailto:info@e9xautohaus.com" style="color:#c31b1b;">info@e9xautohaus.com</a>
-    with your order details and clear photography of the issue.
-    Each case is assessed individually and fairly.
-  </p>
+      <h2>4. Motorsport / Track Use</h2>
+      <p>
+        Track use dramatically increases loads and heat cycles. We design with street + track in mind, but no product
+        can be guaranteed in every motorsport scenario. You are responsible for inspection schedules and safe operation.
+      </p>
 
-  <h2>7. No Marketing Warranty</h2>
-  <p>
-    We do not sell fantasy.
-    Claims are based on engineering, materials, and application — not hype, not influencer noise.
-  </p>
+      <h2>5. How To Make a Warranty Claim</h2>
+      <p>
+        Email us with:
+      </p>
+      <ul>
+        <li>Your name and order email</li>
+        <li>Product name</li>
+        <li>Description of the issue</li>
+        <li>Clear photos (and if relevant, install photos)</li>
+      </ul>
+      <p>
+        Send to: <strong><a href="mailto:info@e9xautohaus.com">info@e9xautohaus.com</a></strong>
+      </p>
 
-</div>
+      <h2>6. Resolution Timeframes</h2>
+      <p>
+        We’ll respond as quickly as we can. Because we’re small-batch, replacements may require stock availability,
+        but we’ll always communicate clearly and offer the best available remedy.
+      </p>
 
-<footer>
-  © <span id="year"></span> E9X AutoHaus · North Brisbane, Australia
-  <div class="mini-line">DESIGNED FOR THE DRIVE · TRUSTED AT THE LIMIT · ZERO COMPROMISE</div>
+      <h2>7. Returns &amp; Refunds</h2>
+      <p>
+        For change-of-mind and general return rules, see:
+        <a href="/returns.html">Returns &amp; Refunds</a>.
+      </p>
+    </div>
+  </main>
 
-      <div class="footer-links">
+  <footer>
+    © <span id="year"></span> E9X AutoHaus · North Brisbane, Australia
+    <div class="mini-line">DESIGNED FOR THE DRIVE · TRUSTED AT THE LIMIT · ZERO COMPROMISE</div>
+
+    <div class="footer-links">
       <a href="/terms.html">Terms &amp; Conditions</a> ·
       <a href="/privacy.html">Privacy Policy</a> ·
       <a href="/returns.html">Returns &amp; Refunds</a> ·
       <a href="/warranty.html">Warranty &amp; Quality</a>
     </div>
   </footer>
+</div>
 
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+  document.getElementById("year").textContent = new Date().getFullYear();
 
+  // Shop dropdown: click-toggle (PC + mobile)
+  (function () {
+    const dd = document.getElementById('shopDropdown');
+    if (!dd) return;
+
+    const btn = dd.querySelector('.nav-dropbtn');
+    const menu = dd.querySelector('.dropdown-menu');
+
+    function setOpen(isOpen) {
+      dd.classList.toggle('open', isOpen);
+      btn.setAttribute('aria-expanded', String(isOpen));
+    }
+
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      setOpen(!dd.classList.contains('open'));
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!dd.contains(e.target)) setOpen(false);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setOpen(false);
+    });
+
+    menu.addEventListener('click', function (e) {
+      const link = e.target.closest('a');
+      if (link) setOpen(false);
+    });
+  })();
+</script>
 </body>
 </html>
