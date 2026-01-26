@@ -15,6 +15,8 @@
     }
     *{box-sizing:border-box;}
     html,body{width:100%;max-width:100%;overflow-x:hidden;}
+    img{max-width:100%;height:auto;display:block;}
+
     body{
       margin:0;
       font-family:'Oswald',system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
@@ -125,76 +127,63 @@
       box-shadow:0 18px 40px rgba(0,0,0,.65);
     }
 
-    /* Gallery */
+    /* Media */
     .product-media{margin-bottom:1.1rem;}
 
-    .gallery-main{
-      width:100%;
+    /* ✅ same “slider style” as shop (no thumbs) */
+    .gallery-slider{
+      position:relative;
+      overflow:hidden;
       border-radius:10px;
-      display:block;
-
-      height:auto;
-      object-fit:contain;      /* show full image */
-      object-position:center;  /* ✅ keep centered on mobile */
-      aspect-ratio:auto;       /* remove forced crop box */
-      max-height:420px;        /* makes it feel bigger */
-
-      background: rgba(0,0,0,.25);
+      background:rgba(0,0,0,.25);
       border:1px solid rgba(255,255,255,0.04);
     }
 
-    .thumbs{
-      display:flex;
-      gap:10px;
-      margin-top:10px;
-      overflow-x:auto;
-      padding-bottom:4px;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width:none; /* ✅ Firefox hide scrollbar */
-    }
-    .thumbs::-webkit-scrollbar{display:none;} /* ✅ Chrome/Safari hide scrollbar */
+    .gallery-slide{display:none;}
+    .gallery-slide.active{display:block;}
 
-    .thumb{
-      border:1px solid rgba(255,255,255,0.08);
-      background:rgba(5,7,15,.35);
-      border-radius:10px;
-      padding:0;
-      cursor:pointer;
-      flex:0 0 auto;
-      width:64px;
-      height:48px;
-      overflow:hidden;
-      opacity:.75;
-      transition:opacity .15s ease, transform .15s ease, border-color .15s ease;
-    }
-    .thumb:hover{opacity:1;transform:translateY(-1px);border-color:rgba(195,27,27,.35);}
-    .thumb.active{opacity:1;border-color:rgba(195,27,27,.6);box-shadow:0 0 0 3px rgba(195,27,27,.10);}
-    .thumb img{
+    .gallery-slide img{
       width:100%;
-      height:100%;
-      object-fit:cover; /* thumbs can stay cropped */
+      height:auto;
+      object-fit:contain;
+      object-position:center;
       display:block;
+      max-height:420px;
     }
 
-    /* ✅ Mobile tune so it doesn’t look off-centre */
-    @media (max-width:600px){
-      main{ padding:2.2rem 1rem 2.2rem; }
-      .product-card{ padding:1.15rem 1.05rem 1.25rem; }
-
-      .gallery-main{
-        max-height:320px;
-        margin:0 auto;          /* ✅ keeps the image centered inside card */
-      }
-
-      .thumbs{
-        justify-content:center; /* ✅ balanced look */
-        gap:8px;
-      }
-      .thumb{
-        width:58px;
-        height:44px;
-      }
+    .gallery-btn{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:28px;height:28px;
+      border-radius:50%;
+      border:1px solid rgba(245,245,247,0.4);
+      background:rgba(3,4,12,0.85);
+      color:var(--fg);
+      font-size:1rem;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      padding:0;
+      z-index:5;
+      pointer-events:auto;
+      user-select:none;
     }
+    .gallery-btn:hover{border-color:var(--accent-red);}
+    .gallery-btn.prev{left:8px;}
+    .gallery-btn.next{right:8px;}
+
+    .gallery-dots{margin-top:.6rem;text-align:center;}
+    .gallery-dot{
+      display:inline-block;
+      width:7px;height:7px;
+      border-radius:50%;
+      margin:0 4px;
+      background:rgba(155,159,176,0.5);
+      cursor:pointer;
+    }
+    .gallery-dot.active{background:var(--accent-red);}
 
     .product-tag{
       display:inline-block;font-size:.7rem;text-transform:uppercase;letter-spacing:.14em;
@@ -225,6 +214,13 @@
       text-transform:uppercase;letter-spacing:.18em;cursor:pointer;font-size:.85rem;
     }
     .buy-btn:hover{opacity:.94;}
+
+    /* ✅ Mobile centering (same vibe as shop) */
+    @media (max-width:600px){
+      main{ padding:2.2rem 1rem 2.2rem; }
+      .product-card{ padding:1.15rem 1.05rem 1.25rem; }
+      .gallery-slide img{ max-height:320px; }
+    }
 
     footer{
       padding:0.9rem 1.4rem 1.5rem;
@@ -275,11 +271,37 @@
 
       <div class="product-grid">
 
-        <!-- STUD KIT -->
+        <!-- STUD KIT (UPDATED: slider + dots, no thumbs) -->
         <section class="product-card" id="studs">
-          <div class="product-media" data-gallery="studGallery">
-            <img class="gallery-main" id="studGallery-main" src="images/e9x stud kit complete.png" alt="E9X AutoHaus Wheel Stud Conversion Kit">
-            <div class="thumbs" id="studGallery-thumbs" aria-label="Stud kit gallery thumbnails"></div>
+          <div class="product-media">
+            <div class="gallery-slider" data-gallery="studGallery">
+              <div class="gallery-slide active">
+                <img src="images/e9x stud kit complete.png" alt="E9X AutoHaus Wheel Stud Conversion Kit – Image 1">
+              </div>
+              <div class="gallery-slide">
+                <img src="images/Stud with nut.jpg" alt="E9X AutoHaus Wheel Stud Conversion Kit – Image 2">
+              </div>
+              <div class="gallery-slide">
+                <img src="images/Stud with nut 2.jpg" alt="E9X AutoHaus Wheel Stud Conversion Kit – Image 3">
+              </div>
+              <div class="gallery-slide">
+                <img src="images/Stud with nut 3.jpg" alt="E9X AutoHaus Wheel Stud Conversion Kit – Image 4">
+              </div>
+              <div class="gallery-slide">
+                <img src="images/e9x stud kit on car.png" alt="E9X AutoHaus Wheel Stud Conversion Kit – Image 5">
+              </div>
+
+              <button class="gallery-btn prev" type="button" aria-label="Previous image">&#10094;</button>
+              <button class="gallery-btn next" type="button" aria-label="Next image">&#10095;</button>
+            </div>
+
+            <div class="gallery-dots" data-dots="studGallery">
+              <span class="gallery-dot active" data-slide="0"></span>
+              <span class="gallery-dot" data-slide="1"></span>
+              <span class="gallery-dot" data-slide="2"></span>
+              <span class="gallery-dot" data-slide="3"></span>
+              <span class="gallery-dot" data-slide="4"></span>
+            </div>
           </div>
 
           <div class="product-tag">Track Essentials · Founders Run</div>
@@ -302,11 +324,29 @@
           </div>
         </section>
 
-        <!-- BRAKE KIT -->
+        <!-- BRAKE KIT (UPDATED: slider + dots, no thumbs) -->
         <section class="product-card" id="brake-kit">
-          <div class="product-media" data-gallery="brakeGallery">
-            <img class="gallery-main" id="brakeGallery-main" src="images/e9x 15inch drag.png" alt="E9X AutoHaus 15&quot; Brake Clearance Kit">
-            <div class="thumbs" id="brakeGallery-thumbs" aria-label="Brake kit gallery thumbnails"></div>
+          <div class="product-media">
+            <div class="gallery-slider" data-gallery="brakeGallery">
+              <div class="gallery-slide active">
+                <img src="images/e9x 15inch drag.png" alt="E9X AutoHaus 15&quot; Brake Clearance Kit – Image 1">
+              </div>
+              <div class="gallery-slide">
+                <img src="images/1000001893.png" alt="E9X AutoHaus 15&quot; Brake Clearance Kit – Image 2">
+              </div>
+              <div class="gallery-slide">
+                <img src="images/e9x stud kit on car.png" alt="E9X AutoHaus 15&quot; Brake Clearance Kit – Image 3">
+              </div>
+
+              <button class="gallery-btn prev" type="button" aria-label="Previous image">&#10094;</button>
+              <button class="gallery-btn next" type="button" aria-label="Next image">&#10095;</button>
+            </div>
+
+            <div class="gallery-dots" data-dots="brakeGallery">
+              <span class="gallery-dot active" data-slide="0"></span>
+              <span class="gallery-dot" data-slide="1"></span>
+              <span class="gallery-dot" data-slide="2"></span>
+            </div>
           </div>
 
           <div class="product-tag">Street + Track · 15&quot; Brake Clearance</div>
@@ -385,58 +425,40 @@
     });
   })();
 
-  // --- Product galleries ---
-  function initGallery(galleryId, images, altBase) {
-    const main = document.getElementById(`${galleryId}-main`);
-    const thumbsWrap = document.getElementById(`${galleryId}-thumbs`);
-    if (!main || !thumbsWrap || !Array.isArray(images) || images.length === 0) return;
+  // ✅ Gallery slider logic (studs + brakes) - same behaviour as shop
+  document.querySelectorAll('.product-card .gallery-slider').forEach(function (gallery) {
+    const card = gallery.closest('.product-card');
+    const slides = gallery.querySelectorAll('.gallery-slide');
+    const dotsWrap = card.querySelector('.gallery-dots');
+    const dots = dotsWrap ? dotsWrap.querySelectorAll('.gallery-dot') : [];
+    const prevBtn = gallery.querySelector('.gallery-btn.prev');
+    const nextBtn = gallery.querySelector('.gallery-btn.next');
 
-    function setActive(index) {
-      const img = images[index];
-      if (!img) return;
-      main.src = img;
-      main.alt = `${altBase} – Image ${index + 1}`;
+    let current = 0;
 
-      [...thumbsWrap.querySelectorAll('.thumb')].forEach((b, i) => {
-        b.classList.toggle('active', i === index);
-      });
+    function show(index) {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((s, i) => s.classList.toggle('active', i === current));
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
     }
 
-    thumbsWrap.innerHTML = '';
-    images.forEach((src, idx) => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'thumb';
-      btn.setAttribute('aria-label', `${altBase} thumbnail ${idx + 1}`);
+    function next() { show(current + 1); }
+    function prev() { show(current - 1); }
 
-      const im = document.createElement('img');
-      im.src = src;
-      im.alt = '';
-      btn.appendChild(im);
+    if (slides.length <= 1) {
+      prevBtn?.setAttribute('hidden', '');
+      nextBtn?.setAttribute('hidden', '');
+      dotsWrap?.setAttribute('hidden', '');
+      return;
+    }
 
-      btn.addEventListener('click', () => setActive(idx));
-      thumbsWrap.appendChild(btn);
-    });
+    prevBtn?.addEventListener('click', prev);
+    nextBtn?.addEventListener('click', next);
 
-    setActive(0);
-  }
+    dots.forEach((dot, idx) => dot.addEventListener('click', () => show(idx)));
 
-  const studImages = [
-    "images/e9x stud kit complete.png",
-    "images/Stud with nut.jpg",
-    "images/Stud with nut 2.jpg",
-    "images/Stud with nut 3.jpg",
-    "images/e9x stud kit on car.png"
-  ];
-
-  const brakeImages = [
-    "images/e9x 15inch drag.png",
-    "images/1000001893.png",
-    "images/e9x stud kit on car.png",
-  ];
-
-  initGallery("studGallery", studImages, "E9X AutoHaus Wheel Stud Conversion Kit");
-  initGallery("brakeGallery", brakeImages, "E9X AutoHaus 15\" Brake Clearance Kit");
+    show(0);
+  });
 </script>
 </body>
 </html>
