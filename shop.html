@@ -22,6 +22,7 @@
     * { box-sizing: border-box; }
 
     html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
+    img { max-width: 100%; height: auto; display: block; }
 
     body {
       margin: 0;
@@ -92,6 +93,7 @@
     }
     .nav-dropbtn:hover { color: var(--fg); border-color: rgba(195,27,27,.35); }
     .nav-caret { font-size: .9rem; opacity: .9; transform: translateY(-1px); }
+
     .dropdown-menu {
       position: absolute; top: calc(100% + 12px); right: 0; min-width: 220px;
       border: 1px solid var(--border); border-radius: 12px; background: rgba(2,3,8,.98);
@@ -156,16 +158,15 @@
 
     /* Gallery (no crop, larger + centered) */
     .product-media { margin-bottom: 1.15rem; }
+
     .gallery-main{
       width: 100%;
       border-radius: 10px;
       display: block;
-
       height: auto;
-      object-fit: contain;          /* no crop */
-      object-position: center;      /* ✅ keep centered */
-      margin: 0 auto;               /* ✅ visual centering */
-
+      object-fit: contain;
+      object-position: center;
+      margin: 0 auto;
       background: rgba(0,0,0,.25);
       border: 1px solid rgba(255,255,255,0.04);
       max-height: 420px;
@@ -178,12 +179,15 @@
       overflow-x:auto;
       padding-bottom:4px;
       -webkit-overflow-scrolling: touch;
-
-      scrollbar-width: none;        /* ✅ hide scrollbar (Firefox) */
+      scrollbar-width: none;
+      justify-content: flex-start;
     }
-    .thumbs::-webkit-scrollbar{display:none;} /* ✅ hide scrollbar (Chrome/Safari) */
+    .thumbs::-webkit-scrollbar{ display:none; }
 
+    /* ✅ removes “arrow/focus” look + keeps it clean */
     .thumb{
+      -webkit-appearance: none;
+      appearance: none;
       border:1px solid rgba(255,255,255,0.08);
       background:rgba(5,7,15,.35);
       border-radius:10px;
@@ -199,36 +203,8 @@
     .thumb:hover{opacity:1;transform:translateY(-1px);border-color:rgba(195,27,27,.35);}
     .thumb.active{opacity:1;border-color:rgba(195,27,27,.6);box-shadow:0 0 0 3px rgba(195,27,27,.10);}
     .thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
-
-    /* ✅ Force ALL main product images to behave like gallery-main (except thumbs) */
-    .product-media > img,
-    .slider img{
-    width:100%;
-    display:block;
-    height:auto;
-    object-fit:contain;
-    object-position:center;
-    margin:0 auto;
-   }
-
-   /* ✅ Make the slider frame match the gallery frame so it looks centered/consistent */
-   .slider{
-   background: rgba(0,0,0,.25);
-   border: 1px solid rgba(255,255,255,0.04);
-
-    /* ✅ Mobile centering + spacing (this is the “parts.html fix”) */
-    @media (max-width:600px){
-      main{ padding:2.2rem 1rem 2.2rem; }
-      .product-card{ padding:1.15rem 1.05rem 1.25rem; }
-
-      .gallery-main{ max-height:320px; }
-
-      .thumbs{
-        justify-content:center;      /* ✅ balances the strip */
-        gap:8px;
-      }
-      .thumb{ width:58px; height:44px; }
-    }
+    .thumb:focus{ outline:none; }
+    .thumb::-moz-focus-inner{ border:0; }
 
     .product-tag {
       display: inline-block;
@@ -291,10 +267,24 @@
       margin-top: 0.9rem;
     }
 
-    /* Tee slider */
-    .slider { position: relative; overflow: hidden; border-radius: 10px; }
+    /* Tee slider (FIXED: click works + buttons on top) */
+    .slider {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      background: rgba(0,0,0,.25);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
     .shirt-slide { display: none; }
     .shirt-slide.active { display: block; }
+
+    .slider img{
+      width:100%;
+      height:auto;
+      object-fit:contain;
+      object-position:center;
+      display:block;
+    }
 
     .slider-btn {
       position: absolute;
@@ -312,8 +302,9 @@
       justify-content: center;
       cursor: pointer;
       padding: 0;
+      z-index: 5;              /* ✅ ensures clickable */
+      pointer-events: auto;    /* ✅ ensures clickable */
     }
-
     .slider-btn:hover { border-color: var(--accent-red); }
     .slider-btn.prev { left: 8px; }
     .slider-btn.next { right: 8px; }
@@ -409,7 +400,6 @@
     }
 
     .socials a:hover{ color: var(--accent-red); }
-
     .socials svg{ width:18px; height:18px; fill:currentColor; }
 
     .back-to-top{
@@ -450,6 +440,15 @@
     .footer-links a:hover {
       color: #ffffff;
       border-bottom-color: var(--accent-red);
+    }
+
+    /* ✅ Mobile centering (matches your Parts behaviour) */
+    @media (max-width:600px){
+      main{ padding:2.2rem 1rem 2.2rem; }
+      .product-card{ padding:1.15rem 1.05rem 1.25rem; }
+      .gallery-main{ max-height:320px; }
+      .thumbs{ justify-content:center; gap:8px; }
+      .thumb{ width:58px; height:44px; }
     }
   </style>
 </head>
@@ -611,7 +610,7 @@
           <div class="product-media">
             <div class="slider">
               <div class="shirt-slide active">
-                <img src="images/shirt-1.jfif" alt="Anti Wheel Bolt Club Tee front">
+                <img src="images/shirt-1.jfif" alt="Anti Wheel Bolt Club Tee front (placeholder)">
               </div>
               <div class="shirt-slide">
                 <img src="images/anti wheel bolt.jfif" alt="Anti Wheel Bolt Club Tee rear">
@@ -776,7 +775,7 @@
     function nextSlide() { showSlide((current + 1) % slides.length); }
     function prevSlide() { showSlide((current - 1 + slides.length) % slides.length); }
 
-    if (nextBtn && prevBtn) {
+    if (nextBtn && prevBtn && slides.length > 1) {
       nextBtn.addEventListener('click', nextSlide);
       prevBtn.addEventListener('click', prevSlide);
     }
@@ -841,7 +840,6 @@
     setActive(0);
   }
 
-  // Swap filenames as needed to match your /images/ folder
   const studImages = [
     "images/e9x stud kit complete.png",
     "images/Stud with nut.jpg",
@@ -850,7 +848,6 @@
     "images/e9x stud kit on car.png"
   ];
 
-  // Brake gallery includes your original brake photo too
   const brakeImages = [
     "images/e9x 15inch drag.png",
     "images/1000001893.png",
@@ -895,17 +892,9 @@
     e90:   "https://buy.stripe.com/00w9AU9TY1tu6fw5lf5c40f"
   };
 
-  document.getElementById('sticker-logo-buy')?.addEventListener('click', () => {
-    window.location.href = STICKER_LINKS.logo;
-  });
-
-  document.getElementById('sticker-crest-buy')?.addEventListener('click', () => {
-    window.location.href = STICKER_LINKS.crest;
-  });
-
-  document.getElementById('sticker-e90-buy')?.addEventListener('click', () => {
-    window.location.href = STICKER_LINKS.e90;
-  });
+  document.getElementById('sticker-logo-buy')?.addEventListener('click', () => { window.location.href = STICKER_LINKS.logo; });
+  document.getElementById('sticker-crest-buy')?.addEventListener('click', () => { window.location.href = STICKER_LINKS.crest; });
+  document.getElementById('sticker-e90-buy')?.addEventListener('click', () => { window.location.href = STICKER_LINKS.e90; });
 
   // Shop dropdown: click-toggle (PC + mobile)
   (function () {
