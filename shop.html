@@ -200,6 +200,22 @@
     .thumb.active{opacity:1;border-color:rgba(195,27,27,.6);box-shadow:0 0 0 3px rgba(195,27,27,.10);}
     .thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
 
+    /* ✅ Force ALL main product images to behave like gallery-main (except thumbs) */
+    .product-media > img,
+    .slider img{
+    width:100%;
+    display:block;
+    height:auto;
+    object-fit:contain;
+    object-position:center;
+    margin:0 auto;
+   }
+
+   /* ✅ Make the slider frame match the gallery frame so it looks centered/consistent */
+   .slider{
+   background: rgba(0,0,0,.25);
+   border: 1px solid rgba(255,255,255,0.04);
+
     /* ✅ Mobile centering + spacing (this is the “parts.html fix”) */
     @media (max-width:600px){
       main{ padding:2.2rem 1rem 2.2rem; }
