@@ -6,7 +6,6 @@
   <title>Shop – E9X AutoHaus</title>
   <meta name="description" content="E9X AutoHaus products – street and track focused hardware and apparel for E9X and E8X BMWs." />
 
-  <!-- Brand font -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -22,11 +21,7 @@
 
     * { box-sizing: border-box; }
 
-    html, body {
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
-    }
+    html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
 
     body {
       margin: 0;
@@ -36,11 +31,7 @@
       line-height: 1.5;
     }
 
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+    .page { min-height: 100vh; display: flex; flex-direction: column; }
 
     /* Header nav */
     .site-header {
@@ -69,10 +60,7 @@
       white-space: nowrap;
     }
 
-    .haus-red {
-      color: var(--accent-red);
-      text-shadow: 0 0 8px rgba(195, 27, 27, 0.35);
-    }
+    .haus-red { color: var(--accent-red); text-shadow: 0 0 8px rgba(195, 27, 27, 0.35); }
 
     .nav-links {
       display: flex;
@@ -93,119 +81,40 @@
       transition: color 0.15s ease, border-bottom-color 0.15s ease;
     }
 
-    .nav-links a:hover {
-      color: var(--fg);
-      border-bottom-color: var(--accent-red);
-    }
+    .nav-links a:hover { color: var(--fg); border-bottom-color: var(--accent-red); }
 
-    /* Dropdown nav (click-toggle like your home page) */
-    .nav-dropdown{
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+    /* Dropdown nav (click-toggle) */
+    .nav-dropdown { position: relative; display: inline-flex; align-items: center; gap: 8px; }
+    .nav-dropbtn {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px; border-radius: 8px; border: 1px solid transparent;
+      background: rgba(5,7,15,.35); color: var(--muted); cursor: pointer; padding: 0; line-height: 1;
     }
-
-    .nav-dropbtn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width: 28px;
-      height: 28px;
-      border-radius: 8px;
-      border: 1px solid transparent;
-      background: rgba(5,7,15,.35);
-      color: var(--muted);
-      cursor: pointer;
-      padding: 0;
-      line-height: 1;
+    .nav-dropbtn:hover { color: var(--fg); border-color: rgba(195,27,27,.35); }
+    .nav-caret { font-size: .9rem; opacity: .9; transform: translateY(-1px); }
+    .dropdown-menu {
+      position: absolute; top: calc(100% + 12px); right: 0; min-width: 220px;
+      border: 1px solid var(--border); border-radius: 12px; background: rgba(2,3,8,.98);
+      backdrop-filter: blur(10px); padding: 8px; box-shadow: 0 18px 40px rgba(0,0,0,.7);
+      display: none; z-index: 50;
     }
-
-    .nav-dropbtn:hover{
-      color: var(--fg);
-      border-color: rgba(195,27,27,.35);
+    .nav-dropdown.open .dropdown-menu { display: block; }
+    .dropdown-menu a {
+      display: block; padding: 10px 10px; border-radius: 10px; color: var(--muted);
+      text-decoration: none; border-bottom: none;
     }
-
-    .nav-caret{
-      font-size: .9rem;
-      opacity: .9;
-      transform: translateY(-1px);
-    }
-
-    .dropdown-menu{
-      position:absolute;
-      top: calc(100% + 12px);
-      right: 0;
-      min-width: 220px;
-      border:1px solid var(--border);
-      border-radius: 12px;
-      background: rgba(2,3,8,.98);
-      backdrop-filter: blur(10px);
-      padding: 8px;
-      box-shadow: 0 18px 40px rgba(0,0,0,.7);
-      display:none;
-      z-index: 50;
-    }
-
-    .nav-dropdown.open .dropdown-menu{ display:block; }
-
-    .dropdown-menu a{
-      display:block;
-      padding: 10px 10px;
-      border-radius: 10px;
-      color: var(--muted);
-      text-decoration:none;
-      border-bottom: none;
-    }
-
-    .dropdown-menu a:hover{
-      color: var(--fg);
-      background: rgba(195,27,27,0.10);
-    }
+    .dropdown-menu a:hover { color: var(--fg); background: rgba(195,27,27,0.10); }
 
     @media (max-width: 600px) {
-      .nav-inner {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.4rem;
-      }
-
-      .nav-brand {
-        font-size: 0.85rem;
-        letter-spacing: 0.12em;
-        text-align: center;
-        white-space: nowrap;
-      }
-
-      .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.8rem;
-        font-size: 0.7rem;
-        letter-spacing: 0.1em;
-      }
-
-      .dropdown-menu{
-        left: 0;
-        right: 0;
-        width: 100%;
-        min-width: unset;
-      }
+      .nav-inner { flex-direction: column; align-items: center; gap: 0.4rem; }
+      .nav-brand { font-size: 0.85rem; letter-spacing: 0.12em; text-align: center; white-space: nowrap; }
+      .nav-links { flex-wrap: wrap; justify-content: center; gap: 0.8rem; font-size: 0.7rem; letter-spacing: 0.1em; }
+      .dropdown-menu { left: 0; right: 0; width: 100%; min-width: unset; }
     }
 
     /* Main layout */
-    main {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      padding: 2.8rem 1.6rem 2.8rem;
-    }
-
-    .wrap {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
+    main { flex: 1; display: flex; justify-content: center; padding: 2.8rem 1.6rem 2.8rem; }
+    .wrap { width: 100%; max-width: var(--max-width); margin: 0 auto; }
 
     h1 {
       text-align: center;
@@ -232,16 +141,8 @@
     }
 
     /* Product grid */
-    .product-grid {
-      display: grid;
-      gap: 1.6rem;
-    }
-
-    @media (min-width: 760px) {
-      .product-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
+    .product-grid { display: grid; gap: 1.6rem; }
+    @media (min-width: 760px) { .product-grid { grid-template-columns: 1fr 1fr; } }
 
     /* Card */
     .product-card {
@@ -253,12 +154,42 @@
       box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
     }
 
-    .product-media { margin-bottom: 1.1rem; }
-    .product-card img {
+    /* Gallery (UPDATED: no crop, larger) */
+    .product-media { margin-bottom: 1.15rem; }
+    .gallery-main{
       width: 100%;
       border-radius: 10px;
       display: block;
+      height: auto;
+      object-fit: contain;         /* <-- no crop */
+      background: rgba(0,0,0,.25);
+      border: 1px solid rgba(255,255,255,0.04);
+      max-height: 420px;           /* <-- makes it feel bigger */
     }
+    .thumbs{
+      display:flex;
+      gap:10px;
+      margin-top:10px;
+      overflow-x:auto;
+      padding-bottom:4px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .thumb{
+      border:1px solid rgba(255,255,255,0.08);
+      background:rgba(5,7,15,.35);
+      border-radius:10px;
+      padding:0;
+      cursor:pointer;
+      flex:0 0 auto;
+      width:64px;
+      height:48px;
+      overflow:hidden;
+      opacity:.75;
+      transition:opacity .15s ease, transform .15s ease, border-color .15s ease;
+    }
+    .thumb:hover{opacity:1;transform:translateY(-1px);border-color:rgba(195,27,27,.35);}
+    .thumb.active{opacity:1;border-color:rgba(195,27,27,.6);box-shadow:0 0 0 3px rgba(195,27,27,.10);}
+    .thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
 
     .product-tag {
       display: inline-block;
@@ -321,7 +252,7 @@
       margin-top: 0.9rem;
     }
 
-    /* Slider */
+    /* Tee slider (unchanged) */
     .slider { position: relative; overflow: hidden; border-radius: 10px; }
     .shirt-slide { display: none; }
     .shirt-slide.active { display: block; }
@@ -389,7 +320,6 @@
       text-align: center;
       text-decoration: none;
     }
-
     .buy-btn:hover { opacity: 0.94; }
 
     .error-msg {
@@ -441,11 +371,7 @@
 
     .socials a:hover{ color: var(--accent-red); }
 
-    .socials svg{
-      width:18px;
-      height:18px;
-      fill:currentColor;
-    }
+    .socials svg{ width:18px; height:18px; fill:currentColor; }
 
     .back-to-top{
       margin-top: 12px;
@@ -492,15 +418,14 @@
 <body>
 <div class="page" id="top">
 
-  <!-- NAV -->
   <header class="site-header">
     <div class="nav-inner">
       <div class="nav-brand">E9X Auto<span class="haus-red">Haus</span></div>
+
       <nav class="nav-links">
         <a href="/">Home</a>
         <a href="/enthusiasts.html">Built by Enthusiasts</a>
 
-        <!-- Click-toggle dropdown -->
         <div class="nav-dropdown" id="shopDropdown">
           <a href="/shop.html">Shop</a>
           <button class="nav-dropbtn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Open shop menu">
@@ -517,7 +442,6 @@
     </div>
   </header>
 
-  <!-- MAIN -->
   <main>
     <div class="wrap">
       <h1>Shop</h1>
@@ -528,13 +452,13 @@
         the kind of gear we’d actually run on our own cars.
       </div>
 
-      <!-- EVERYTHING in one matching grid (including stickers) -->
       <div class="product-grid">
 
         <!-- STUD KIT -->
         <section class="product-card" id="hardware">
-          <div class="product-media">
-            <img src="images/wheel stud 1.jpg" alt="E9X AutoHaus Wheel Stud Conversion Kit">
+          <div class="product-media" data-gallery="studGallery">
+            <img class="gallery-main" id="studGallery-main" src="images/e9x stud kit complete.png" alt="E9X AutoHaus Wheel Stud Conversion Kit">
+            <div class="thumbs" id="studGallery-thumbs" aria-label="Stud kit gallery thumbnails"></div>
           </div>
 
           <div class="product-tag">Track Essentials · Founders Run</div>
@@ -548,21 +472,20 @@
             <li>Developed by E9X owners, intended for real street + track duty.</li>
           </ul>
 
-          <div class="status">
-            STATUS: AVAILABLE · LIMITED FIRST RUN · PRICE: $249 AUD
-          </div>
+          <div class="status">STATUS: AVAILABLE · LIMITED FIRST RUN · PRICE: $249 AUD</div>
 
           <button class="buy-btn" id="stud-buy">Buy Now</button>
 
-          <div style="font-size:0.8rem; margin-top:0.4rem; color:var(--muted); font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+          <div class="cta-note">
             You’ll be redirected to our secure Stripe checkout to complete your order.
           </div>
         </section>
 
         <!-- BRAKE KIT -->
         <section class="product-card" id="brake-kit">
-          <div class="product-media">
-            <img src="images/1000001893.png" alt="E9X AutoHaus Brake Kit">
+          <div class="product-media" data-gallery="brakeGallery">
+            <img class="gallery-main" id="brakeGallery-main" src="images/e9x 15inch drag.png" alt="E9X AutoHaus 15&quot; Brake Clearance Kit">
+            <div class="thumbs" id="brakeGallery-thumbs" aria-label="Brake kit gallery thumbnails"></div>
           </div>
 
           <div class="product-tag">Street + Track · 15&quot; Brake Clearance Upgrade</div>
@@ -577,15 +500,13 @@
             <li>Hardware-focused, no-nonsense setup intended for real track abuse.</li>
           </ul>
 
-          <div class="status">
-            STATUS: AVAILABLE · PRICE: $649 AUD
-          </div>
+          <div class="status">STATUS: AVAILABLE · PRICE: $649 AUD</div>
+
+          <button class="buy-btn" id="brake-buy">Buy Now</button>
 
           <div class="cta-note">
             You’ll be redirected to our secure Stripe checkout to complete your order.
           </div>
-
-          <button class="buy-btn" id="brake-buy">Buy Now</button>
         </section>
 
         <!-- ESSENTIALS TEE -->
@@ -624,9 +545,7 @@
             <li>Printed on quality cotton with a true-to-size unisex fit.</li>
           </ul>
 
-          <div class="status">
-            STATUS: AVAILABLE · $50 AUD
-          </div>
+          <div class="status">STATUS: AVAILABLE · $50 AUD</div>
 
           <label for="essentials-size" style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--muted);">
             Select Size
@@ -684,9 +603,7 @@
             <li>Same fit and feel as the Essentials Tee – unisex, true-to-size.</li>
           </ul>
 
-          <div class="status">
-            STATUS: AVAILABLE · $50 AUD
-          </div>
+          <div class="status">STATUS: AVAILABLE · $50 AUD</div>
 
           <label for="anti-size" style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--muted);">
             Select Size
@@ -711,7 +628,7 @@
         <!-- STICKER: CREST -->
         <section class="product-card" id="sticker-crest">
           <div class="product-media">
-            <img src="images/E9X%20AutoHaus%20Crest.png" alt="E9X AutoHaus Crest Sticker">
+            <img class="gallery-main" src="images/E9X%20AutoHaus%20Crest.png" alt="E9X AutoHaus Crest Sticker">
           </div>
 
           <div class="product-tag">Stickers</div>
@@ -729,7 +646,7 @@
         <!-- STICKER: E90 -->
         <section class="product-card" id="sticker-e90">
           <div class="product-media">
-            <img src="images/E9X%20AutoHaus%20E90.png" alt="E9X AutoHaus E90 Sticker">
+            <img class="gallery-main" src="images/E9X%20AutoHaus%20E90.png" alt="E9X AutoHaus E90 Sticker">
           </div>
 
           <div class="product-tag">Stickers</div>
@@ -747,7 +664,7 @@
         <!-- STICKER: LOGO -->
         <section class="product-card" id="sticker-logo">
           <div class="product-media">
-            <img src="images/E9X%20AutoHaus%20Logo.png" alt="E9X AutoHaus Logo Sticker">
+            <img class="gallery-main" src="images/E9X%20AutoHaus%20Logo.png" alt="E9X AutoHaus Logo Sticker">
           </div>
 
           <div class="product-tag">Stickers</div>
@@ -766,7 +683,6 @@
     </div>
   </main>
 
-  <!-- FOOTER -->
   <footer>
     © <span id="year"></span> E9X AutoHaus · North Brisbane, Australia
     <div class="mini-line">DESIGNED FOR THE DRIVE · TRUSTED AT THE LIMIT · ZERO COMPROMISE</div>
@@ -801,10 +717,9 @@
 </div>
 
 <script>
-  // Footer year
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  // Slider logic: supports multiple sliders (Essentials + Anti tee)
+  // Tee slider logic: supports multiple sliders
   document.querySelectorAll('.product-card .slider').forEach(function (slider) {
     const card = slider.closest('.product-card');
     const slides = slider.querySelectorAll('.shirt-slide');
@@ -851,6 +766,61 @@
   const STUD_KIT_STRIPE_LINK  = "https://buy.stripe.com/aFa14ogim1tu1ZgdRL5c40a";
   const BRAKE_KIT_STRIPE_LINK = "https://buy.stripe.com/9B68wQ9TY5JKgUa14Z5c40c";
 
+  // Product galleries
+  function initGallery(galleryId, images, altBase) {
+    const main = document.getElementById(`${galleryId}-main`);
+    const thumbsWrap = document.getElementById(`${galleryId}-thumbs`);
+    if (!main || !thumbsWrap || !Array.isArray(images) || images.length === 0) return;
+
+    function setActive(index) {
+      const img = images[index];
+      if (!img) return;
+      main.src = img;
+      main.alt = `${altBase} – Image ${index + 1}`;
+
+      [...thumbsWrap.querySelectorAll('.thumb')].forEach((b, i) => {
+        b.classList.toggle('active', i === index);
+      });
+    }
+
+    thumbsWrap.innerHTML = '';
+    images.forEach((src, idx) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'thumb';
+      btn.setAttribute('aria-label', `${altBase} thumbnail ${idx + 1}`);
+
+      const im = document.createElement('img');
+      im.src = src;
+      im.alt = '';
+      btn.appendChild(im);
+
+      btn.addEventListener('click', () => setActive(idx));
+      thumbsWrap.appendChild(btn);
+    });
+
+    setActive(0);
+  }
+
+  // Swap filenames as needed to match your /images/ folder
+  const studImages = [
+    "images/e9x stud kit complete.png",
+    "images/Stud with nut.jpg",
+    "images/Stud with nut 2.jpg",
+    "images/Stud with nut 3.jpg",
+    "images/e9x stud kit on car.png"
+  ];
+
+  // Brake gallery includes your original brake photo too
+  const brakeImages = [
+    "images/e9x 15inch drag.png",
+    "images/1000001893.png",
+    "images/e9x stud kit on car.png",
+  ];
+
+  initGallery("studGallery", studImages, "E9X AutoHaus Wheel Stud Conversion Kit");
+  initGallery("brakeGallery", brakeImages, "E9X AutoHaus 15\" Brake Clearance Kit");
+
   function setupShirtBuy(selectId, errorId, buttonId, key) {
     const select = document.getElementById(selectId);
     const error = document.getElementById(errorId);
@@ -872,17 +842,14 @@
   setupShirtBuy('essentials-size', 'essentials-error', 'essentials-buy', 'essentials');
   setupShirtBuy('anti-size', 'anti-error', 'anti-buy', 'anti');
 
-  // Stud kit buy button
   document.getElementById('stud-buy')?.addEventListener('click', () => {
     window.location.href = STUD_KIT_STRIPE_LINK;
   });
 
-  // Brake kit buy button
   document.getElementById('brake-buy')?.addEventListener('click', () => {
     window.location.href = BRAKE_KIT_STRIPE_LINK;
   });
 
-  // Sticker Stripe links (added, like merch page)
   const STICKER_LINKS = {
     logo:  "https://buy.stripe.com/eVqdRa8PUgooeM24hb5c40d",
     crest: "https://buy.stripe.com/cNibJ28PUa00gUa9Bv5c40e",
