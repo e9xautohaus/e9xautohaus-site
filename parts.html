@@ -127,15 +127,22 @@
 
     /* Gallery */
     .product-media{margin-bottom:1.1rem;}
+
+    /* ✅ FIXED: no crop + bigger */
     .gallery-main{
       width:100%;
       border-radius:10px;
       display:block;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
+
+      height:auto;
+      object-fit:contain;      /* show full image */
+      aspect-ratio:auto;       /* remove forced crop box */
+      max-height:420px;        /* makes it feel bigger */
+
       background: rgba(0,0,0,.25);
       border:1px solid rgba(255,255,255,0.04);
     }
+
     .thumbs{
       display:flex;
       gap:10px;
@@ -162,7 +169,7 @@
     .thumb img{
       width:100%;
       height:100%;
-      object-fit:cover;
+      object-fit:cover; /* thumbs can stay cropped */
       display:block;
     }
 
@@ -372,7 +379,6 @@
       });
     }
 
-    // Build thumbs
     thumbsWrap.innerHTML = '';
     images.forEach((src, idx) => {
       const btn = document.createElement('button');
@@ -392,7 +398,6 @@
     setActive(0);
   }
 
-  // Swap these filenames anytime to match what you upload into /images/
   const studImages = [
     "images/e9x stud kit complete.png",
     "images/Stud with nut.jpg",
@@ -401,7 +406,6 @@
     "images/e9x stud kit on car.png"
   ];
 
-  // Using shared images across both listings (as requested)
   const brakeImages = [
     "images/e9x 15inch drag.png",
     "images/1000001893.png",
