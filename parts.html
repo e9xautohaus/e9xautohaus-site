@@ -124,8 +124,48 @@
       background:rgba(4,6,16,.9);
       box-shadow:0 18px 40px rgba(0,0,0,.65);
     }
+
+    /* Gallery */
     .product-media{margin-bottom:1.1rem;}
-    .product-card img{width:100%;border-radius:10px;display:block;}
+    .gallery-main{
+      width:100%;
+      border-radius:10px;
+      display:block;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,0.04);
+    }
+    .thumbs{
+      display:flex;
+      gap:10px;
+      margin-top:10px;
+      overflow-x:auto;
+      padding-bottom:4px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .thumb{
+      border:1px solid rgba(255,255,255,0.08);
+      background:rgba(5,7,15,.35);
+      border-radius:10px;
+      padding:0;
+      cursor:pointer;
+      flex:0 0 auto;
+      width:64px;
+      height:48px;
+      overflow:hidden;
+      opacity:.75;
+      transition:opacity .15s ease, transform .15s ease, border-color .15s ease;
+    }
+    .thumb:hover{opacity:1;transform:translateY(-1px);border-color:rgba(195,27,27,.35);}
+    .thumb.active{opacity:1;border-color:rgba(195,27,27,.6);box-shadow:0 0 0 3px rgba(195,27,27,.10);}
+    .thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
     .product-tag{
       display:inline-block;font-size:.7rem;text-transform:uppercase;letter-spacing:.14em;
       color:var(--muted);margin-bottom:.35rem;
@@ -207,8 +247,9 @@
 
         <!-- STUD KIT -->
         <section class="product-card" id="studs">
-          <div class="product-media">
-            <img src="images/wheel stud 1.jpg" alt="E9X AutoHaus Wheel Stud Conversion Kit">
+          <div class="product-media" data-gallery="studGallery">
+            <img class="gallery-main" id="studGallery-main" src="images/e9x stud kit complete.png" alt="E9X AutoHaus Wheel Stud Conversion Kit">
+            <div class="thumbs" id="studGallery-thumbs" aria-label="Stud kit gallery thumbnails"></div>
           </div>
 
           <div class="product-tag">Track Essentials · Founders Run</div>
@@ -233,9 +274,9 @@
 
         <!-- BRAKE KIT -->
         <section class="product-card" id="brake-kit">
-          <div class="product-media">
-            <!-- If your image is .jpg, change to 1000001893.jpg -->
-            <img src="images/1000001893.png" alt="E9X AutoHaus Brake Kit">
+          <div class="product-media" data-gallery="brakeGallery">
+            <img class="gallery-main" id="brakeGallery-main" src="images/e9x 15inch drag.png" alt="E9X AutoHaus 15&quot; Brake Clearance Kit">
+            <div class="thumbs" id="brakeGallery-thumbs" aria-label="Brake kit gallery thumbnails"></div>
           </div>
 
           <div class="product-tag">Street + Track · 15&quot; Brake Clearance</div>
@@ -313,7 +354,61 @@
       if (link) setOpen(false);
     });
   })();
+
+  // --- Product galleries ---
+  function initGallery(galleryId, images, altBase) {
+    const main = document.getElementById(`${galleryId}-main`);
+    const thumbsWrap = document.getElementById(`${galleryId}-thumbs`);
+    if (!main || !thumbsWrap || !Array.isArray(images) || images.length === 0) return;
+
+    function setActive(index) {
+      const img = images[index];
+      if (!img) return;
+      main.src = img;
+      main.alt = `${altBase} – Image ${index + 1}`;
+
+      [...thumbsWrap.querySelectorAll('.thumb')].forEach((b, i) => {
+        b.classList.toggle('active', i === index);
+      });
+    }
+
+    // Build thumbs
+    thumbsWrap.innerHTML = '';
+    images.forEach((src, idx) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'thumb';
+      btn.setAttribute('aria-label', `${altBase} thumbnail ${idx + 1}`);
+
+      const im = document.createElement('img');
+      im.src = src;
+      im.alt = '';
+      btn.appendChild(im);
+
+      btn.addEventListener('click', () => setActive(idx));
+      thumbsWrap.appendChild(btn);
+    });
+
+    setActive(0);
+  }
+
+  // Swap these filenames anytime to match what you upload into /images/
+  const studImages = [
+    "images/e9x stud kit complete.png",
+    "images/Stud with nut.jpg",
+    "images/Stud with nut 2.jpg",
+    "images/Stud with nut 3.jpg",
+    "images/e9x stud kit on car.png"
+  ];
+
+  // Using shared images across both listings (as requested)
+  const brakeImages = [
+    "images/e9x 15inch drag.png",
+    "images/e9x stud kit on car.png",
+  ];
+
+  initGallery("studGallery", studImages, "E9X AutoHaus Wheel Stud Conversion Kit");
+  initGallery("brakeGallery", brakeImages, "E9X AutoHaus 15\" Brake Clearance Kit");
 </script>
 </body>
 </html>
-
