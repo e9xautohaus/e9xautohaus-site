@@ -156,8 +156,30 @@
       box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
     }
 
-    /* Gallery (no crop, larger + centered) */
+    /* Media wrapper */
     .product-media { margin-bottom: 1.15rem; }
+
+    /* Shared frame style (used by both tee sliders + gallery sliders) */
+    .slider, .gallery-slider {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      background: rgba(0,0,0,.25);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    /* Gallery slider (studs/brakes) */
+    .gallery-slide { display: none; }
+    .gallery-slide.active { display: block; }
+
+    .gallery-slide img,
+    .shirt-slide img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+    }
 
     .gallery-main{
       width: 100%;
@@ -172,40 +194,7 @@
       max-height: 420px;
     }
 
-    .thumbs{
-      display:flex;
-      gap:10px;
-      margin-top:10px;
-      overflow-x:auto;
-      padding-bottom:4px;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      justify-content: flex-start;
-    }
-    .thumbs::-webkit-scrollbar{ display:none; }
-
-    /* ✅ removes “arrow/focus” look + keeps it clean */
-    .thumb{
-      -webkit-appearance: none;
-      appearance: none;
-      border:1px solid rgba(255,255,255,0.08);
-      background:rgba(5,7,15,.35);
-      border-radius:10px;
-      padding:0;
-      cursor:pointer;
-      flex:0 0 auto;
-      width:64px;
-      height:48px;
-      overflow:hidden;
-      opacity:.75;
-      transition:opacity .15s ease, transform .15s ease, border-color .15s ease;
-    }
-    .thumb:hover{opacity:1;transform:translateY(-1px);border-color:rgba(195,27,27,.35);}
-    .thumb.active{opacity:1;border-color:rgba(195,27,27,.6);box-shadow:0 0 0 3px rgba(195,27,27,.10);}
-    .thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
-    .thumb:focus{ outline:none; }
-    .thumb::-moz-focus-inner{ border:0; }
-
+    /* Product text */
     .product-tag {
       display: inline-block;
       font-size: 0.7rem;
@@ -267,26 +256,12 @@
       margin-top: 0.9rem;
     }
 
-    /* Tee slider (FIXED: click works + buttons on top) */
-    .slider {
-      position: relative;
-      overflow: hidden;
-      border-radius: 10px;
-      background: rgba(0,0,0,.25);
-      border: 1px solid rgba(255,255,255,0.04);
-    }
+    /* Tee slider */
     .shirt-slide { display: none; }
     .shirt-slide.active { display: block; }
 
-    .slider img{
-      width:100%;
-      height:auto;
-      object-fit:contain;
-      object-position:center;
-      display:block;
-    }
-
-    .slider-btn {
+    /* Shared slider buttons (tees + galleries) */
+    .slider-btn, .gallery-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
@@ -302,15 +277,18 @@
       justify-content: center;
       cursor: pointer;
       padding: 0;
-      z-index: 5;              /* ✅ ensures clickable */
-      pointer-events: auto;    /* ✅ ensures clickable */
+      z-index: 5;
+      pointer-events: auto;
+      user-select: none;
     }
-    .slider-btn:hover { border-color: var(--accent-red); }
-    .slider-btn.prev { left: 8px; }
-    .slider-btn.next { right: 8px; }
 
-    .slider-dots { margin-top: 0.6rem; text-align: center; }
-    .slider-dot {
+    .slider-btn:hover, .gallery-btn:hover { border-color: var(--accent-red); }
+    .slider-btn.prev, .gallery-btn.prev { left: 8px; }
+    .slider-btn.next, .gallery-btn.next { right: 8px; }
+
+    /* Dots (tees + galleries) */
+    .slider-dots, .gallery-dots { margin-top: 0.6rem; text-align: center; }
+    .slider-dot, .gallery-dot {
       display: inline-block;
       width: 7px;
       height: 7px;
@@ -319,7 +297,7 @@
       background: rgba(155,159,176,0.5);
       cursor: pointer;
     }
-    .slider-dot.active { background: var(--accent-red); }
+    .slider-dot.active, .gallery-dot.active { background: var(--accent-red); }
 
     /* Tee select + button */
     .size-select {
@@ -447,8 +425,6 @@
       main{ padding:2.2rem 1rem 2.2rem; }
       .product-card{ padding:1.15rem 1.05rem 1.25rem; }
       .gallery-main{ max-height:320px; }
-      .thumbs{ justify-content:center; gap:8px; }
-      .thumb{ width:58px; height:44px; }
     }
   </style>
 </head>
@@ -492,11 +468,37 @@
 
       <div class="product-grid">
 
-        <!-- STUD KIT -->
+        <!-- STUD KIT (UPDATED: slider + dots, no thumbs) -->
         <section class="product-card" id="hardware">
-          <div class="product-media" data-gallery="studGallery">
-            <img class="gallery-main" id="studGallery-main" src="images/e9x stud kit complete.png" alt="E9X AutoHaus Wheel Stud Conversion Kit">
-            <div class="thumbs" id="studGallery-thumbs" aria-label="Stud kit gallery thumbnails"></div>
+          <div class="product-media">
+            <div class="gallery-slider" data-gallery="studGallery">
+              <div class="gallery-slide active">
+                <img id="studGallery-main" src="images/e9x stud kit complete.png" alt="E9X AutoHaus Wheel Stud Conversion Kit – Image 1">
+              </div>
+              <div class="gallery-slide">
+                <img src="images/Stud with nut.jpg" alt="E9X AutoHaus Wheel Stud Conversion Kit – Image 2">
+              </div>
+              <div class="gallery-slide">
+                <img src="images/Stud with nut 2.jpg" alt="E9X AutoHaus Wheel Stud Conversion Kit – Image 3">
+              </div>
+              <div class="gallery-slide">
+                <img src="images/Stud with nut 3.jpg" alt="E9X AutoHaus Wheel Stud Conversion Kit – Image 4">
+              </div>
+              <div class="gallery-slide">
+                <img src="images/e9x stud kit on car.png" alt="E9X AutoHaus Wheel Stud Conversion Kit – Image 5">
+              </div>
+
+              <button class="gallery-btn prev" type="button" aria-label="Previous image">&#10094;</button>
+              <button class="gallery-btn next" type="button" aria-label="Next image">&#10095;</button>
+            </div>
+
+            <div class="gallery-dots" data-dots="studGallery">
+              <span class="gallery-dot active" data-slide="0"></span>
+              <span class="gallery-dot" data-slide="1"></span>
+              <span class="gallery-dot" data-slide="2"></span>
+              <span class="gallery-dot" data-slide="3"></span>
+              <span class="gallery-dot" data-slide="4"></span>
+            </div>
           </div>
 
           <div class="product-tag">Track Essentials · Founders Run</div>
@@ -519,11 +521,29 @@
           </div>
         </section>
 
-        <!-- BRAKE KIT -->
+        <!-- BRAKE KIT (UPDATED: slider + dots, no thumbs) -->
         <section class="product-card" id="brake-kit">
-          <div class="product-media" data-gallery="brakeGallery">
-            <img class="gallery-main" id="brakeGallery-main" src="images/e9x 15inch drag.png" alt="E9X AutoHaus 15&quot; Brake Clearance Kit">
-            <div class="thumbs" id="brakeGallery-thumbs" aria-label="Brake kit gallery thumbnails"></div>
+          <div class="product-media">
+            <div class="gallery-slider" data-gallery="brakeGallery">
+              <div class="gallery-slide active">
+                <img id="brakeGallery-main" src="images/e9x 15inch drag.png" alt="E9X AutoHaus 15&quot; Brake Clearance Kit – Image 1">
+              </div>
+              <div class="gallery-slide">
+                <img src="images/1000001893.png" alt="E9X AutoHaus 15&quot; Brake Clearance Kit – Image 2">
+              </div>
+              <div class="gallery-slide">
+                <img src="images/e9x stud kit on car.png" alt="E9X AutoHaus 15&quot; Brake Clearance Kit – Image 3">
+              </div>
+
+              <button class="gallery-btn prev" type="button" aria-label="Previous image">&#10094;</button>
+              <button class="gallery-btn next" type="button" aria-label="Next image">&#10095;</button>
+            </div>
+
+            <div class="gallery-dots" data-dots="brakeGallery">
+              <span class="gallery-dot active" data-slide="0"></span>
+              <span class="gallery-dot" data-slide="1"></span>
+              <span class="gallery-dot" data-slide="2"></span>
+            </div>
           </div>
 
           <div class="product-tag">Street + Track · 15&quot; Brake Clearance Upgrade</div>
@@ -783,6 +803,41 @@
     dots.forEach((dot, index) => dot.addEventListener('click', () => showSlide(index)));
   });
 
+  // ✅ Gallery slider logic (studs + brakes) - matches tee behaviour
+  document.querySelectorAll('.product-card .gallery-slider').forEach(function (gallery) {
+    const card = gallery.closest('.product-card');
+    const slides = gallery.querySelectorAll('.gallery-slide');
+    const dotsWrap = card.querySelector('.gallery-dots');
+    const dots = dotsWrap ? dotsWrap.querySelectorAll('.gallery-dot') : [];
+    const prevBtn = gallery.querySelector('.gallery-btn.prev');
+    const nextBtn = gallery.querySelector('.gallery-btn.next');
+
+    let current = 0;
+
+    function show(index) {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((s, i) => s.classList.toggle('active', i === current));
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    function next() { show(current + 1); }
+    function prev() { show(current - 1); }
+
+    if (slides.length <= 1) {
+      prevBtn?.setAttribute('hidden', '');
+      nextBtn?.setAttribute('hidden', '');
+      dotsWrap?.setAttribute('hidden', '');
+      return;
+    }
+
+    prevBtn?.addEventListener('click', prev);
+    nextBtn?.addEventListener('click', next);
+
+    dots.forEach((dot, idx) => dot.addEventListener('click', () => show(idx)));
+
+    show(0);
+  });
+
   // Stripe links for tees
   const STRIPE_LINKS = {
     essentials: {
@@ -803,59 +858,6 @@
 
   const STUD_KIT_STRIPE_LINK  = "https://buy.stripe.com/aFa14ogim1tu1ZgdRL5c40a";
   const BRAKE_KIT_STRIPE_LINK = "https://buy.stripe.com/9B68wQ9TY5JKgUa14Z5c40c";
-
-  // Product galleries
-  function initGallery(galleryId, images, altBase) {
-    const main = document.getElementById(`${galleryId}-main`);
-    const thumbsWrap = document.getElementById(`${galleryId}-thumbs`);
-    if (!main || !thumbsWrap || !Array.isArray(images) || images.length === 0) return;
-
-    function setActive(index) {
-      const img = images[index];
-      if (!img) return;
-      main.src = img;
-      main.alt = `${altBase} – Image ${index + 1}`;
-
-      [...thumbsWrap.querySelectorAll('.thumb')].forEach((b, i) => {
-        b.classList.toggle('active', i === index);
-      });
-    }
-
-    thumbsWrap.innerHTML = '';
-    images.forEach((src, idx) => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'thumb';
-      btn.setAttribute('aria-label', `${altBase} thumbnail ${idx + 1}`);
-
-      const im = document.createElement('img');
-      im.src = src;
-      im.alt = '';
-      btn.appendChild(im);
-
-      btn.addEventListener('click', () => setActive(idx));
-      thumbsWrap.appendChild(btn);
-    });
-
-    setActive(0);
-  }
-
-  const studImages = [
-    "images/e9x stud kit complete.png",
-    "images/Stud with nut.jpg",
-    "images/Stud with nut 2.jpg",
-    "images/Stud with nut 3.jpg",
-    "images/e9x stud kit on car.png"
-  ];
-
-  const brakeImages = [
-    "images/e9x 15inch drag.png",
-    "images/1000001893.png",
-    "images/e9x stud kit on car.png",
-  ];
-
-  initGallery("studGallery", studImages, "E9X AutoHaus Wheel Stud Conversion Kit");
-  initGallery("brakeGallery", brakeImages, "E9X AutoHaus 15\" Brake Clearance Kit");
 
   function setupShirtBuy(selectId, errorId, buttonId, key) {
     const select = document.getElementById(selectId);
